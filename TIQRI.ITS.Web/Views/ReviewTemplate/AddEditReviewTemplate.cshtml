@@ -1,0 +1,100 @@
+﻿@model TIQRI.ITS.Web.ViewModels.ReviewTemplateViewModel
+@{
+    Layout = null;
+}
+
+<div>
+    <div class="card-header">
+        <div class="card-title">
+            <div class="title">
+                @if (Model.Id == 0)
+                {
+                    @Html.Raw("Add New Review Template");
+                }
+                else
+                {
+                    @Html.Raw("Edit Review Template - " + Model.Name);
+                }
+
+            </div>
+            <div class="description">
+                Please fill all the required details. Required fields are marked with <span class="required">*</span>
+            </div>
+        </div>
+        <div class="pull-right card-action form-top-button-margin">
+            <div class="btn-group" role="group" aria-label="...">
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="ReviewTemplate_Id" value="@Model.Id" />
+    <div class="form-horizontal" style="margin-top: 20px;">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Name <span class="required">*</span></label>
+            <div class="col-sm-7">
+                <input type="text" id="TextBox_ReviewTemplate_ReviewTemplateName" placeholder="Review Template Name" class="form-control" value="@Model.Name"></input>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">ReviewTemplate Status</label>
+            <div class="col-sm-7">
+
+                @Html.EnumDropDownListFor(model => model.ReviewTemplateType, new { id = "DDL_ReviewTemplate_ReviewTemplateType", @class = "form-control select2 ddl-small" })
+            </div>
+        </div>
+
+        <div class="card-header">
+            <div class="card-title">
+                <div class="title">
+                    Review Points
+                </div>
+                <div class="description">
+                    Please describe the points to be reviewed in the meeting
+                </div>
+            </div>
+            <div class="pull-right card-action form-top-button-margin">
+                <div class="btn-group" role="group" aria-label="...">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12" style="padding-top: 20px;padding-left: 40px;">
+                <div class="dd">
+                    <ol class="dd-list">
+                        <li class="dd-item" data-id="1">
+                            <div class="dd-handle">Item 1</div>
+                        </li>
+                        <li class="dd-item" data-id="2">
+                            <div class="dd-handle">Item 2</div>
+                        </li>
+                        <li class="dd-item" data-id="3">
+                            <div class="dd-handle">Item 3</div>
+                            <ol class="dd-list">
+                                <li class="dd-item" data-id="4">
+                                    <div class="dd-handle">Item 4</div>
+                                </li>
+                                <li class="dd-item" data-id="5">
+                                    <div class="dd-handle">Item 5</div>
+                                </li>
+                            </ol>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group" style="margin-top: 20px;">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-7">
+                <input type="button" id="Button_ReviewTemplate_Confirm" class="btn btn-success" value="Save ReviewTemplate" onclick="ReviewTemplateManagement.SaveAddEditReviewTemplate();" />
+                <input type="button" id="Button_ReviewTemplate_Cancel" class="btn btn-default" value="Cancel" onclick="ReviewTemplateManagement.CancelAddEdit();" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    ReviewTemplateManagement.ResetHeight();
+    $('.dd').nestable({ /* config options */ });
+</script>

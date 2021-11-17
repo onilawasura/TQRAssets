@@ -1,0 +1,57 @@
+﻿@model IList<TIQRI.ITS.Web.ViewModels.AssignmentViewModel>
+@{
+    Layout = null;
+}
+
+@if (Model.Count == 0)
+{
+    <div>
+        No assignments uploaded yet. Please upload your first assignment.
+    </div>
+}
+else
+{
+    foreach (var item in Model)
+    {
+        <div class="card-header">
+            <div class="card-title inner-title-card">
+                <div class="title">
+                    Submitted By : @item.EmployeeName On : @item.DateSubmitted.ToString("F")
+                </div>
+                <div class="description">
+                    <strong>Download Url :</strong> <a href="@item.DownloadURL">@item.DownloadURL</a>
+                </div>
+
+                <div class="description">
+                    <strong>Notes :</strong> @item.Notes
+                </div>
+                <div class="description" style="padding-top: 10px;">
+                    <strong>Reviews :</strong>
+                    @if (item.AssignmentReviewViewModels.Count == 0)
+                    {
+                        <span>No reviews yet</span>
+                    }
+                </div>
+
+                @if (item.AssignmentReviewViewModels.Count > 0)
+                {
+                    foreach (var review in item.AssignmentReviewViewModels)
+                    {
+                        <div class="description" style="padding-top: 5px;">
+                            <strong>Reviewed By : @review.ReviewedByUserName On @review.DateReviewed.ToString("D")</strong> 
+                            <a style="margin-left: 20px;" href="javascript:return false;" onclick="MyTrainingManagement.ShowFeedbackDetails(@review.Id)">Show Feedback</a><br />
+                            <div id="Review_Feedback_review_@review.Id" style="display: none">
+                                @review.Notes
+                            </div>
+                        </div>
+                    }
+                }
+
+                <div class="description" style="text-align: right; ">
+                    <div onclick="MyTrainingManagement.ShowFeedbackScreen(@item.Id);" class="btn btn-default">Submit Feedback</div>
+                </div>
+            </div>
+        </div>
+    }
+
+}

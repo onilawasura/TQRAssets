@@ -1,0 +1,98 @@
+﻿@model TIQRI.ITS.Web.ViewModels.ReportsViewModel
+@{
+    Layout = null;
+}
+<script src="~/Scripts/App/App.js"></script>
+<script src="~/Scripts/powerbi.js"></script>
+<style>
+    #DIV_PageInner_OperationDetails iframe {
+        border: 1px solid #ddd;
+    }
+
+    iframe {
+        touch-action: none;
+    }
+</style>
+
+
+<div class="container-fluid">
+    <div class="side-body">
+        <div class="row">
+            <div class="col-xs-12">
+
+                <div class="card">
+
+                    <div class="card-body form-horizontal" style="padding:0px;">
+                        <div class="row">
+
+                            <div class="col-sm-12" id="DIV_PageInner_OperationDetails" style="display:none; min-height:200px; overflow:hidden">
+
+                            </div>
+                            <div class="col-sm-12" id="report-loading-message" style="padding-bottom:100px; ">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+        function HideCustomLoadingOnIE()
+        {
+            var ua = window.navigator.userAgent;
+            var old_ie = ua.indexOf('MSIE ');
+            var new_ie = ua.indexOf('Trident/');
+
+            if ((old_ie > -1) || (new_ie > -1)) {
+                $("#report-loading-message").hide();
+                $("#DIV_PageInner_OperationDetails").show();
+                $("#loaded-report-panel").show();
+                $("#report-toolbar").show();
+                $("#reportContainer").show();
+            }
+        }
+
+        $(document).ready(function () {
+            HideCustomLoadingOnIE();
+            $("#Div_PageInner_SearchPanel").css('height', '');
+            $('#DIV_PageInner_OperationDetails').html($('#DIV_InnerPageContent_Loading').html());
+            $('#report-loading-message').html($('#DIV_InnerPageContent_Loading').html());
+
+            var h1 = $(window).height();
+            var h2 = $("#DIV_PageInner_OperationDetails").height();
+            console.log(h1 + ':' + h2 + ':' + $(window).height());
+            $("#DIV_PageInner_OperationDetails").css('height', (h1 - 110) + 'px');
+
+
+            var embedReportId = "@Model.CurrentReport.EmbedConfig.Id";
+              var embedUrl = "@Html.Raw(Model.CurrentReport.EmbedConfig.EmbedUrl)";
+              var accessToken = "@Model.CurrentReport.EmbedConfig.EmbedToken.Token";
+              var reportContainer = document.getElementById('DIV_PageInner_OperationDetails');
+              var showFilter = @Html.Raw(Model.ShowFilterPane ? "true" : "false");
+              var showTabs = @Html.Raw(Model.ShowReportTabs ? "true" : "false");
+
+              // call embedReport utility function defined inside App.ts
+              PowerBIEmbedManager.embedReport(embedReportId, embedUrl, accessToken, reportContainer, showFilter, showTabs);
+        });
+
+
+
+        try {
+            $('iframe').documentElement.addEventListener('touchmove', function (event) {
+                event.preventDefault();
+            }, false);
+
+            document.body.addEventListener('touchmove', function(event) {
+                  event.preventDefault();
+                }, false);
+        }
+        catch(err) {
+        }
+
+</script>
+

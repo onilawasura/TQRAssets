@@ -1,0 +1,153 @@
+﻿@model TIQRI.ITS.Web.ViewModels.AsseReportViewModel
+@{
+    Layout = null;
+}
+<script src="~/Scripts/Forms/asset_frm.js"></script>
+<div class="container-fluid">
+    <div class="side-body">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <div class="title">
+                                Asset Report
+                            </div>
+                            <div class="description">
+                                Please use search to find specific results
+                            </div>
+                        </div>
+                        <div class="pull-right card-action form-top-button-margin">
+                            <div class="btn-group" role="group" aria-label="...">
+                                <input type="button" id="assetreport-filtershowhidebtn" value="Show Filters" style="width:150px" class="btn btn-success" onclick="AssetManagement.ShowFilter();" />
+                            </div>
+                        </div>
+                    </div>
+                    <div id="assetreport-filterpanel" style="display:none" class="card-body form-horizontal">
+                        <div class="form-horizontal" style="margin-top: 20px;">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Full Text </label>
+                                <div class="col-sm-4">
+                                    <input type="text" id="TextBox_Asset_GlobalText" placeholder="Computer Name" class="form-control" value=""></input>
+                                </div>
+                                <label class="col-sm-2 control-label">Asset Type</label>
+                                <div class="col-sm-4">
+                                    @Html.EnumDropDownListFor(model => model.AssetType, "--- Select-- - ", new { id = "DDL_Asset_AssetType", @class = "form-control select2 ddl-small" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Asset Number</label>
+                                <div class="col-sm-4">
+                                    <input type="text" id="TextBox_Asset_AssetNumber" placeholder="Asset Number" class="form-control" value=""></input>
+                                </div>
+
+                                <label class="col-sm-2 control-label">Manufacture </label>
+                                <div class="col-sm-4">
+                                    @*<input type="text" id="TextBox_Asset_Manufacture" placeholder="Manufacture" class="form-control" value=""></input>*@
+                                    @Html.DropDownListFor(model => model.Manufacture, Model.ManufactureList,"--- Select---", new { id = "DDL_Asset_Manufacture", @class = "form-control select2 ddl-medium" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Model </label>
+                                <div class="col-sm-4">
+                                    @*<input type="text" id="TextBox_Asset_Model" placeholder="Model" class="form-control" value=""></input>*@
+                                    @Html.DropDownListFor(model => model.AssetModel, Model.ModelList, "--- Select---", new { id = "DDL_Asset_Model", @class = "form-control select2 ddl-medium" })
+                                </div>
+                                <label class="col-sm-2 control-label">Manufacture SN</label>
+                                <div class="col-sm-4">
+                                    <input type="text" id="TextBox_Asset_ManufactureSN" placeholder="Manufacture SN" class="form-control" value"></input>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Computer Name </label>
+                                <div class="col-sm-4">
+                                    <input type="text" id="TextBox_Asset_ComputerName" placeholder="Computer Name" class="form-control" value=""></input>
+                                </div>
+                                <label class="col-sm-2 control-label">User</label>
+                                <div class="col-sm-4">
+
+                                    @Html.DropDownListFor(model => model.UserId, Model.OwnerList, "--- Select ---", new { id = "DDL_Asset_UserId", @class = "form-control select2 ddl-medium" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Group </label>
+                                <div class="col-sm-4">
+                                    <input type="text" id="TextBox_Asset_Group" placeholder="Group" class="form-control" value=""></input>
+                                </div>
+                                <label class="col-sm-2 control-label">Customer </label>
+                                <div class="col-sm-4">
+                                    <input type="text" id="TextBox_Asset_Customer" placeholder="Customer" class="form-control" value=""></input>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Availability</label>
+                                <div class="col-sm-4">
+
+                                    @Html.EnumDropDownListFor(model => model.Availability, "--- Select---", new { id = "DDL_Asset_Availability", @class = "form-control select2 ddl-small" })
+                                </div>
+                                <label class="col-sm-2 control-label">Asset Status</label>
+                                <div class="col-sm-4">
+
+                                    @Html.DropDownListFor(model => model.AssetStatus, Model.AssetStatusList, "--- Select---", new { id = "DDL_Asset_AssetStatus", @class = "form-control select2 ddl-small" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Date Purchased From </label>
+                                <div class="col-sm-4">
+                                    <input type="text" id="TextBox_Asset_DatePurchasedOrleased_from" placeholder="Date" class="form-control datepicker-here" data-language='en' value=""></input>
+                                </div>
+                                <label class="col-sm-2 control-label">Date Purchased To</label>
+                                <div class="col-sm-4">
+                                    <input type="text" id="TextBox_Asset_DatePurchasedOrleased_to" placeholder="Date" class="form-control datepicker-here" data-language='en' value=""></input>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Conference Room</label>
+                                <div class="col-sm-4">
+                                    <input type="text" id="TextBox_Asset_ConferenceRoom" placeholder="Conference Room" class="form-control" value=""></input>
+                                </div>
+                                <label class="col-sm-2 control-label">Building</label>
+                                <div class="col-sm-4">
+                                    <input type="text" id="TextBox_Asset_Building" placeholder="Building" class="form-control" value=""></input>
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="margin-top: 20px;">
+                                <div class="col-sm-2"></div>
+                                <div class="col-sm-7">
+                                    <input type="button" id="Button_Asset_Confirm" class="btn btn-success" value="Search Asset" onclick="AssetManagement.FilterAssetSearch();" />
+                                    <input type="button" id="Button_Asset_Cancel" class="btn btn-default" value="Cancel" onclick="AssetManagement.ShowFilter();" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body form-horizontal">
+                        <div id="DIV_AssetFilterList">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var width = $(window).width();
+        var height = $(window).height();
+
+        $(".chk_completion").bootstrapSwitch();
+        $('select').select2();
+        AssetManagement.FilterAssetSearch();
+        AssetManagement.ResetHeight();
+        $('#TextBox_Asset_DatePurchasedOrleased_from').datepicker()
+        $('#TextBox_Asset_DatePurchasedOrleased_to').datepicker()
+    });
+
+</script>

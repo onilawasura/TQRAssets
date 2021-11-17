@@ -1,0 +1,702 @@
+/*.company-logo {
+    color: rgba(255,255,255,1) !important;
+    font-size: xx-large;
+    margin-top: 20px;
+    margin-left: 20px !important;
+}
+#mainNav{
+    border-color: rgba(255,255,255,.0) !important; 
+}
+.navbar-default .nav > li>a, .navbar-default .nav>li>a:focus
+{
+color: rgba(255,255,255,1) !important;
+        font-size: medium;
+    font-weight: 100;
+}
+.navbar-default .nav > li.active>a, .navbar-default .nav>li.active>a:focus{
+    font-weight: 900;
+}
+
+.main-nav{
+    margin-top: 15px;
+    margin-right: 10px;
+}
+.navbar-default{
+background-color: transparent !important;
+}*/
+
+body {
+    overflow-x: hidden;
+}
+
+@media(min-width:768px) {
+    .navbar-default .navbar-header .navbar-brand {
+        color: rgba(255, 255, 255, 1) !important;
+        font-size: xx-large;
+        margin-top: 30px;
+        margin-left: 30px !important;
+        background-image: url('../img/logo1.png');
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 250px;
+        height: 60px !important;
+    }
+
+    .navbar-default.affix .navbar-header .navbar-brand {
+        color: rgba(255, 255, 255, 1) !important;
+        margin-top: 5px;
+        background-image: url('../img/logo_flat.png');
+        background-position: center;
+        background-size: contain;
+        width: 135px;
+        height: 45px !important;
+    }
+
+    .navbar-default .nav > li > a,
+    .navbar-default .nav > li > a:focus {
+        color: #0d5d8d !important;
+    }
+
+    .navbar-default .navbar-right {
+        color: #676767;
+        margin-top: 20px;
+        margin-right: 20px;
+    }
+
+    .navbar-default.affix .navbar-right {
+        color: #676767;
+        margin-top: 0px;
+        margin-right: 0px;
+    }
+
+    .navbar-default .nav > li > a,
+    .navbar-default .nav > li > a {
+        color: #676767 !important;
+        font-size: 15px !important;
+    }
+
+    .navbar-default.affix .nav > li > a,
+    .navbar-default .nav > li > a {
+        font-size: 13px;
+        color: #2b2b2b !important;
+    }
+
+    .bg-primary {
+        background-color: #f8f8f8;
+        padding: 50px 0;
+        height: 550px;
+        color: #fff;
+    }
+
+    .bg-secondary {
+        background-color: #2c76b5;
+        padding: 100px 0;
+        height: 550px;
+        color: #fff;
+    }
+
+        .bg-secondary .row {
+        }
+}
+
+.bg-primary {
+    background-color: #f8f8f8;
+    padding: 50px 0;
+    color: #fff;
+}
+
+.bg-secondary {
+    background-color: #2c76b5;
+    padding: 100px 0;
+    color: #fff;
+}
+
+.bg-primary h3 {
+    color: #2c76b5;
+}
+
+.bg-primary .section-heading, light {
+    color: #2b2b2b !important;
+}
+
+.bg-primary hr {
+    border-color: #8fc42c !important;
+}
+
+.bg-primary .text-left {
+    color: #727272;
+}
+
+.bg-secondary p {
+    font-weight: 100;
+}
+
+.circle {
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 20px;
+    width: 95%;
+    height: 95%;
+    background-color: #2c76b5;
+}
+
+.ourservicsection {
+    padding-top: 0px;
+}
+
+.ourserviceheader {
+    position: relative;
+    width: 100%;
+    min-height: 400px;
+    text-align: center;
+    color: #fff;
+    background-image: url(../img/ourservices.jpg);
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    margin-bottom: 100px;
+    padding-top: 100px;
+}
+
+.clientssayheader {
+    position: relative;
+    width: 100%;
+    min-height: 500px;
+    text-align: center;
+    color: #fff;
+    background-image: url(../img/clientssay.jpg);
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    margin-bottom: 0px;
+    padding-top: 100px;
+}
+
+.main-contact-num {
+    color: #2c76b5 !important;
+    font-size: 22px;
+    margin-top: -30px;
+    margin-bottom: 30px;
+}
+
+.navbar {
+    border-color: rgba(255, 255, 255, .0) !important;
+}
+
+.navbar-default .nav > li > a,
+.navbar-default .nav > li > a {
+    color: #fff !important;
+    font-weight: 400;
+    font-size: 17px !important;
+}
+
+.header-content {
+    top: 50%;
+    left: 50%;
+    width: 50% !important;
+    color: #676767;
+    margin-left: -25%;
+    color: #fff;
+}
+
+.header-content-talks {
+    left: 50% !important;
+    width: 70% !important;
+    margin-left: -35% !important;
+}
+
+header .header-content .header-content-inner p {
+    color: #fff !important;
+    max-width: 100% !important;
+    font-size: 22px;
+}
+
+.header-content-exile-logo {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    background-image: url(../img/exile_logo.png);
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    width: 180px;
+    height: 71px;
+}
+
+.clearsection {
+    padding: 0px;
+}
+
+.box-rect,
+.box-round,
+.box-square {
+    display: block;
+    text-align: center;
+    margin: 0 auto 24px;
+    position: relative;
+    z-index: 100;
+    width: 168px;
+    max-width: 100%;
+}
+
+.box-dummy {
+    padding-top: 100%;
+    -webkit-backface-visibility: hidden;
+}
+
+    .box-dummy:after {
+        content: "";
+        display: block;
+        height: 1px;
+    }
+
+.box-rect .box-dummy {
+    padding-top: 75%;
+}
+
+.box-inner {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    -moz-transition: all .2s;
+    -o-transition: all .2s;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+}
+
+    .box-inner i {
+        font-size: 48px;
+        line-height: 1em;
+        display: block;
+        position: absolute;
+        width: 1em;
+        height: 1em;
+        top: 50%;
+        left: 50%;
+        margin-top: -.5em;
+        margin-left: -.5em;
+    }
+
+    .box-inner [class*=icon-] {
+        line-height: .8em;
+    }
+
+    .box-inner img {
+        max-width: 100%;
+    }
+
+.box-round .box-inner,
+.box-round .box-inner img {
+    border-radius: 50%;
+}
+
+.box-animate {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.box-mini {
+    width: 48px;
+}
+
+    .box-mini i {
+        font-size: 16px;
+    }
+
+.box-small {
+    width: 78px;
+}
+
+    .box-small i {
+        font-size: 24px;
+    }
+
+.box-medium {
+    width: 100px;
+}
+
+    .box-medium i {
+        font-size: 36px;
+    }
+
+.box-big {
+    width: 200px;
+}
+
+    .box-big i {
+        font-size: 60px;
+    }
+
+.box-huge {
+    width: 250px;
+}
+
+    .box-huge i {
+        font-size: 72px;
+    }
+
+.option-row-margingbottom {
+    margin-bottom: 20px;
+}
+
+.detail-connector {
+    width: 2px;
+    ;
+    height: 400px;
+    background-color: white;
+    position: relative;
+    top: 200px;
+    left: 500px;
+}
+
+.carousel {
+    min-height: 350px;
+}
+
+.carousel-inner .item {
+    border: 0px;
+    font-weight: 100;
+}
+
+.talk-box {
+    top: 0px;
+    width: 100%;
+    border: 1px dotted #e0e0e0;
+    border-radius: 0px;
+    color: #444;
+    text-align: left;
+    margin-bottom: 25px;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.idea-box {
+    top: 0px;
+    width: 100%;
+    border: 0px;
+    border-bottom: 1px dotted #e0e0e0;
+    color: #444;
+    text-align: left;
+    margin-bottom: 0px;
+    padding: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 10px;
+}
+
+.course-logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 100px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    background-size: cover;
+}
+
+.infobox {
+    color: #444;
+}
+
+.infotitle {
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: left;
+    padding-left: 15px;
+    font-size: 20px;
+}
+
+.ideatitle {
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: left;
+    padding-left: 15px;
+    font-size: 16px;
+}
+
+.ideacount {
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 20px;
+}
+
+.infodate {
+    font-weight: 100;
+    font-size: 11px;
+    text-align: left;
+}
+
+.infotext {
+    margin: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+    font-size: 12px;
+    text-align: left;
+    margin-top: 5px;
+}
+
+.carousel-control.left {
+    background: none;
+}
+
+.carousel-control.right {
+    background: none;
+}
+
+.talkspeaker {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    background-size: cover;
+}
+
+.talkspeaker-name {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.talkspeaker-time {
+    font-size: 35px;
+}
+
+.talkspeaker-date {
+    font-weight: 600;
+    color: #ffc20e;
+}
+
+.footer-back {
+    background-image: url('../img/talkheader.jpg');
+    background-position: bottom;
+    background-size: cover;
+}
+
+.system-popup {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 10000;
+    display: none;
+}
+
+.system-popup-frame {
+    background-color: white;
+    position: fixed;
+    top: 15%;
+    bottom: 15%;
+    left: 15%;
+    right: 15%;
+    z-index: 10001;
+}
+
+.system-popup-closeframe {
+    position: fixed;
+    top: 15%;
+    right: 15%;
+    width: 100px;
+    height: 34px;
+    margin-top: -34px;
+    z-index: 10001;
+    line-height: 35px;
+    text-align: center;
+    background-color: #ededed;
+    cursor: pointer;
+}
+
+.messaging-panel {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: #ededed;
+}
+
+.talk-info-leftpanel {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    width: 60%;
+    border-right: 1px dotted #ccc;
+    padding: 20px;
+}
+
+.talk-info-rightpanel {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    width: 40%;
+    right: 0px;
+    background-color: #ededed;
+}
+
+.main-coursesearch-box {
+    background-color: transparent;
+    border: 0px;
+    box-shadow: none;
+    border-bottom: 1px #ccc solid;
+    font-size: 25px;
+    padding: 22px;
+    height: 40px;
+    width: 100%;
+    color: #3b3b3b;
+}
+
+    .main-coursesearch-box:focus {
+        outline: none;
+    }
+
+.talk-info-speaker {
+    width: 80px;
+    height: 80px;
+    border-radius: 100px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    background-size: cover;
+}
+
+.talk-info-title {
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #3b3b3b;
+}
+
+.talk-info-maintable {
+    width: 100%;
+}
+
+    .talk-info-maintable td {
+        border: 0px;
+    }
+
+.talk-info-downloads {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.talk-info-downloads-wrap {
+    padding-right: 20px;
+    cursor: pointer;
+    font-weight: 100;
+}
+
+    .talk-info-downloads-wrap a {
+        color: #555 !important;
+    }
+
+.talk-info-downloads-file {
+    height: 30px;
+    cursor: pointer;
+}
+
+.loading-animation {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+    .loading-animation img {
+        position: absolute;
+        height: 150px;
+        top: 50%;
+        left: 50%;
+        margin-top: -75px;
+        margin-left: -75px;
+    }
+
+.sugession-frame {
+    width: 40% !important;
+    left: 50% !important;
+    margin-left: -20% !important;
+}
+
+.sugession-close {
+    right: 30% !important;
+}
+
+
+.overlay-model-background {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 100000000;
+    display: none;
+}
+
+.overlay-model {
+    background-color: #fff;
+    z-index: 100000000;
+    position: fixed;
+}
+
+
+.overlay-model-addnewrequest {
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 400px;
+    margin-left: -300px;
+    margin-top: -200px;
+}
+
+.request-btn {
+    font-weight: 100;
+    font-size: 12px;
+    margin-left: 15px;
+}
+
+
+.clearTable {
+    width: 100%;
+    background-color: transparent;
+    border: 0px;
+    padding: 0px;
+    border-collapse: collapse;
+}
+
+
+    .clearTable td {
+        padding: 0px;
+        margin: 0px;
+        border: 0px;
+        border-collapse: collapse;
+        background-color: transparent;
+    }
+
+.vote-for-idea {
+    cursor: pointer;
+    font-size: 9px;
+    margin-left: 10px;
+    color: #fff;
+    padding: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    float: right;
+}

@@ -1,0 +1,76 @@
+﻿@model TIQRI.ITS.Web.ViewModels.SettingsViewModel
+@{
+    Layout = null;
+}
+<script src="~/Scripts/Forms/settings_frm.js"></script>
+<div class="container-fluid">
+    <div class="side-body">
+        <div class="row">
+            <div class="col-xs-12">
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <div class="title">
+                                System Settings
+                            </div>
+                            <div class="description">
+                                Please fill all the required details. Required fields are marked with <span class="required">*</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="card-body form-horizontal">
+                        <div class="row" style="min-height: 300px;">
+
+
+                            <div class="form-horizontal" style="margin-top: 20px; padding-left: 15px; padding-right: 15px;">
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Administrator(s) </label>
+                                    <div class="col-sm-9">
+
+                                        <input type="text" id="TextBox_Settings_Administrator" placeholder="Administrator(s)" class="input-tag-selector" value="@Model.AdministratorLisrtStr"></input>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Course Coordinator(s) </label>
+                                    <div class="col-sm-9">
+
+                                        <input type="text" id="TextBox_Settings_Coordinator" placeholder="Course Coordinator(s)" class="input-tag-selector" value="@Model.CourseCoordinatorLisrtStr"></input>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="form-horizontal" style="margin-top: 20px;">
+                                <div class="form-group" style="margin-top: 20px;">
+                                    <div class="col-sm-2"></div>
+                                    <div class="col-sm-7">
+                                        <input type="button" id="Button_Settings_Confirm" class="btn btn-success" value="Save Settings" onclick="SettingsManagement.SaveSystemSettings();" />
+                                        <input type="button" id="Button_Settings_Cancel" class="btn btn-default" value="Cancel" onclick="NavigationManager.LoadSystemSettings();" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    var userProfiles = @Html.Raw(Model.ProfileObjectString);
+</script>
+
+<script>
+    $('select').select2();
+    ProfileTagSelector(userProfiles,'TextBox_Settings_Administrator');
+    ProfileTagSelector(userProfiles,'TextBox_Settings_Coordinator');
+</script>
+

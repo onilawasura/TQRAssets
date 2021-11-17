@@ -1,0 +1,336 @@
+﻿@model TIQRI.ITS.Web.ViewModels.AddNewDataViewModel
+@{
+    Layout = null;
+}
+
+<div class="accordion" id="accordion2">
+    <div class="card">
+        <div class="accordion-group">
+            @if (Model.viewType == "Model")
+            {
+                <div class="card-header" id="headingOne">
+                    <div class="accordion-heading">
+
+                        <button type="button" class="btn btn-link">
+                            Edit Model
+                        </button>
+
+                    </div>
+                </div>
+
+                <div id="collapseOne" class="card-body">
+                    <div class="accordion-inner">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+
+                                    <input type="text" id="TextBox_Model_ID" readonly placeholder="Model Name" class="form-control" value="@Model.Id"></input>
+
+                                </div>
+
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+                                    <input type="text" id="TextBox_Asset_ModelName" placeholder="Model Name" class="form-control" value="@Model.name"></input>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <button class="btn btn-success form-control" onclick="AssetManagement.SaveAddEditModel();" style="margin:0">Save Model</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (Model.viewType == "Manufacturer")
+            {
+                <div class="card-header" id="headingTwo">
+                    <div class="accordion-heading">
+                        <button type="button" class="btn btn-link">
+                            Edit Manufacturer
+                        </button>
+                    </div>
+                </div>
+
+                <div id="collapseTwo" class="card-body">
+                    <div class="accordion-inner">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+
+                                    <input type="text" id="TextBox_Manufact_ID" readonly class="form-control" value="@Model.Id"></input>
+
+                                </div>
+
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+                                    <input type="text" id="TextBox_Asset_ManufactName" placeholder="Manufacturer Name" class="form-control" value="@Model.name"></input>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <button class="btn btn-success form-control" style="margin:0" onclick="AssetManagement.SaveAddEditManufacturer();">Save Manufacturer</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (Model.viewType == "Memory")
+            {
+                <div class="card-header" id="headingTwo">
+                    <div class="accordion-heading">
+                        <button type="button" class="btn btn-link">
+                            Edit Memory
+                        </button>
+                    </div>
+                </div>
+
+                <div id="collapseTwo" class="card-body collapse in">
+                    <div class="accordion-inner">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+
+                                    <input type="text" id="TextBox_Memory_ID" readonly class="form-control" value="@Model.Id"></input>
+
+                                </div>
+
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+                                    <input type="text" id="TextBox_Asset_Memoryname" placeholder="Manufacturer Name" class="form-control" value="@Model.name"></input>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <button class="btn btn-success form-control" style="margin:0" onclick="AssetManagement.AddSaveMemory();">Save Memory</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (Model.viewType == "Processor")
+            {
+                <div class="card-header" id="headingTwo">
+                    <div class="accordion-heading">
+                        <button type="button" class="btn btn-link">
+                            Edit Processor
+                        </button>
+                    </div>
+                </div>
+
+                <div id="collapseTwo" class="card-body">
+                    <div class="accordion-inner">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+
+                                    <input type="text" id="TextBox_Processor_ID" readonly class="form-control" value="@Model.Id"></input>
+
+                                </div>
+
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+                                    <input type="text" id="TextBox_Asset_ProcessorName" placeholder="Manufacturer Name" class="form-control" value="@Model.name"></input>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <button class="btn btn-success form-control" style="margin:0" onclick="AssetManagement.AddSaveProcessor();">Save Processor</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (Model.viewType == "HardDisk")
+            {
+                <div class="card-header" id="headingTwo">
+                    <div class="accordion-heading">
+                        <button type="button" class="btn btn-link">
+                            Edit Hard Disk
+                        </button>
+                    </div>
+                </div>
+
+                <div id="collapseTwo" class="card-body">
+                    <div class="accordion-inner">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+
+                                    <input type="text" id="TextBox_HardDisk_ID" readonly class="form-control" value="@Model.Id"></input>
+
+                                </div>
+
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+                                    <input type="text" id="TextBox_Asset_HardDiskName" placeholder="Hard Disk title" class="form-control" value="@Model.name"></input>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <button class="btn btn-success form-control" style="margin:0" onclick="AssetManagement.AddSaveHardDisk();">Save Hard Disk</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (Model.viewType == "ScreenSize")
+            {
+                <div class="card-header" id="headingTwo">
+                    <div class="accordion-heading">
+                        <button type="button" class="btn btn-link">
+                            Edit Screen Size
+                        </button>
+                    </div>
+                </div>
+
+                <div id="collapseTwo" class="card-bodycollapse in">
+                    <div class="accordion-inner">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+
+                                    <input type="text" id="TextBox_ScreenSize_ID" readonly class="form-control" value="@Model.Id"></input>
+
+                                </div>
+
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+                                    <input type="text" id="TextBox_Asset_ScreenSize" placeholder="Size" class="form-control" value="@Model.name"></input>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <button class="btn btn-success form-control" style="margin:0" onclick="AssetManagement.AddSaveScreenSize();">Save Screen Size</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
+            @if (Model.viewType == "Vendor")
+            {
+                <div class="card-header" id="headingTwo">
+                    <div class="accordion-heading">
+                        <button type="button" class="btn btn-link">
+                            Edit Vendor
+                        </button>
+                    </div>
+                </div>
+
+                <div id="collapseTwo" class="card-bodycollapse in">
+                    <div class="accordion-inner">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+
+                                    <input type="text" id="TextBox_Vendor_ID" readonly class="form-control" value="@Model.Id"></input>
+
+                                </div>
+
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+                                    <input type="text" id="TextBox_Asset_Vendor" placeholder="Vendor" class="form-control" value="@Model.name"></input>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <button class="btn btn-success form-control" style="margin:0" onclick="AssetManagement.AddSaveVendor();">Save Vendor</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (Model.viewType == "LeasePeriod")
+            {
+                <div class="card-header" id="headingTwo">
+                    <div class="accordion-heading">
+                        <button type="button" class="btn btn-link">
+                            Edit Lease Period
+                        </button>
+                    </div>
+                </div>
+
+                <div id="collapseTwo" class="card-bodycollapse in">
+                    <div class="accordion-inner">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+
+                                    <input type="text" id="TextBox_LeasePeriod_ID" readonly class="form-control" value="@Model.Id"></input>
+
+                                </div>
+
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+                                    <input type="text" id="TextBox_Asset_LeasePeriod" placeholder="Vendor" class="form-control" value="@Model.name"></input>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <button class="btn btn-success form-control" style="margin:0" onclick="AssetManagement.AddSaveLeasePeriod();">Save Lease Period</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (Model.viewType == "WarrantyPeriod")
+            {
+                <div class="card-header" id="headingTwo">
+                    <div class="accordion-heading">
+                        <button type="button" class="btn btn-link">
+                            Edit Warranty Period
+                        </button>
+                    </div>
+                </div>
+
+                <div id="collapseTwo" class="card-bodycollapse in">
+                    <div class="accordion-inner">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+
+                                    <input type="text" id="TextBox_WarrantyPeriod_ID" readonly class="form-control" value="@Model.Id"></input>
+
+                                </div>
+
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+                                    <input type="text" id="TextBox_Asset_WarrantyPeriod" placeholder="Warranty Period" class="form-control" value="@Model.name"></input>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <button class="btn btn-success form-control" style="margin:0" onclick="AssetManagement.AddSaveWarrantyPeriod();">Save Warranty Period</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>

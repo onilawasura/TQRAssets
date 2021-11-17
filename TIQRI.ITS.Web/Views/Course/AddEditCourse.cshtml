@@ -1,0 +1,107 @@
+﻿@model TIQRI.ITS.Web.ViewModels.CourseViewModel
+@{
+    Layout = null;
+}
+
+<div>
+    <div class="card-header">
+        <div class="card-title">
+            <div class="title">
+                @if (Model.Id == 0)
+                {
+                    @Html.Raw("Add New Course");
+                }
+                else
+                {
+                    @Html.Raw("Edit Course - " + Model.Code);
+                }
+
+            </div>
+            <div class="description">
+                Please fill all the required details. Required fields are marked with <span class="required">*</span>
+            </div>
+        </div>
+        <div class="pull-right card-action form-top-button-margin">
+            <div class="btn-group" role="group" aria-label="...">
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="Course_Id" value="@Model.Id"/>
+    <div class="form-horizontal" style="margin-top: 20px;">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Course Code <span class="required">*</span></label>
+            <div class="col-sm-7">
+
+                <input type="text" id="TextBox_Course_CourseCode" placeholder="Course Code" class="form-control code-textbox" value="@Model.Code"></input>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Name <span class="required">*</span></label>
+            <div class="col-sm-7">
+                <input type="text" id="TextBox_Course_CourseName" placeholder="Course Name" class="form-control" value="@Model.Name"></input>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">No Of Sessions</label>
+            <div class="col-sm-7">
+                <input type="number" id="TextBox_Course_NoSessions" placeholder="No Of Sessions" textmode="Number" value="@Model.NoOfSessions" class="form-control number-textbox"></input>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Max Participants</label>
+            <div class="col-sm-7">
+                <input type="number" id="TextBox_Course_MaxParticipants" placeholder="Max Participants" textmode="Number" value="@Model.MaxNoOfStudents" class="form-control number-textbox"></input>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Logo URL</label>
+            <div class="col-sm-7">
+                <input type="text" id="TextBox_Course_LogoUrl" placeholder="Logo URL" value="@Model.LogoUrl" class="form-control"></input>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Badge URL</label>
+            <div class="col-sm-7">
+                <input type="text" id="TextBox_Course_BadgeUrl" placeholder="Badge URL" value="@Model.BadgeUrl" class="form-control"></input>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Completion Type</label>
+            <div class="col-sm-7">
+
+                @Html.EnumDropDownListFor(model => model.CompletionType, new { id = "DDL_Course_CompletionType", @class = "form-control select2" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Owner</label>
+            <div class="col-sm-7">
+
+                @Html.DropDownListFor(model => model.OwnerId, Model.OwnerList, "--- Select ---", new { id = "DDL_Course_Owner", @class = "form-control select2" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Notes </label>
+            <div class="col-sm-7">
+                <textarea name="TextBox_Course_Description" rows="2" cols="20" id="TextBox_Course_Description" class="form-control" placeholder="Description" style="height:80px;">@Model.Description</textarea>
+            </div>
+        </div>
+
+
+        <div class="form-group" style="margin-top: 20px;">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-7">
+                <input type="button" id="Button_Course_Confirm" class="btn btn-success" value="Save Course" onclick="CourseManagement.SaveAddEditCourse();" />
+                <input type="button" id="Button_Course_Cancel" class="btn btn-default" value="Cancel" onclick="CourseManagement.CancelAddEdit();" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('select').select2();
+    CourseManagement.ResetHeight();
+</script>

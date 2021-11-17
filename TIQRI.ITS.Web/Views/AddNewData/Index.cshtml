@@ -1,0 +1,116 @@
+﻿@model TIQRI.ITS.Web.ViewModels.AssetViewModel
+@{
+    Layout = null;
+    var items = new List<SelectListItem>
+    ()
+    {
+    new SelectListItem() { Text = "Model", Value = "Model" },
+    new SelectListItem() { Text = "Manufacturer", Value = "Manufacturer" },
+    new SelectListItem() { Text = "Memory", Value = "Memory" },
+    new SelectListItem() { Text = "Processor", Value = "Processor" },
+    new SelectListItem() { Text = "Hard Disk", Value = "HardDisk" },
+    new SelectListItem() { Text = "Screen Size", Value = "ScreenSize" },
+    new SelectListItem() { Text = "Vendor", Value = "Vendor" },
+    new SelectListItem() { Text = "Lease Period", Value = "LeasePeriod" },
+    new SelectListItem() { Text = "Warranty Period", Value = "WarrantyPeriod" },
+    };
+}
+    
+    <script src="~/Scripts/Forms/asset_frm.js"></script>
+    <div class="container-fluid">
+        <div class="side-body">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <div class="title">
+                                    Add New Asset Data
+                                </div>
+                                <div class="description">
+                                    Please use below fields to add data
+                                </div>
+                            </div>
+                            <div class="pull-right card-action form-top-button-margin">
+                                <div class="btn-group" role="group" aria-label="...">
+                                    <input type="button" id="assetreport-filtershowhidebtn" value="Add new data" style="width:150px" class="btn btn-success" onclick="AssetManagement.LoadNewAddEditForm(null);" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body form-horizontal">
+                            <div class="row">
+                                <div id="Div_PageInner_SearchPanel" class="col-sm-4 main-search-panel">
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <input type="text" id="TextBox_Asset_SearchBox" onkeyup="AssetManagement.FindModels();"
+                                                   placeholder="What do you want to find ?" class="form-control main-search-box"></input>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+
+                                        <div class="col-sm-12">
+
+
+
+                                            @Html.DropDownList("Name", items, new { @class = "form-control", id= "Search_Category_Dropdown", onchange = "AssetManagement.FindModels()" })
+
+
+                                            @*<div class="radio-inline">
+
+                                                    @Html.RadioButton("type", "Model", true,
+
+                                                        new { id = "IsModel_RadioButton", onclick = "AssetManagement.FindModels()" }) Model
+
+                                                </div>
+
+                                                <div class="radio-inline">
+
+                                                    @Html.RadioButton("type", "Manufacturer",
+
+                                                         new { id = "IsManufacturer", onclick = "AssetManagement.FindModels()" }) Manufacturer
+
+                                                </div>*@
+
+
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group div-search-results" id="DIV_AssetManagementList">
+                                        <table class="clearTable" style="margin-top: 20px;">
+                                            <tr>
+                                                <td style="padding-left: 20px; width: 20px;">
+                                                    <div class="icon-spinner icon-2x icon-spin"></div>
+                                                </td>
+                                                <td style="padding-left: 10px;">Loading  list. Please wait…</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-sm-8" id="DIV_PageInner_OperationDetails">
+
+                                    <div class="select-message">
+                                        <img src="../../Content/img/information.png" /><br />
+                                        Please select to Edit Or Add New
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+
+        $('#myCollapsible').collapse({
+            toggle: false
+        });
+        $(document).ready(function () {
+            AssetManagement.FindModels()
+        });
+    </script>
+

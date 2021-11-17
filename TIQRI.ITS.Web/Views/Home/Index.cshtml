@@ -1,0 +1,177 @@
+﻿@model TIQRI.ITS.Web.ViewModels.HomeViewModel
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+    <title>TIQRI Academy</title>
+    <!-- CSS  -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700,300italic,400italic,700italic' rel='stylesheet'
+          type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Shadows+Into+Light+Two" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="~/Content/homepar/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link rel="stylesheet" href="~/Content/home/css/main.css" type="text/css">
+    <link href="~/Content/homepar/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css" />
+    
+
+</head>
+<body>
+    <nav class="white" role="navigation">
+        <div class="nav-wrapper main-nav">
+            <a id="logo-container" href="#" class="brand-logo"></a>
+
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#" onclick="showNewCourseRequestForm();">Post New Idea</a></li>
+                <li><a href="../Home/EmployeeHome">My Courses</a></li>
+
+                @if (Model.IsAdmin)
+                {
+                    <li>
+                        <a href="../Home/AdminHome">Admin Portal</a>
+                    </li>
+                }
+            </ul>
+
+            <ul id="nav-mobile" class="side-nav">
+                <li><a href="#">Navbar Link</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+    <div id="index-banner" class="parallax-container">
+        <div class="section no-pad-bot">
+            <div class="">
+
+                <div class="main-slo-1">
+                    <div class="p1">
+                        TIQRI Academy - Learn  .  Code  .  Share
+                    </div>
+                    <div class="p2">It is not about the technology; it’s about sharing knowledge and information, communicating efficiently, building learning communities and creating a culture of professionalism.</div>
+                </div>
+                <div class="main-slo-2">
+                    <div class="p1">
+                        Unless you try to do something beyond
+                        what you have already mastered,
+                        you will never grow.
+                    </div>
+                    <div class="p2">Ralph Waldo Emerson (1803-1882, American essayist, lecturer and poet)</div>
+                </div>
+
+            </div>
+        </div>
+        <div class="parallax"><img src="~/Content/homepar/img/background1.jpg" alt="Unsplashed background img 1"></div>
+    </div>
+
+    <div class="container" style="width: 90%">
+        <div class="section">
+            <!--   Icon Section   -->
+            <div class="row">
+                <div class="col s8 m8">
+                    <h5 class="title-heading">Available Courses</h5>
+                    <div class="sub-title">Please search for your required course. Post your idea if you can find it.</div>
+                    <hr class="title-ruler" />
+                </div>
+
+                <div class="col s4 m4">
+                    <input type="text" id="TextBox_Course_SearchBox" onkeyup="filterCourses();"
+                           placeholder="What do you want to find ?" class="main-searchbox"></input>
+                </div>
+            </div>
+        </div>
+        <div class="section" style="margin-top: -50px;">
+            <!--   Icon Section   -->
+            <div class="row">
+                @for (var i = 0; i < Model.CourseRequestViewModels.Count; i++)
+                {
+
+                    <div class="col s12 m4">
+                        <div class="talk-box" onclick="showregistrationdetail(@Model.CourseRequestViewModels[i].Course.Id);">
+                            <div class="speaker" style="background-image: url('@Html.Raw(Model.CourseRequestViewModels[i].Course.LogoUrl)');"></div>
+                            <div class="infobox">
+                                <div class="infotitle">@Html.Raw(Model.CourseRequestViewModels[i].Course.Name)</div>
+
+                                <div class="infotext">@Html.Raw(Model.CourseRequestViewModels[i].Course.Description)</div>
+                                @if (Model.CourseRequestViewModels[i].IsAlreadyRequested)
+                                {
+                                    <div class="infodate">You have already registerd for this course.</div>
+
+                                }
+                                else
+                                {
+                                    @*<div class="request-btn" onclick="showregistrationdetail(@Model.CourseRequestViewModels[i].Course.Id);">Request Course</div>*@
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="parallax-container valign-wrapper">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <div class="row center">
+                    <h4 style="margin-bottom: -10px;" class="header col s12 light">Can’t find what you are looking for?</h4>
+                </div>
+                <div class="row center" style="margin-bottom: 140px;">
+                    <h6>Don’t worry. Let us know you request. Please post your idea in our ideas page.</h6>
+                    <div onclick="showNewCourseRequestForm();" id="talk-sendmessage-btn" class="btn submit-btn-tab">Submit You Idea</div>
+                </div>
+            </div>
+        </div>
+        <div class="parallax"><img src="~/Content/homepar/img/background2.jpg" alt="Unsplashed background img 2"></div>
+    </div>
+
+
+    <div class="system-popup">
+        <div class="system-popup-closeframe" onclick="hidemainframe();">Close</div>
+        <div class="system-popup-frame">Test</div>
+    </div>
+
+    <div id="loading_content" style="display: none">
+        <div class="loading-animation">
+            <img src="~/Content/images/progress.gif" />
+        </div>
+    </div>
+
+    <!--  Scripts-->
+    <!-- jQuery -->
+    <script src="~/Content/home/js/jquery.js"></script>
+    <script src="~/Content/homepar/js/materialize.js"></script>
+    <script src="~/Content/homepar/js/init.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="~/Content/home/js/jquery.easing.min.js"></script>
+    <script src="~/Content/home/js/jquery.fittext.js"></script>
+    <script src="~/Content/home/js/wow.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="~/Content/home/js/creative.js"></script>
+    <script src="~/Content/home/js/jquery.parallaxify.min.js"></script>
+    <script src="~/Content/home/js/azync_helper.js"></script>
+    <script src="~/Scripts/common.js"></script>
+
+    <script>
+
+        function hidemainframe() {
+            $(".system-popup").hide();
+        }
+    </script>
+
+
+</body>
+</html>
+
+
+

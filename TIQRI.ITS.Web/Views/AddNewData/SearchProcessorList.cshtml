@@ -1,0 +1,31 @@
+﻿@model IList<TIQRI.ITS.Domain.Models.Processor>
+@{
+    Layout = null;
+}
+
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="TBL_EntitySearchResults" style="width: 100%; margin-top: 10px;">
+
+    @foreach (var item in Model)
+    {
+    <tr class="dataGridInnertr" onclick="AssetManagement.LoadDataEditForm(@item.Id,'Processor')">
+        <td class="entity-data-td">
+           
+                <div class="entity-index-item-title-large">@item.Name.ToUpper()</div>
+        </td>
+        
+    </tr>
+    }
+
+
+    @if (Model.Count == 0)
+    {
+        <tr>
+            <td style="padding-left: 20px;">
+                No records found.
+            </td>
+        </tr>
+    }
+</table>
+<script>
+    AssetManagement.ResetHeight();
+</script>

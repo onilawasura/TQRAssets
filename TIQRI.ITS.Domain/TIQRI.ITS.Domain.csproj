@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C799C31E-B2A7-48D9-8B69-656E98210F90}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TIQRI.ITS.Domain</RootNamespace>
+    <AssemblyName>TIQRI.ITS.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AuditTrail\AuditEntry.cs" />
+    <Compile Include="AuditTrail\AuditHelper.cs" />
+    <Compile Include="AuditTrail\AuditChange.cs" />
+    <Compile Include="AuditTrail\IAuditDbContext.cs" />
+    <Compile Include="Enums\AssetStatus.cs" />
+    <Compile Include="Enums\AuditType.cs" />
+    <Compile Include="Enums\AvailabilityType.cs" />
+    <Compile Include="Enums\AssetType.cs" />
+    <Compile Include="Helpers\EmailHelper.cs" />
+    <Compile Include="Migrations\201812230426202_init.cs" />
+    <Compile Include="Migrations\201812230426202_init.Designer.cs">
+      <DependentUpon>201812230426202_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812240432059_init1.cs" />
+    <Compile Include="Migrations\201812240432059_init1.Designer.cs">
+      <DependentUpon>201812240432059_init1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812240914313_init2.cs" />
+    <Compile Include="Migrations\201812240914313_init2.Designer.cs">
+      <DependentUpon>201812240914313_init2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103111148238_init3.cs" />
+    <Compile Include="Migrations\202103111148238_init3.Designer.cs">
+      <DependentUpon>202103111148238_init3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103120509164_init4.cs" />
+    <Compile Include="Migrations\202103120509164_init4.Designer.cs">
+      <DependentUpon>202103120509164_init4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103150543435_init5.cs" />
+    <Compile Include="Migrations\202103150543435_init5.Designer.cs">
+      <DependentUpon>202103150543435_init5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103150748167_init6.cs" />
+    <Compile Include="Migrations\202103150748167_init6.Designer.cs">
+      <DependentUpon>202103150748167_init6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103152311522_init7.cs" />
+    <Compile Include="Migrations\202103152311522_init7.Designer.cs">
+      <DependentUpon>202103152311522_init7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103180837063_init8.cs" />
+    <Compile Include="Migrations\202103180837063_init8.Designer.cs">
+      <DependentUpon>202103180837063_init8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Administrator.cs" />
+    <Compile Include="Models\AssetOwnerHistory.cs" />
+    <Compile Include="Models\AssetStatus.cs" />
+    <Compile Include="Models\AuditLog.cs" />
+    <Compile Include="Models\Context.cs" />
+    <Compile Include="Models\EntityBase.cs" />
+    <Compile Include="Models\EventLog.cs" />
+    <Compile Include="Models\Asset.cs" />
+    <Compile Include="Models\HardDisk.cs" />
+    <Compile Include="Models\LeasePeriod.cs" />
+    <Compile Include="Models\Manufacture.cs" />
+    <Compile Include="Models\Memory.cs" />
+    <Compile Include="Models\Model.cs" />
+    <Compile Include="Models\Processor.cs" />
+    <Compile Include="Models\ScreenSize.cs" />
+    <Compile Include="Models\SystemSettings.cs" />
+    <Compile Include="Models\TransactionStatus.cs" />
+    <Compile Include="Models\UserMapping.cs" />
+    <Compile Include="Models\UserProfile.cs" />
+    <Compile Include="Models\Vendor.cs" />
+    <Compile Include="Models\WarrantyPeriod.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchQueries\AssetSearchQuery.cs" />
+    <Compile Include="SearchQueries\ModelOrManufSearchQuery.cs" />
+    <Compile Include="SearchQueries\SearchQueryBase.cs" />
+    <Compile Include="Services\AssetService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="fonts\glyphicons-halflings-regular.woff" />
+    <None Include="packages.config" />
+    <None Include="Scripts\jquery-1.9.0.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201812230426202_init.resx">
+      <DependentUpon>201812230426202_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812240432059_init1.resx">
+      <DependentUpon>201812240432059_init1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812240914313_init2.resx">
+      <DependentUpon>201812240914313_init2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103111148238_init3.resx">
+      <DependentUpon>202103111148238_init3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103120509164_init4.resx">
+      <DependentUpon>202103120509164_init4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103150543435_init5.resx">
+      <DependentUpon>202103150543435_init5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103150748167_init6.resx">
+      <DependentUpon>202103150748167_init6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103152311522_init7.resx">
+      <DependentUpon>202103152311522_init7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103180837063_init8.resx">
+      <DependentUpon>202103180837063_init8.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.9.0.intellisense.js" />
+    <Content Include="Scripts\jquery-1.9.0.js" />
+    <Content Include="Scripts\jquery-1.9.0.min.js" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

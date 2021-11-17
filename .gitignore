@@ -348,3 +348,9 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+
+packages/
+TIQRI.ITS.DataMigration/
+TIQRI.ITS.Web/bin/
+TIQRI.ITS.Web/obj/

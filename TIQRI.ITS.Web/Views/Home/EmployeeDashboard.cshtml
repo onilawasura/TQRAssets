@@ -1,0 +1,135 @@
+﻿@model TIQRI.ITS.Web.ViewModels.EmployeeDashboardViewModel
+@{
+    Layout = null;
+}
+<script src="~/Scripts/Forms/myHome_frm.js"></script>
+<div class="container-fluid">
+    <div class="side-body">
+        <input type="hidden" id="User_Id" value="@Model.UserProfile.UserName" />
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="card">
+
+
+                    <div class="card-body form-horizontal">
+                        <div class="form-horizontal" style="margin-top: 20px;">
+                            <div class="col-sm-6">
+                                <div class="row" style="padding-left: 20px;">
+                                    <table class="clearTable">
+                                        <tr>
+                                            <td style="width: 105px;">
+                                                <img class="profile-image img-responsive" src="~/Content/home/img/default.png" alt="profile">
+                                            </td>
+                                            <td>
+                                                <div><h1 style="text-transform: uppercase; font-size: 28px;">@Model.UserProfile.Name</h1></div>
+                                                <div><h3 style="margin-top: 0px; font-weight: 100; font-size: 18px;">@Model.UserProfile.Designation</h3></div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <hr />
+                                <div class="row" style="padding-left: 20px; margin-left: 30px;">
+                                    <div>
+                                        <div class="form-group">
+                                            <h3 style="margin-top: 0px; font-weight: 400; text-transform: uppercase; font-size: 20px;">My Certifications </h3>
+
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="form-group" id="DIV_BatchList" style="max-height: 200px; padding-right: 20px;">
+                                            @if (Model.CompletedCourses.Count == 0)
+                                            {
+                                                <span>You do not have any certifications yet. Please apply for any existing course or let us know your course request if you can find it in the existing courses.</span>
+                                            }
+
+                                            @foreach (var course in Model.CompletedCourses)
+                                            {
+                                                <img src="@course.Course.BadgeUrl" style="height: 60px;" />
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <hr />
+                                
+                                <div class="row" style="padding-left: 20px; margin-left: 30px; margin-bottom: 40px;">
+                                    <div>
+                                        <div class="form-group">
+                                            <h3 style="margin-top: 0px; font-weight: 400; text-transform: uppercase; font-size: 20px;">My course requests </h3>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="form-group" style="max-height: 200px; padding-right: 40px;">
+                                            @if (Model.CourseRequests.Count == 0)
+                                            {
+                                                <span>You do not have any course requests yet. Please request for any existing course or let us know your course request if you can find it in the existing courses.</span>
+                                            }
+                                            else
+                                            {
+                                                foreach (var item in Model.CourseRequests)
+                                                {
+                                                    <div class="card-header">
+                                                        <div class="card-title inner-title-card">
+                                                            <div class="title">
+                                                                <strong>Course Name :</strong> @item.Course.Name <strong>Requested On :</strong> @(item.DateRequested != null ? item.DateRequested.ToString("D") : "-")
+</div>
+                                                            <div class="description">
+                                                                <strong>Status :</strong> @item.RequestStatus
+                                                            </div>
+                                                            @if (item.AssignedBatch != null)
+                                                            {
+                                                                <div class="description" style="padding-top: 10px;">
+                                                                    <strong>Assigned Batch :</strong> @item.AssignedBatch.Code Starting On : @(item.AssignedBatch.DateStart != null ? item.AssignedBatch.DateStart.Value.ToString("D") : "TBA")
+                                                                </div>
+                                                            }
+                                                            
+                                                        </div>
+                                                    </div>
+                                                }
+
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-6">
+                                <div>
+                                    <div class="form-group">
+                                        <h3 style="margin-top: 0px; font-weight: 400;text-transform: uppercase; font-size: 20px;">My Course Schedule </h3>
+
+                                    </div>
+                                </div>
+                                <div id='batchcalendar' style="width: 500px; min-height: 450px;"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        $('#batchcalendar').fullCalendar({
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            },
+            editable: false
+        });
+
+        MyHomeManagement.LoadScheduleCalender();
+    });
+</script>
+<style>
+    .fc-day-grid-container {
+        overflow-y: hidden !important;
+    }
+</style>

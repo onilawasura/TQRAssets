@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TIQRI.ITS.Domain", "TIQRI.ITS.Domain\TIQRI.ITS.Domain.csproj", "{C799C31E-B2A7-48D9-8B69-656E98210F90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TIQRI.ITS.Web", "TIQRI.ITS.Web\TIQRI.ITS.Web.csproj", "{ECAC1322-A1E9-4595-8B02-B58A8E24A924}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TIQRI.ITS.DataMigration", "TIQRI.ITS.DataMigration\TIQRI.ITS.DataMigration.csproj", "{5AC6A4FA-19D2-4A8A-8AAE-0B9A191D3D84}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C799C31E-B2A7-48D9-8B69-656E98210F90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C799C31E-B2A7-48D9-8B69-656E98210F90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C799C31E-B2A7-48D9-8B69-656E98210F90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C799C31E-B2A7-48D9-8B69-656E98210F90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECAC1322-A1E9-4595-8B02-B58A8E24A924}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECAC1322-A1E9-4595-8B02-B58A8E24A924}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECAC1322-A1E9-4595-8B02-B58A8E24A924}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECAC1322-A1E9-4595-8B02-B58A8E24A924}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AC6A4FA-19D2-4A8A-8AAE-0B9A191D3D84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AC6A4FA-19D2-4A8A-8AAE-0B9A191D3D84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AC6A4FA-19D2-4A8A-8AAE-0B9A191D3D84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AC6A4FA-19D2-4A8A-8AAE-0B9A191D3D84}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C9A47139-B329-4BAC-B6F1-15B8626B1F29}
+	EndGlobalSection
+EndGlobal

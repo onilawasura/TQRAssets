@@ -1,0 +1,109 @@
+﻿@model TIQRI.ITS.Web.ViewModels.NewCourseRequestListViewModel
+@{
+    Layout = null;
+}
+
+<input type="hidden" id="hidden_logged_username" value="@ViewBag.LoggedUserName" />
+
+
+<div id="idea-info-leftpanel" class="talk-info-leftpanel">
+    <table class="talk-info-maintable">
+        <tr>
+            <td class="talk-info-headder">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="talk-info-title">
+                                Existing course request Ideas
+                            </div>
+                            <div class="talk-info-subtitle">
+                                Please vote for the ideas which you are interested in.
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding-top: 10px;">
+                @if (Model.NewCourseRequestViewModels.Count > 0)
+                {
+                    <div id="div_existing_idealist" class="row" style="margin-top: 0px; overflow-y: auto;">
+                        @foreach (var newCourseRequest in Model.NewCourseRequestViewModels)
+                        {
+                            <div class="col-lg-12 text-center">
+                                <div class="idea-box" style="padding-bottom: 5px;">
+                                    <table class="clearTable">
+                                        <tr>
+                                            <td>
+                                                <div class="ideatitle">@newCourseRequest.Message</div>
+                                                <div class="infotext" style="margin-top: 5px;">Started by @newCourseRequest.StartedByUserName on @newCourseRequest.DateRequested.ToString("F") 
+                                                    
+                                                    <span class="vote-for-idea" onclick="NewCourseRequestManagement.Addvote(@newCourseRequest.Id);">Vote Now</span></div>
+                                                
+                                            </td>
+                                            <td style="width: 100px; text-align: center;">
+                                                <div class="infotitle" style="font-size: 14px;text-align: center; text-transform: uppercase">
+                                                    Votes <br />
+                                                    <div class="ideacount" id="newCourseReqvote_@newCourseRequest.Id">@newCourseRequest.NoOfVotes</div>
+                                                    
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                }
+                else
+                {
+                    <span>No ideas found yet. Be the first to create one.</span>
+                }
+            </td>
+        </tr>
+
+    </table>
+</div>
+<div class="talk-info-rightpanel">
+    <table class="talk-info-maintable">
+        <tr>
+            <td style="padding: 20px;padding-top: 30px;">
+
+                <table style="width: 100%">
+                    <tr>
+                        <td>
+                            <div class="talk-info-title">
+                                Submit your idea
+                            </div>
+                            <div class="talk-info-subtitle">
+                                Please check if it’s already listed before.
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 20px;">
+
+                            <textarea class="form-control input-textarea" rows="8" style="width: 100%;" placeholder="Please enter your idea" id="TextBox_NewCourseRequest_Message"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" onclick="NewCourseRequestManagement.AddNewAddCourseRequest();" style="margin-top: 20px;width: 150px;height: 35px;"
+                                   value="Submit Idea" id="talk-sendmessage-btn" class="btn" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    var height = $('#idea-info-leftpanel').height();
+    $('#div_existing_idealist').css('height', (height - 60) + 'px');
+</script>
+
+<script src="~/Scripts/azync_helper.js"></script>
+<script src="~/Scripts/Forms/new_course_request_frm.js"></script>

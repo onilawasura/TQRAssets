@@ -1,0 +1,67 @@
+﻿@model IList<TIQRI.ITS.Domain.Models.Asset>
+@{
+    Layout = null;
+}
+
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="TBL_EntitySearchResults" style="width: 100%; margin-top: 10px;">
+
+    @foreach (var item in Model)
+    {
+    <tr class="dataGridInnertr" onclick="AssetManagement.LoadAddEditForm(@item.Id)">
+        <td class="entity-data-td">
+            @if (item.AssetType == TIQRI.ITS.Domain.Enums.AssetType.Laptop)
+            {
+
+                <div class="entity-index-item-title-large">@item.AssetNumber.ToUpper() (@item.Manufacture - @item.Model)</div>
+                <div style="font-size: 12px;"><span style="margin-right: 15px;"> <b>Processor</b> : @item.Processor &nbsp;&nbsp;<b>Memory</b> : @item.Memory &nbsp;&nbsp;<b>HDD</b> : @item.HDD</span> </div>
+                <div style="font-size: 12px;"><span style="margin-right: 15px;"> <b>Owner</b> : @item.UserId &nbsp;&nbsp;<b>SN</b> : @item.ManufactureSN</div>
+
+            }
+
+            @if (item.AssetType == TIQRI.ITS.Domain.Enums.AssetType.ConferenceRoomDevice)
+            {
+                <div class="entity-index-item-title-large">@item.AssetNumber.ToUpper() (@item.Manufacture - @item.Model)</div>
+                <div style="font-size: 12px;"><span style="margin-right: 15px;"> <b>Processor</b> : @item.Processor &nbsp;&nbsp;<b>Memory</b> : @item.Memory &nbsp;&nbsp;<b>HDD</b> : @item.HDD</span> </div>
+                <div style="font-size: 12px;"><span style="margin-right: 15px;"> <b>Building</b> : @item.Building &nbsp;&nbsp;<b>Conference Room</b> : @item.ConferenceRoom</div>
+            }
+            @if (item.AssetType == TIQRI.ITS.Domain.Enums.AssetType.Display || item.AssetType == TIQRI.ITS.Domain.Enums.AssetType.DisplayPanel || item.AssetType == TIQRI.ITS.Domain.Enums.AssetType.Other)
+            {
+                <div class="entity-index-item-title-large">@item.AssetNumber.ToUpper() (@item.Manufacture - @item.Model)</div>
+                <div style="font-size: 12px;"><span style="margin-right: 15px;"> <b>Floor</b> : @item.Floor &nbsp;&nbsp;<b>Availability</b> : @item.Availability</span> </div>
+                <div style="font-size: 12px;"><span style="margin-right: 15px;"> <b>Owner</b> : @item.UserId &nbsp;&nbsp;<b>SN</b> : @item.ManufactureSN</div>
+            }
+            @if (item.AssetType == TIQRI.ITS.Domain.Enums.AssetType.KeyboardMouse || item.AssetType == TIQRI.ITS.Domain.Enums.AssetType.PowerAdapter || item.AssetType == TIQRI.ITS.Domain.Enums.AssetType.InventoryAsset)
+            {
+                <div class="entity-index-item-title-large">@item.AssetNumber.ToUpper() (@item.Manufacture - @item.Model)</div>
+                <div style="font-size: 12px;"><span style="margin-right: 15px;"> <b>Device Type</b> : @item.DeviceType &nbsp;&nbsp;<b>User</b> : @item.UserId &nbsp;&nbsp;<b>Room</b> : @item.ConferenceRoom</span> </div>
+                <div style="font-size: 12px;"><span style="margin-right: 15px;"> <b>Status</b> : @item.AssetStatus &nbsp;&nbsp;<b>SN</b> : @item.ManufactureSN</div>
+            }
+            @if (item.AssetType == TIQRI.ITS.Domain.Enums.AssetType.Mobile)
+            {
+                <div class="entity-index-item-title-large">@item.AssetNumber.ToUpper() (@item.Manufacture - @item.Model)</div>
+                <div style="font-size: 12px;"><span style="margin-right: 15px;"> <b>SN</b> : @item.ManufactureSN &nbsp;&nbsp;<b>Mobile Name</b> : @item.MobileName</span> </div>
+                <div style="font-size: 12px;"><span style="margin-right: 15px;"> <b>Owner</b> : @item.UserId</div>
+            }
+        </td>
+        <td>
+            @if (item.Availability == TIQRI.ITS.Domain.Enums.AvailabilityType.Disposed)
+            {
+                <div style="width:10px; height:10px; background-color:red; border-radius:15px;"></div>
+            }
+        </td>
+    </tr>
+    }
+
+
+    @if (Model.Count == 0)
+    {
+        <tr>
+            <td style="padding-left: 20px;">
+                No records found.
+            </td>
+        </tr>
+    }
+</table>
+<script>
+    AssetManagement.ResetHeight();
+</script>

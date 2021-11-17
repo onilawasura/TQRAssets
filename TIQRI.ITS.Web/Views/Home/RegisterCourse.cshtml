@@ -1,0 +1,131 @@
+﻿@model TIQRI.ITS.Web.ViewModels.CourseRequestViewModel
+
+@{
+    Layout = null;
+}
+
+
+<input type="hidden" id="hidden_logged_username" value="@ViewBag.LoggedUserName" />
+<input type="hidden" id="hidden_course_id" value="@Model.Course.Id" />
+<div class="talk-info-leftpanel">
+    <table class="talk-info-maintable">
+        <tr>
+            <td class="talk-info-headder">
+                <table>
+                    <tr>
+                        <td style="width: 100px;">
+                            <div class="talk-info-speaker" style="background-image: url('@Model.Course.LogoUrl');"></div>
+                        </td>
+                        <td>
+                            <div class="talk-info-title">
+                                @Html.Raw(Model.Course.Name)
+                            </div>
+                            <div class="talk-info-subtitle">
+                                No of sessions : @Model.Course.NoOfSessions
+                                <span style="padding-left: 15px;">
+                                    Max No of Participants :  @Model.Course.MaxNoOfStudents
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding-top: 20px;">
+                @Html.Raw(Model.Course.Description)
+
+            </td>
+        </tr>
+        <tr>
+            <td class="talk-info-downloads">
+                Next Batch Details
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @if (Model.NextBatch == null)
+                {
+                    <span>Not scheduled yet. Please apply, we will schedule based on your request.</span>
+                }
+                else
+                {
+                    <table style="margin-bottom: 10px;">
+                        <tr>
+                            <td>
+                                <strong>Batch Code :</strong> @Model.NextBatch.Code
+                            </td>
+                            <td style="padding-left: 25px;">
+                                <strong>Starting on :</strong> @(Model.NextBatch.DateStart != null ? Model.NextBatch.DateStart.Value.ToString("D") : "Not scheduled yet.")
+                            </td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td>
+                                <strong>Trainer(s)</strong>
+                            </td>
+                            <td style="padding-left: 25px;">
+                                : @Model.NextBatch.TrainerLisrtStr
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Reviewer(s)</strong>
+                            </td>
+                            <td style="padding-left: 25px;">
+                                : @Model.NextBatch.ReviewerListStr
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Participant(s)</strong>
+                            </td>
+                            <td style="padding-left: 25px;">
+                                : @Model.NextBatch.ParticipantListStr
+                            </td>
+                        </tr>
+                    </table>
+                }
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="talk-info-rightpanel">
+    <table class="talk-info-maintable">
+        <tr>
+            <td style="padding: 20px;padding-top: 30px;">
+                @if (Model.IsAlreadyRequested)
+                {
+                    <span class="talk-info-title"> You have already registerd for this course.</span>
+                }
+                else
+                {
+                    <table style="width: 100%">
+                        <tr>
+                            <td>
+                                <div class="talk-info-title">
+                                    Submit your request now
+                                </div>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-top: 20px;">
+
+                                <textarea class="form-control input-textarea" rows="8" style="width: 100%;" placeholder="Please enter your message" id="talk-sugession"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div onclick="SubmitRequest()" id="talk-sendmessage-btn" class="btn submit-btn-tab">Submit Request</div> 
+                            </td>
+                        </tr>
+                    </table>
+                }
+            </td>
+        </tr>
+    </table>
+</div>
+
+

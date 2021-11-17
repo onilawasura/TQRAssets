@@ -1,0 +1,251 @@
+﻿@model TIQRI.ITS.Web.ViewModels.AddNewDataViewModel
+@{
+    Layout = null;
+}
+
+<div class="accordion" id="accordion2">
+    <div class="card">
+        <div class="accordion-group">
+            <div class="card-header" id="headingOne">
+                <div class="accordion-heading">
+
+                    <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseOne">
+                        Add New Model
+                    </button>
+                </div>
+            </div>
+
+            <div id="collapseOne" class="card-body collapse in">
+                <div class="accordion-inner">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="col-md-4">
+                                <input type="text" id="TextBox_Asset_ModelName" placeholder="Model Name" class="form-control" value="@Model.name"></input>
+                            </div>
+
+                            <div class="col-md-4">
+                                <button class="btn btn-success form-control" onclick="AssetManagement.SaveAddEditModel();" style="margin:0">Add Model</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card-header" id="headingTwo">
+                <div class="accordion-heading">
+
+                    <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo">
+                        Add Manufacturer
+                    </button>
+
+                </div>
+            </div>
+
+            <div id="collapseTwo" class="card-body collapse">
+                <div class="accordion-inner">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="col-md-4">
+                                <input type="text" id="TextBox_Asset_ManufactName" placeholder="Manufacturer Name" class="form-control" value=""></input>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn btn-success form-control" style="margin:0" onclick="AssetManagement.SaveAddEditManufacturer();">Add Manufacturer</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card-header" id="headingThree">
+                <div class="accordion-heading">
+
+                    <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseThree">
+                        Add Memory
+                    </button>
+
+                </div>
+            </div>
+
+            <div id="collapseThree" class="card-body collapse">
+                <div class="accordion-inner">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="col-md-4">
+                                <input type="text" id="TextBox_Asset_MemoryName" placeholder="Memory Title" class="form-control" value=""></input>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn btn-success form-control" style="margin:0" onclick="AssetManagement.AddSaveMemory();">Add Memory</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-header" id="headingFour">
+                <div class="accordion-heading">
+
+                    <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseFour">
+                        Add Processor
+                    </button>
+
+                </div>
+            </div>
+
+            <div id="collapseFour" class="card-body collapse">
+                <div class="accordion-inner">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="col-md-4">
+                                <input type="text" id="TextBox_Asset_ProcessorName" placeholder="Processor Title" class="form-control" value=""></input>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn btn-success form-control" style="margin:0" onclick="AssetManagement.AddSaveProcessor();">Add Processor</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-header" id="headingFive">
+                <div class="accordion-heading">
+
+                    <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseFive">
+                        Add HardDisk
+                    </button>
+
+                </div>
+            </div>
+
+            <div id="collapseFive" class="card-body collapse">
+                <div class="accordion-inner">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="col-md-4">
+                                <input type="text" id="TextBox_Asset_HardDiskName" placeholder="Disk Title" class="form-control" value=""></input>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn btn-success form-control" style="margin:0" onclick="AssetManagement.AddSaveHardDisk();">Add Hard Disk</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-header" id="headingSix">
+                <div class="accordion-heading">
+
+                    <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseSix">
+                        Add Screen Sizes
+                    </button>
+
+                </div>
+            </div>
+
+            <div id="collapseSix" class="card-body collapse">
+                <div class="accordion-inner">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="col-md-4">
+                                <input type="text" id="TextBox_Asset_ScreenSize" placeholder="Size" class="form-control" value=""></input>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn btn-success form-control" style="margin:0" onclick="AssetManagement.AddSaveScreenSize();">Add Screen Size</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-header" id="headingSeven">
+                <div class="accordion-heading">
+
+                    <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseSeven">
+                        Add Vendors
+                    </button>
+
+                </div>
+            </div>
+
+            <div id="collapseSeven" class="card-body collapse">
+                <div class="accordion-inner">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="col-md-4">
+                                <input type="text" id="TextBox_Asset_Vendor" placeholder="Vendor" class="form-control" value=""></input>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn btn-success form-control" style="margin:0" onclick="AssetManagement.AddSaveVendor();">Add Vendor</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-header" id="headingEight">
+                <div class="accordion-heading">
+
+                    <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseEight">
+                        Add Lease Period
+                    </button>
+
+                </div>
+            </div>
+
+            <div id="collapseEight" class="card-body collapse">
+                <div class="accordion-inner">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="col-md-4">
+                                <input type="text" id="TextBox_Asset_LeasePeriod" placeholder="Lease Period" class="form-control" value=""></input>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn btn-success form-control" style="margin:0" onclick="AssetManagement.AddSaveLeasePeriod();">Add Lease Period</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-header" id="headingNine">
+                <div class="accordion-heading">
+
+                    <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseNine">
+                        Add Warranty Period
+                    </button>
+
+                </div>
+            </div>
+
+            <div id="collapseNine" class="card-body collapse">
+                <div class="accordion-inner">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="col-md-4">
+                                <input type="text" id="TextBox_Asset_WarrantyPeriod" placeholder="Warranty Period" class="form-control" value=""></input>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn btn-success form-control" style="margin:0" onclick="AssetManagement.AddSaveWarrantyPeriod();">Add Warranty Period</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

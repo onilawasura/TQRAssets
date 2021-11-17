@@ -1,0 +1,141 @@
+﻿@model IList<TIQRI.ITS.Domain.Models.Asset>
+@{
+    Layout = null;
+}
+
+<table id="example" class="display nowrap" style="width:100%">
+    <thead>
+        <tr>
+            <th>Audit</th>
+            <th>Asset Number</th>
+            <th>Asset Type</th>
+            <th>Manufacture</th>
+            <th>Model</th>
+            <th>SN</th>
+            <th>Computer Name</th>
+            <th>User ID</th>
+            <th>User</th>
+            <th>Group</th>
+            <th>Customer</th>
+            <th>Availability</th>
+            <th>Status</th>
+            <th>Vendor</th>
+            <th>Date Purchased</th>
+            <th>Conference Room</th>
+            <th>Building</th>
+            <th>Floor</th>
+            <th>DeviceType</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td><a href="#" onClick="GetAuditHistory('@item.AssetNumber')">Audit</a></td>
+            <td>@item.AssetNumber</td>
+            <td>@item.AssetType</td>
+            <td>@item.Manufacture</td>
+            <td>@item.Model</td>
+            <td>@item.ManufactureSN</td>
+            <td>@item.ComputerName</td>
+            <td>@item.UserId</td>
+            <td>@item.UserDisplayName</td>
+            <td>@item.Group</td>
+            <td>@item.Customer</td>
+            <td>@item.Availability</td>
+            <td>@item.AssetStatus</td>
+            <td>@item.Vendor</td>
+            <td>@(item.DatePurchasedOrleased != null ? item.DatePurchasedOrleased.Value.ToShortDateString() : "") </td>
+            <td>@item.ConferenceRoom</td>
+            <td>@item.Building</td>
+            <td>@item.Floor</td>
+            <td>@item.DeviceType</td>
+        </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Audit</th>
+            <th>Asset Number</th>
+            <th>Asset Type</th>
+            <th>Manufacture</th>
+            <th>Model</th>
+            <th>SN</th>
+            <th>Computer Name</th>
+            <th>User ID</th>
+            <th>User</th>
+            <th>Group</th>
+            <th>Customer</th>
+            <th>Availability</th>
+            <th>Status</th>
+            <th>Vendor</th>
+            <th>Date Purchased</th>
+            <th>Conference Room</th>
+            <th>Building</th>
+            <th>Floor</th>
+            <th>DeviceType</th>
+        </tr>
+    </tfoot>
+</table>
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title">Audit History (<span id="Asset_Asset_Number"/>)</h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-wrapper-scroll-y my-custom-scrollbar" id="audit"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary"
+                        data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        var windowHeight = $(window).height() - 290;
+        $('#example').DataTable({
+            "searching": false,
+            "paging": false,
+            "info": false,
+            "scrollY": windowHeight,
+            "scrollX": true
+        });
+
+    });
+    AssetManagement.ResetHeight();
+     function GetAuditHistory(recordID) {
+    $("#audit").html("");
+    $('#Asset_Asset_Number').text(recordID);
+    var AuditDisplay = "<table class='table table-condensed' cellpadding='5'>";
+    $.getJSON( "/AssetReport/audit/"+ recordID, function( AuditTrail ) {
+
+        for(var i = 0; i < AuditTrail.length; i++ )
+        {
+            AuditDisplay = AuditDisplay + "<tr class='active'><td colspan='2'>Event date: " + AuditTrail[i].DateTimeStamp + "</td>";
+            AuditDisplay = AuditDisplay + "<td>Action type: " +  AuditTrail[i].AuditActionTypeName + "</td><td>User: " +  AuditTrail[i].UserName + "</td></tr>";
+            AuditDisplay = AuditDisplay + "<tr class='text-warning'><td>Field name</td><td>Before change</td><td>After change</td></tr>";
+            for(var j = 0; j < AuditTrail[i].Changes.length; j++ )
+            {
+                AuditDisplay = AuditDisplay + "<tr>";
+                AuditDisplay = AuditDisplay + "<td>" + (AuditTrail[i].Changes[j].FieldName != null ? AuditTrail[i].Changes[j].FieldName : '') + "</td>";
+                AuditDisplay = AuditDisplay + "<td>" + (AuditTrail[i].Changes[j].ValueBefore != null ? AuditTrail[i].Changes[j].ValueBefore : '')  + "</td>";
+                AuditDisplay = AuditDisplay + "<td>" + (AuditTrail[i].Changes[j].ValueAfter != null ? AuditTrail[i].Changes[j].ValueAfter : '') + "</td>";
+                AuditDisplay = AuditDisplay + "</tr>";
+            }
+        }
+        AuditDisplay = AuditDisplay + "</table>">
+
+        $("#audit").html(AuditDisplay);
+        $("#myModal").modal('show');
+    });
+}
+</script>

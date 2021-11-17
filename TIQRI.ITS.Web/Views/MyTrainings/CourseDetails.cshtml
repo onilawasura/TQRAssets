@@ -1,0 +1,255 @@
+﻿@model TIQRI.ITS.Web.ViewModels.BatchViewModel
+@{
+    Layout = null;
+}
+
+<style>
+    #calendar {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+</style>
+<div>
+    <div class="card-header">
+        <div class="card-title">
+            <div class="title">
+                @Html.Raw("Batch - " + Model.Code)
+                <input type="hidden" id="System_Logged_UserName" value="@Model.UserName" />
+            </div>
+            <div class="description">
+                Please fill all the required details. Required fields are marked with <span class="required">*</span>
+            </div>
+        </div>
+        <div class="pull-right card-action form-top-button-margin">
+            <div class="btn-group" role="group" aria-label="...">
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="Batch_Id" value="@Model.Id" />
+    <input type="hidden" id="Trainer_UserName" value="@Model.UserName" />
+    <input type="hidden" id="Participant_IdList" value="@Model.ParticipantIdListStr" />
+
+    <div class="step tabs-below card-no-padding">
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="step" class="active">
+                <a href="#stepv1" id="step1-vtab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">
+                    <div class="icon fa fa-qrcode"></div>
+                    <div class="step-title">
+                        <div class="title">Basic</div>
+                        <div class="description">Batch Information</div>
+                    </div>
+                </a>
+            </li>
+            <li role="step" class="">
+                <a href="#stepv2" onclick="MyTrainingManagement.RerenderCalendar();" role="tab" id="step2-vtab" data-toggle="tab" aria-controls="profile" aria-expanded="false">
+                    <div class="icon fa fa-calendar"></div>
+                    <div class="step-title">
+                        <div class="title">Schedule</div>
+                        <div class="description">Batch Schedule Dates</div>
+                    </div>
+                </a>
+            </li>
+            <li role="step" class="">
+                <a href="#stepv3" onclick="MyTrainingManagement.ResetAttandance();" role="tab" id="step3-vtab" data-toggle="tab" aria-controls="attandance" aria-expanded="false">
+                    <div class="icon fa fa-check-square-o"></div>
+                    <div class="step-title">
+                        <div class="title">Attendance</div>
+                        <div class="description">Mark Participation</div>
+                    </div>
+                </a>
+            </li>
+            <li role="step" class="">
+                <a href="#stepv4" role="tab" id="step4-vtab" data-toggle="tab" aria-controls="assignments" aria-expanded="false">
+                    <div class="icon fa fa-file-archive-o"></div>
+                    <div class="step-title">
+                        <div class="title">Assignments</div>
+                        <div class="description">Assignment Submission</div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="stepv1" aria-labelledby="home-tab">
+
+                <div class="form-horizontal" style="margin-top: 20px; padding-left: 15px; padding-right: 15px;">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Batch Code</label>
+                        <div class="col-sm-7">
+                            <label class="control-label control-value">: @Model.Code</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Notes </label>
+                        <div class="col-sm-7">
+                            <label class="control-label control-value">: @Model.Notes</label>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Trainer(s) </label>
+                        <div class="col-sm-9">
+                            <label class="control-label control-value">: @Model.TrainerLisrtStr</label>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Reviewer(s) </label>
+                        <div class="col-sm-9">
+                            <label class="control-label control-value">: @Model.ReviewerListStr</label>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Participant(s) </label>
+                        <div class="col-sm-9">
+                            <label class="control-label control-value" style="text-align: left">: @Model.ParticipantListStr</label>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Batch Status</label>
+                        <div class="col-sm-7">
+                            <label class="control-label control-value">: @Model.BatchStatus</label>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div role="tabpanel" class="tab-pane fade " id="stepv2" aria-labelledby="profile-tab">
+                <div class="form-horizontal" style="margin-top: 20px;">
+                    <div class="form-group">
+                        <div class="col-sm-4">
+                            <div class="schedule-title">
+                                Schedule
+                            </div>
+                            <hr style="margin-top: 5px;" />
+                            <div id="Div_Batch_ScheduleDateList" style="max-height: 356px; overflow: auto;">
+                                Loading Batch Schedule.. Please wait.
+                            </div>
+
+
+                        </div>
+                        <div class="col-sm-8" style="height: 400px">
+
+                            <div id='batchcalendar'></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade " id="stepv3" aria-labelledby="attandance-tab">
+                <div class="form-horizontal" style="margin-top: 20px;">
+                    <div class="form-group">
+                        <div class="col-sm-4">
+                            <div class="schedule-title">
+                                Sessions
+                            </div>
+                            <hr style="margin-top: 5px;" />
+                            <div id="Div_Batch_AttandanceDateList" style="max-height: 356px; overflow: auto;">
+                                Loading Batch Schedule.. Please wait.
+                            </div>
+
+
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="schedule-title">
+                                Participant Attendance
+                                <input type="hidden" id="Hidden_Attendace_Date" value="" />
+                            </div>
+                            <hr style="margin-top: 5px;" />
+                            <div id="Div_Batch_AttandanceParticipantList" style="max-height: 800px; overflow: auto; overflow-x: hidden">
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade " id="stepv4" aria-labelledby="assignments-tab">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <div id="Div_Batch_AssignmentList" style="overflow: auto;">
+                                
+                                Loading Assignments .. Please wait.
+
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+<div class="overlay-model-background" id="DIV_MyTrainings_Feedback">
+    <input type="hidden" id="Feedback_AssignmentId" />
+    <div class="overlay-model overlay-model-feedback">
+        <div class="card-header">
+            <div class="card-title">
+                <div class="title">
+                    Submit your feedback
+                </div>
+            </div>
+            <div class="pull-right card-action form-top-button-margin">
+                <div class="btn-group" onclick="MyTrainingManagement.ShowFeedbackScreen();" style="font-size: 16px; cursor: pointer;" role="group" aria-label="...">
+                    <span class="icon fa fa-close"></span> Close
+                </div>
+            </div>
+        </div>
+
+        <div class="form-horizontal" style="margin-top: 20px;">
+            <div class="form-group">
+                <label class="col-sm-1 control-label"></label>
+                <div class="col-sm-10">
+                    <textarea name="TextBox_Feedback_Message" rows="5" cols="20" id="TextBox_Feedback_Message" class="form-control" placeholder="Please enter your feedback" style="height:230px;"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-1 control-label"></label>
+                <div class="col-sm-8">
+                    <input type="button" id="Button_Batch_Confirm" class="btn btn-success" value="Submit Feedback" onclick="MyTrainingManagement.SubmitFeedback();" />
+                    <input type="button" id="Button_Batch_Cancel" class="btn btn-default" value="Cancel" onclick="MyTrainingManagement.ShowFeedbackScreen();" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    var userProfiles = @Html.Raw(Model.ProfileObjectString);
+</script>
+
+<script>
+    MyTrainingManagement.ResetSchedule();
+    MyTrainingManagement.RerenderAssignments();
+    MyTrainingManagement.ResetHeight();
+</script>
+
+<script>
+
+    $(document).ready(function () {
+        $('#batchcalendar').fullCalendar({
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            },
+            editable: false
+        });
+    });
+
+</script>
