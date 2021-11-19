@@ -216,5 +216,24 @@ namespace TIQRI.ITS.Web.Helpers
 
             return leasePeriodList;
         }
+
+        public static IList<AssetOwner> GetAssetOwnerList()
+        {
+            var assetOwnerDT =
+                SqlHelper.ExecuteStatement(
+                    "SELECT [Id],[Name] FROM [dbo].[AssetOwners] order by [Name]", "DefaultConnection");
+
+            var AssetOwnerList = new List<AssetOwner>();
+            for (int i = 0; i < assetOwnerDT.Rows.Count; i++)
+            {
+                AssetOwnerList.Add(new AssetOwner()
+                {
+                    Id = int.Parse(assetOwnerDT.Rows[i]["Id"].ToString()),
+                    Name = assetOwnerDT.Rows[i]["Name"].ToString()
+                });
+            }
+
+            return AssetOwnerList;
+        }
     }
 }

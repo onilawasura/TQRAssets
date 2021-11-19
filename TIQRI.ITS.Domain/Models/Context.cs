@@ -41,6 +41,7 @@ namespace TIQRI.ITS.Domain.Models
         public DbSet<Vendor> Vendors { get; set; }
         public DbSet<WarrantyPeriod> WarrantyPeriods { get; set; }
         public DbSet<ScreenSize> ScreenSizes { get; set; }
+        public DbSet<AssetOwner> AssetOwners { get; set; }
         public DbSet<AuditLog> AuditLogs { get; set; }
     }
 }

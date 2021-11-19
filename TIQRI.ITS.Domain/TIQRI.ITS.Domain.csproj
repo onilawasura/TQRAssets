@@ -99,6 +99,14 @@
     <Compile Include="Migrations\202103180837063_init8.Designer.cs">
       <DependentUpon>202103180837063_init8.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111161626029_20211116_init9.cs" />
+    <Compile Include="Migrations\202111161626029_20211116_init9.designer.cs">
+      <DependentUpon>202111161626029_20211116_init9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111161927568_20211116_init10.cs" />
+    <Compile Include="Migrations\202111161927568_20211116_init10.designer.cs">
+      <DependentUpon>202111161927568_20211116_init10.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Administrator.cs" />
     <Compile Include="Models\AssetOwnerHistory.cs" />
@@ -111,6 +119,7 @@
     <Compile Include="Models\HardDisk.cs" />
     <Compile Include="Models\LeasePeriod.cs" />
     <Compile Include="Models\Manufacture.cs" />
+    <Compile Include="Models\AssetOwner.cs" />
     <Compile Include="Models\Memory.cs" />
     <Compile Include="Models\Model.cs" />
     <Compile Include="Models\Processor.cs" />
@@ -162,6 +171,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103180837063_init8.resx">
       <DependentUpon>202103180837063_init8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111161626029_20211116_init9.resx">
+      <DependentUpon>202111161626029_20211116_init9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111161927568_20211116_init10.resx">
+      <DependentUpon>202111161927568_20211116_init10.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

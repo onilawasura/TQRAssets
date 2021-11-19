@@ -48,6 +48,13 @@
             </div>
         </div>
         <div class="form-group">
+            <label class="col-sm-2 control-label">Asset Owner</label>
+            <div class="col-sm-4">
+                @Html.DropDownListFor(model => model.AssetOwner, Model.AssetOwnerList, new { id = "DDL_Asset_AssetOwner", @class = "form-control select2 ddl-small" })
+
+            </div>
+        </div>
+        <div class="form-group">
             <label class="col-sm-2 control-label">Model </label>
             <div class="col-sm-4">
                 @*<input type="text" id="TextBox_Asset_Model" placeholder="Model" class="form-control" value="@Model.Model"></input>*@
@@ -55,7 +62,20 @@
             </div>
             <label class="col-sm-2 control-label">Manufacture SN</label>
             <div class="col-sm-4">
-                <input type="text" id="TextBox_Asset_ManufactureSN" placeholder="Manufacture SN" class="form-control" value="@Model.ManufactureSN"></input>
+                @if (Model.Id != 0)
+                {
+                    if (User.IsInRole("ITAdmin"))
+                    {
+    <input type="text" id="TextBox_Asset_ManufactureSN" placeholder="Manufacture SN" class="form-control" value="@Model.ManufactureSN"></input> }
+                        else
+                        {
+    <input type="text" id="TextBox_Asset_ManufactureSN" readonly placeholder="Manufacture SN" class="form-control" value="@Model.ManufactureSN"></input> }
+
+                    }
+                    else
+                    {
+    <input type="text" id="TextBox_Asset_ManufactureSN" placeholder="Manufacture SN" class="form-control" value="@Model.ManufactureSN"></input>                }
+
             </div>
         </div>
         @*<div class="form-group">
@@ -67,60 +87,54 @@
 
         @if (Model.AssetType == TIQRI.ITS.Domain.Enums.AssetType.Laptop)
         {
-            <div class="form-group">
-                <label class="col-sm-2 control-label">User</label>
-                <div class="col-sm-4">
-
-                    @Html.DropDownListFor(model => model.UserId, Model.OwnerList, "--- Select ---", new { id = "DDL_Asset_UserId", @class = "form-control select2 ddl-medium" })
-                </div>
-                <label class="col-sm-2 control-label">Asset Status</label>
-                <div class="col-sm-4">
-
-                    @Html.DropDownListFor(model => model.AssetStatus, Model.AssetStatusList, new { id = "DDL_Asset_AssetStatus", @class = "form-control select2 ddl-small" })
-                </div>            
-            </div>
-
-            @*<div class="form-group">
-                <label class="col-sm-2 control-label">Group </label>
-                <div class="col-sm-4">
-                    <input type="text" id="TextBox_Asset_Group" placeholder="Group" class="form-control" value="@Model.Group"></input>
-                </div>
-                <label class="col-sm-2 control-label">Customer </label>
-                <div class="col-sm-4">
-                    <input type="text" id="TextBox_Asset_Customer" placeholder="Customer" class="form-control" value="@Model.Customer"></input>
-                </div>
-            </div>*@
-
-
-            @*<div class="form-group">
-                <label class="col-sm-2 control-label">Availability</label>
-                <div class="col-sm-4">
-
-                    @Html.EnumDropDownListFor(model => model.Availability, new { id = "DDL_Asset_Availability", @class = "form-control select2 ddl-small" })
-                </div>
-
-            </div>*@
-        }
     <div class="form-group">
-        <label class="col-sm-2 control-label">Processor </label>
+        <label class="col-sm-2 control-label">User</label>
         <div class="col-sm-4">
-            @*<input type="text" id="TextBox_Asset_Processor" placeholder="Processor" class="form-control" value="@Model.Processor"></input>*@
-            @Html.DropDownListFor(model => model.Processor, Model.ProcessorList, new { id = "DDL_Asset_Processor", @class = "form-control select2 ddl-small" })
-        </div>
-        <label class="col-sm-2 control-label">Screen Size </label>
-        <div class="col-sm-4">
-            @Html.DropDownListFor(model => model.Screen, Model.ScreenSizeList, new { id = "DDL_Asset_Screen", @class = "form-control select2 ddl-small" })
 
+            @Html.DropDownListFor(model => model.UserId, Model.OwnerList, "--- Select ---", new { id = "DDL_Asset_UserId", @class = "form-control select2 ddl-medium" })
         </div>
-        @*<label class="col-sm-2 control-label">Speed </label>
+        <label class="col-sm-2 control-label">Asset Status</label>
         <div class="col-sm-4">
-            <input type="text" id="TextBox_Asset_Speed" placeholder="Speed" class="form-control" value="@Model.Speed"></input>
-        </div>*@
-        @*<label class="col-sm-2 control-label">Cost </label>
-        <div class="col-sm-4">
-            <input type="text" id="TextBox_Asset_Cost" placeholder="Cost" class="form-control" value="@Model.Cost"></input>
-        </div>*@
-    </div>
+
+            @Html.DropDownListFor(model => model.AssetStatus, Model.AssetStatusList, new { id = "DDL_Asset_AssetStatus", @class = "form-control select2 ddl-small" })
+        </div>
+    </div> @*<div class="form-group">
+                            <label class="col-sm-2 control-label">Group </label>
+                            <div class="col-sm-4">
+                                <input type="text" id="TextBox_Asset_Group" placeholder="Group" class="form-control" value="@Model.Group"></input>
+                            </div>
+                            <label class="col-sm-2 control-label">Customer </label>
+                            <div class="col-sm-4">
+                                <input type="text" id="TextBox_Asset_Customer" placeholder="Customer" class="form-control" value="@Model.Customer"></input>
+                            </div>
+                        </div>*@ @*<div class="form-group">
+                            <label class="col-sm-2 control-label">Availability</label>
+                            <div class="col-sm-4">
+
+                                @Html.EnumDropDownListFor(model => model.Availability, new { id = "DDL_Asset_Availability", @class = "form-control select2 ddl-small" })
+                            </div>
+
+                        </div>*@}
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Processor </label>
+            <div class="col-sm-4">
+                @*<input type="text" id="TextBox_Asset_Processor" placeholder="Processor" class="form-control" value="@Model.Processor"></input>*@
+                @Html.DropDownListFor(model => model.Processor, Model.ProcessorList, new { id = "DDL_Asset_Processor", @class = "form-control select2 ddl-small" })
+            </div>
+            <label class="col-sm-2 control-label">Screen Size </label>
+            <div class="col-sm-4">
+                @Html.DropDownListFor(model => model.Screen, Model.ScreenSizeList, new { id = "DDL_Asset_Screen", @class = "form-control select2 ddl-small" })
+
+            </div>
+            @*<label class="col-sm-2 control-label">Speed </label>
+            <div class="col-sm-4">
+                <input type="text" id="TextBox_Asset_Speed" placeholder="Speed" class="form-control" value="@Model.Speed"></input>
+            </div>*@
+            @*<label class="col-sm-2 control-label">Cost </label>
+            <div class="col-sm-4">
+                <input type="text" id="TextBox_Asset_Cost" placeholder="Cost" class="form-control" value="@Model.Cost"></input>
+            </div>*@
+        </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">Memory </label>
             <div class="col-sm-4">
@@ -152,15 +166,14 @@
             <div class="col-sm-4">
                 @if (Model.ProblemReported)
                 {
-                    <input type="checkbox" id="Chk_Asset_ProblemReported" class="chk_completion" checked="checked" data-on-text="Yes" data-off-text="No" data-size="small" @Model.ProblemReported>
-                }
-                else
-                {
-                    <input type="checkbox" id="Chk_Asset_ProblemReported" class="chk_completion" data-on-text="Yes" data-off-text="No" data-size="small" @Model.ProblemReported>
-                }
+    <input type="checkbox" id="Chk_Asset_ProblemReported" class="chk_completion" checked="checked" data-on-text="Yes" data-off-text="No" data-size="small" @Model.ProblemReported> }
+                    else
+                    {
+    <input type="checkbox" id="Chk_Asset_ProblemReported" class="chk_completion" data-on-text="Yes" data-off-text="No" data-size="small" @Model.ProblemReported>                }
 
             </div>
         </div>
+
         @*<div class="form-group">
             <label class="col-sm-2 control-label">Rating </label>
             <div class="col-sm-4">
@@ -209,17 +222,17 @@
         </div>
         @if (Model.AssetType == TIQRI.ITS.Domain.Enums.AssetType.ConferenceRoomDevice)
         {
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Conference Room</label>
-                <div class="col-sm-4">
-                    <input type="text" id="TextBox_Asset_ConferenceRoom" placeholder="Conference Room" class="form-control" value="@Model.ConferenceRoom"></input>
-                </div>
-                <label class="col-sm-2 control-label">Building</label>
-                <div class="col-sm-4">
-                    <input type="text" id="TextBox_Asset_Building" placeholder="Building" class="form-control" value="@Model.Building"></input>
-                </div>
-            </div>
-        }
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Conference Room</label>
+        <div class="col-sm-4">
+            <input type="text" id="TextBox_Asset_ConferenceRoom" placeholder="Conference Room" class="form-control" value="@Model.ConferenceRoom"></input>
+        </div>
+        <label class="col-sm-2 control-label">Building</label>
+        <div class="col-sm-4">
+            <input type="text" id="TextBox_Asset_Building" placeholder="Building" class="form-control" value="@Model.Building"></input>
+        </div>
+    </div>}
+
         <div class="form-group" style="padding-top:11px">
             <label class="col-sm-2 control-label">Notes </label>
             <div class="col-sm-7">
@@ -240,347 +253,365 @@
 
         @if (Model.AssetType == TIQRI.ITS.Domain.Enums.AssetType.Display || Model.AssetType == TIQRI.ITS.Domain.Enums.AssetType.DisplayPanel || Model.AssetType == TIQRI.ITS.Domain.Enums.AssetType.Other)
         {
-            <div class="form-horizontal" style="margin-top: 20px;">
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Asset Number <span class="required"></span></label>
-                    <div class="col-sm-4">
-                        <input type="text" id="TextBox_Asset_AssetNumber" readonly placeholder="Asset Number" class="form-control" value="@Model.AssetNumber"></input>
-                    </div>
-
-                    <label class="col-sm-2 control-label">Manufacture </label>
-                    <div class="col-sm-4">
-                        @*<input type="text" id="TextBox_Asset_Manufacture" placeholder="Manufacture" class="form-control" value="@Model.Manufacture"></input>*@
-                        @Html.DropDownListFor(model => model.Manufacture, Model.ManufactureList, new { id = "DDL_Asset_Manufacture", @class = "form-control select2 ddl-medium" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Model </label>
-                    <div class="col-sm-4">
-                        @*<input type="text" id="TextBox_Asset_Model" placeholder="Model" class="form-control" value="@Model.Model"></input>*@
-                        @Html.DropDownListFor(model => model.Model, Model.ModelList, new { id = "DDL_Asset_Model", @class = "form-control select2 ddl-medium" })
-                    </div>
-                    <label class="col-sm-2 control-label">Manufacture SN</label>
-                    <div class="col-sm-4">
-                        <input type="text" id="TextBox_Asset_ManufactureSN" placeholder="Manufacture SN" class="form-control" value="@Model.ManufactureSN"></input>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">User</label>
-                    <div class="col-sm-4">
-
-                        @Html.DropDownListFor(model => model.UserId, Model.OwnerList, "--- Select ---", new { id = "DDL_Asset_UserId", @class = "form-control select2 ddl-medium" })
-                    </div>
-
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Group </label>
-                    <div class="col-sm-4">
-                        <input type="text" id="TextBox_Asset_Group" placeholder="Group" class="form-control" value="@Model.Group"></input>
-                    </div>
-                    <label class="col-sm-2 control-label">Customer </label>
-                    <div class="col-sm-4">
-                        <input type="text" id="TextBox_Asset_Customer" placeholder="Customer" class="form-control" value="@Model.Customer"></input>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Building</label>
-                    <div class="col-sm-4">
-                        <input type="text" id="TextBox_Asset_Building" placeholder="Building" class="form-control" value="@Model.Building"></input>
-                    </div>
-                    <label class="col-sm-2 control-label">Floor</label>
-                    <div class="col-sm-4">
-                        <input type="text" id="TextBox_Asset_Floor" placeholder="Floor" class="form-control" value="@Model.Floor"></input>
-                    </div>
-
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Availability</label>
-                    <div class="col-sm-4">
-
-                        @Html.EnumDropDownListFor(model => model.Availability, new { id = "DDL_Asset_Availability", @class = "form-control select2 ddl-small" })
-                    </div>
-                    <label class="col-sm-2 control-label">Asset Status</label>
-                    <div class="col-sm-4">
-
-                        @*@Html.EnumDropDownListFor(model => model.AssetStatus, new { id = "DDL_Asset_AssetStatus", @class = "form-control select2 ddl-small" })*@
-                        @Html.DropDownListFor(model => model.AssetStatus, Model.AssetStatusList, new { id = "DDL_Asset_AssetStatus", @class = "form-control select2 ddl-small" })
-
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Notes </label>
-                    <div class="col-sm-7">
-                        <textarea name="TextBox_Asset_Notes" rows="2" cols="20" id="TextBox_Asset_Notes" class="form-control" placeholder="Notes" style="height:80px;">@Model.NOTE</textarea>
-                    </div>
-                </div>
-
-
-                <div class="form-group" style="margin-top: 20px;">
-                    <div class="col-sm-2"></div>
-                    <div class="col-sm-7">
-                        <input type="button" id="Button_Asset_Confirm" class="btn btn-success" value="Save Asset" onclick="AssetManagement.SaveAddEditAsset();" />
-                        <input type="button" id="Button_Asset_Cancel" class="btn btn-default" value="Cancel" onclick="AssetManagement.CancelAddEdit();" />
-                    </div>
-                </div>
+    <div class="form-horizontal" style="margin-top: 20px;">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Asset Number <span class="required"></span></label>
+            <div class="col-sm-4">
+                <input type="text" id="TextBox_Asset_AssetNumber" readonly placeholder="Asset Number" class="form-control" value="@Model.AssetNumber"></input>
             </div>
+
+            <label class="col-sm-2 control-label">Manufacture </label>
+            <div class="col-sm-4">
+                @*<input type="text" id="TextBox_Asset_Manufacture" placeholder="Manufacture" class="form-control" value="@Model.Manufacture"></input>*@
+                @Html.DropDownListFor(model => model.Manufacture, Model.ManufactureList, new { id = "DDL_Asset_Manufacture", @class = "form-control select2 ddl-medium" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Asset Owner</label>
+            <div class="col-sm-4">
+                @Html.DropDownListFor(model => model.AssetOwner, Model.AssetOwnerList, new { id = "DDL_Asset_AssetOwner", @class = "form-control select2 ddl-small" })
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Model </label>
+            <div class="col-sm-4">
+                @*<input type="text" id="TextBox_Asset_Model" placeholder="Model" class="form-control" value="@Model.Model"></input>*@
+                @Html.DropDownListFor(model => model.Model, Model.ModelList, new { id = "DDL_Asset_Model", @class = "form-control select2 ddl-medium" })
+            </div>
+            <label class="col-sm-2 control-label">Manufacture SN</label>
+            <div class="col-sm-4">
+                <input type="text" id="TextBox_Asset_ManufactureSN" placeholder="Manufacture SN" class="form-control" value="@Model.ManufactureSN"></input>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">User</label>
+            <div class="col-sm-4">
+
+                @Html.DropDownListFor(model => model.UserId, Model.OwnerList, "--- Select ---", new { id = "DDL_Asset_UserId", @class = "form-control select2 ddl-medium" })
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Group </label>
+            <div class="col-sm-4">
+                <input type="text" id="TextBox_Asset_Group" placeholder="Group" class="form-control" value="@Model.Group"></input>
+            </div>
+            <label class="col-sm-2 control-label">Customer </label>
+            <div class="col-sm-4">
+                <input type="text" id="TextBox_Asset_Customer" placeholder="Customer" class="form-control" value="@Model.Customer"></input>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Building</label>
+            <div class="col-sm-4">
+                <input type="text" id="TextBox_Asset_Building" placeholder="Building" class="form-control" value="@Model.Building"></input>
+            </div>
+            <label class="col-sm-2 control-label">Floor</label>
+            <div class="col-sm-4">
+                <input type="text" id="TextBox_Asset_Floor" placeholder="Floor" class="form-control" value="@Model.Floor"></input>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Availability</label>
+            <div class="col-sm-4">
+
+                @Html.EnumDropDownListFor(model => model.Availability, new { id = "DDL_Asset_Availability", @class = "form-control select2 ddl-small" })
+            </div>
+            <label class="col-sm-2 control-label">Asset Status</label>
+            <div class="col-sm-4">
+
+                @*@Html.EnumDropDownListFor(model => model.AssetStatus, new { id = "DDL_Asset_AssetStatus", @class = "form-control select2 ddl-small" })*@
+                @Html.DropDownListFor(model => model.AssetStatus, Model.AssetStatusList, new { id = "DDL_Asset_AssetStatus", @class = "form-control select2 ddl-small" })
+
+            </div>
+
+
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Notes </label>
+            <div class="col-sm-7">
+                <textarea name="TextBox_Asset_Notes" rows="2" cols="20" id="TextBox_Asset_Notes" class="form-control" placeholder="Notes" style="height:80px;">@Model.NOTE</textarea>
+            </div>
+        </div>
+
+
+        <div class="form-group" style="margin-top: 20px;">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-7">
+                <input type="button" id="Button_Asset_Confirm" class="btn btn-success" value="Save Asset" onclick="AssetManagement.SaveAddEditAsset();" />
+                <input type="button" id="Button_Asset_Cancel" class="btn btn-default" value="Cancel" onclick="AssetManagement.CancelAddEdit();" />
+            </div>
+        </div>
+    </div>
         }
 
         @if (Model.AssetType == TIQRI.ITS.Domain.Enums.AssetType.KeyboardMouse || Model.AssetType == TIQRI.ITS.Domain.Enums.AssetType.PowerAdapter || Model.AssetType == TIQRI.ITS.Domain.Enums.AssetType.InventoryAsset)
         {
-            <div class="form-horizontal" style="margin-top: 20px;">
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Asset Number <span class="required"></span></label>
-                    <div class="col-sm-4">
-                        <input type="text" id="TextBox_Asset_AssetNumber" readonly placeholder="Asset Number" class="form-control" value="@Model.AssetNumber"></input>
-                    </div>
-
-                    <label class="col-sm-2 control-label">Manufacture </label>
-                    <div class="col-sm-4">
-                        @*<input type="text" id="TextBox_Asset_Manufacture" placeholder="Manufacture" class="form-control" value="@Model.Manufacture"></input>*@
-                        @Html.DropDownListFor(model => model.Manufacture, Model.ManufactureList, new { id = "DDL_Asset_Manufacture", @class = "form-control select2 ddl-medium" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Model </label>
-                    <div class="col-sm-4">
-                        @*<input type="text" id="TextBox_Asset_Model" placeholder="Model" class="form-control" value="@Model.Model"></input>*@
-                        @Html.DropDownListFor(model => model.Model, Model.ModelList, new { id = "DDL_Asset_Model", @class = "form-control select2 ddl-medium" })
-
-                    </div>
-                    <label class="col-sm-2 control-label">Manufacture SN</label>
-                    <div class="col-sm-4">
-                        <input type="text" id="TextBox_Asset_ManufactureSN" placeholder="Manufacture SN" class="form-control" value="@Model.ManufactureSN"></input>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Device Type </label>
-                    <div class="col-sm-4">
-                        <input type="text" id="TextBox_Asset_DeviceType" placeholder="Device Type" class="form-control" value="@Model.DeviceType"></input>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">User</label>
-                    <div class="col-sm-4">
-
-                        @Html.DropDownListFor(model => model.UserId, Model.OwnerList, "--- Select ---", new { id = "DDL_Asset_UserId", @class = "form-control select2 ddl-medium" })
-                    </div>
-                    <label class="col-sm-2 control-label">Room </label>
-                    <div class="col-sm-4">
-                        <input type="text" id="TextBox_Asset_ConferenceRoom" placeholder="Room" class="form-control" value="@Model.ConferenceRoom"></input>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Group </label>
-                    <div class="col-sm-4">
-                        <input type="text" id="TextBox_Asset_Group" placeholder="Group" class="form-control" value="@Model.Group"></input>
-                    </div>
-                    <label class="col-sm-2 control-label">Customer </label>
-                    <div class="col-sm-4">
-                        <input type="text" id="TextBox_Asset_Customer" placeholder="Customer" class="form-control" value="@Model.Customer"></input>
-                    </div>
-                </div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Availability</label>
-                    <div class="col-sm-4">
-
-                        @Html.EnumDropDownListFor(model => model.Availability, new { id = "DDL_Asset_Availability", @class = "form-control select2 ddl-small" })
-                    </div>
-                    <label class="col-sm-2 control-label">Asset Status</label>
-                    <div class="col-sm-4">
-
-                        @*@Html.EnumDropDownListFor(model => model.AssetStatus, new { id = "DDL_Asset_AssetStatus", @class = "form-control select2 ddl-small" })*@
-                        @Html.DropDownListFor(model => model.AssetStatus, Model.AssetStatusList, new { id = "DDL_Asset_AssetStatus", @class = "form-control select2 ddl-small" })
-
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Vendor </label>
-                    <div class="col-sm-4">
-                        @*<input type="text" id="TextBox_Asset_Vendor" placeholder="Vendor" class="form-control" value="@Model.Vendor"></input>*@
-                        @Html.DropDownListFor(model => model.Vendor, Model.VendorList, new { id = "DDL_Asset_Vendor", @class = "form-control select2 ddl-small" })
-                    </div>
-                    <label class="col-sm-2 control-label">Date Purchased/leased </label>
-                    <div class="col-sm-4">
-                        <input type="text" id="TextBox_Asset_DatePurchasedOrleased" placeholder="Date" class="form-control datepicker-here" data-language='en' value="@Model.GetPurchasedDisplayText()"></input>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Warranty Period </label>
-                    <div class="col-sm-4">
-                        @*<input type="text" id="TextBox_Asset_WarrantyPeriod" placeholder="Warranty Period" class="form-control" value="@Model.WarrantyPeriod"></input>*@
-                        @Html.DropDownListFor(model => model.WarrantyPeriod, Model.WarrantyPeriodList, new { id = "DDL_Asset_WarrantyPeriod", @class = "form-control select2 ddl-small" })
-                    </div>
-                    <label class="col-sm-2 control-label">Location </label>
-                    <div class="col-sm-4">
-                        <input type="text" id="TextBox_Asset_Location" placeholder="Location" class="form-control" value="@Model.Location"></input>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Problem Reported </label>
-                    <div class="col-sm-4">
-                        @if (Model.ProblemReported)
-                        {
-                            <input type="checkbox" id="Chk_Asset_ProblemReported" class="chk_completion" checked="checked" data-on-text="Yes" data-off-text="No" data-size="small" @Model.ProblemReported>
-                        }
-                        else
-                        {
-                            <input type="checkbox" id="Chk_Asset_ProblemReported" class="chk_completion" data-on-text="Yes" data-off-text="No" data-size="small" @Model.ProblemReported>
-                        }
-
-                    </div>
-                    <label class="col-sm-2 control-label">Rating </label>
-                    <div class="col-sm-4">
-                        <input type="text" id="TextBox_Asset_Rating" placeholder="Rating" class="form-control" value="@Model.Rating"></input>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Notes </label>
-                    <div class="col-sm-7">
-                        <textarea name="TextBox_Asset_Notes" rows="2" cols="20" id="TextBox_Asset_Notes" class="form-control" placeholder="Notes" style="height:80px;">@Model.NOTE</textarea>
-                    </div>
-                </div>
-
-
-                <div class="form-group" style="margin-top: 20px;">
-                    <div class="col-sm-2"></div>
-                    <div class="col-sm-7">
-                        <input type="button" id="Button_Asset_Confirm" class="btn btn-success" value="Save Asset" onclick="AssetManagement.SaveAddEditAsset();" />
-                        <input type="button" id="Button_Asset_Cancel" class="btn btn-default" value="Cancel" onclick="AssetManagement.CancelAddEdit();" />
-                    </div>
-                </div>
+    <div class="form-horizontal" style="margin-top: 20px;">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Asset Number <span class="required"></span></label>
+            <div class="col-sm-4">
+                <input type="text" id="TextBox_Asset_AssetNumber" readonly placeholder="Asset Number" class="form-control" value="@Model.AssetNumber"></input>
             </div>
-        }
+
+            <label class="col-sm-2 control-label">Manufacture </label>
+            <div class="col-sm-4">
+                @*<input type="text" id="TextBox_Asset_Manufacture" placeholder="Manufacture" class="form-control" value="@Model.Manufacture"></input>*@
+                @Html.DropDownListFor(model => model.Manufacture, Model.ManufactureList, new { id = "DDL_Asset_Manufacture", @class = "form-control select2 ddl-medium" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Asset Owner</label>
+            <div class="col-sm-4">
+                @Html.DropDownListFor(model => model.AssetOwner, Model.AssetOwnerList, new { id = "DDL_Asset_AssetOwner", @class = "form-control select2 ddl-small" })
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Model </label>
+            <div class="col-sm-4">
+                @*<input type="text" id="TextBox_Asset_Model" placeholder="Model" class="form-control" value="@Model.Model"></input>*@
+                @Html.DropDownListFor(model => model.Model, Model.ModelList, new { id = "DDL_Asset_Model", @class = "form-control select2 ddl-medium" })
+
+            </div>
+            <label class="col-sm-2 control-label">Manufacture SN</label>
+            <div class="col-sm-4">
+                <input type="text" id="TextBox_Asset_ManufactureSN" placeholder="Manufacture SN" class="form-control" value="@Model.ManufactureSN"></input>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Device Type </label>
+            <div class="col-sm-4">
+                <input type="text" id="TextBox_Asset_DeviceType" placeholder="Device Type" class="form-control" value="@Model.DeviceType"></input>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">User</label>
+            <div class="col-sm-4">
+
+                @Html.DropDownListFor(model => model.UserId, Model.OwnerList, "--- Select ---", new { id = "DDL_Asset_UserId", @class = "form-control select2 ddl-medium" })
+            </div>
+            <label class="col-sm-2 control-label">Room </label>
+            <div class="col-sm-4">
+                <input type="text" id="TextBox_Asset_ConferenceRoom" placeholder="Room" class="form-control" value="@Model.ConferenceRoom"></input>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Group </label>
+            <div class="col-sm-4">
+                <input type="text" id="TextBox_Asset_Group" placeholder="Group" class="form-control" value="@Model.Group"></input>
+            </div>
+            <label class="col-sm-2 control-label">Customer </label>
+            <div class="col-sm-4">
+                <input type="text" id="TextBox_Asset_Customer" placeholder="Customer" class="form-control" value="@Model.Customer"></input>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Availability</label>
+            <div class="col-sm-4">
+
+                @Html.EnumDropDownListFor(model => model.Availability, new { id = "DDL_Asset_Availability", @class = "form-control select2 ddl-small" })
+            </div>
+            <label class="col-sm-2 control-label">Asset Status</label>
+            <div class="col-sm-4">
+
+                @*@Html.EnumDropDownListFor(model => model.AssetStatus, new { id = "DDL_Asset_AssetStatus", @class = "form-control select2 ddl-small" })*@
+                @Html.DropDownListFor(model => model.AssetStatus, Model.AssetStatusList, new { id = "DDL_Asset_AssetStatus", @class = "form-control select2 ddl-small" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Vendor </label>
+            <div class="col-sm-4">
+                @*<input type="text" id="TextBox_Asset_Vendor" placeholder="Vendor" class="form-control" value="@Model.Vendor"></input>*@
+                @Html.DropDownListFor(model => model.Vendor, Model.VendorList, new { id = "DDL_Asset_Vendor", @class = "form-control select2 ddl-small" })
+            </div>
+            <label class="col-sm-2 control-label">Date Purchased/leased </label>
+            <div class="col-sm-4">
+                <input type="text" id="TextBox_Asset_DatePurchasedOrleased" placeholder="Date" class="form-control datepicker-here" data-language='en' value="@Model.GetPurchasedDisplayText()"></input>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Warranty Period </label>
+            <div class="col-sm-4">
+                @*<input type="text" id="TextBox_Asset_WarrantyPeriod" placeholder="Warranty Period" class="form-control" value="@Model.WarrantyPeriod"></input>*@
+                @Html.DropDownListFor(model => model.WarrantyPeriod, Model.WarrantyPeriodList, new { id = "DDL_Asset_WarrantyPeriod", @class = "form-control select2 ddl-small" })
+            </div>
+            <label class="col-sm-2 control-label">Location </label>
+            <div class="col-sm-4">
+                <input type="text" id="TextBox_Asset_Location" placeholder="Location" class="form-control" value="@Model.Location"></input>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Problem Reported </label>
+            <div class="col-sm-4">
+                @if (Model.ProblemReported)
+                {
+    <input type="checkbox" id="Chk_Asset_ProblemReported" class="chk_completion" checked="checked" data-on-text="Yes" data-off-text="No" data-size="small" @Model.ProblemReported> }
+else
+{
+    <input type="checkbox" id="Chk_Asset_ProblemReported" class="chk_completion" data-on-text="Yes" data-off-text="No" data-size="small" @Model.ProblemReported>}
+
+            </div>
+            <label class="col-sm-2 control-label">Rating </label>
+            <div class="col-sm-4">
+                <input type="text" id="TextBox_Asset_Rating" placeholder="Rating" class="form-control" value="@Model.Rating"></input>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Notes </label>
+            <div class="col-sm-7">
+                <textarea name="TextBox_Asset_Notes" rows="2" cols="20" id="TextBox_Asset_Notes" class="form-control" placeholder="Notes" style="height:80px;">@Model.NOTE</textarea>
+            </div>
+        </div>
+
+
+        <div class="form-group" style="margin-top: 20px;">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-7">
+                <input type="button" id="Button_Asset_Confirm" class="btn btn-success" value="Save Asset" onclick="AssetManagement.SaveAddEditAsset();" />
+                <input type="button" id="Button_Asset_Cancel" class="btn btn-default" value="Cancel" onclick="AssetManagement.CancelAddEdit();" />
+            </div>
+        </div>
+    </div>}
 
         @if (Model.AssetType == TIQRI.ITS.Domain.Enums.AssetType.Mobile)
         {
-            <div class="form-horizontal" style="margin-top: 20px;">
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Asset Number <span class="required"></span></label>
-                    <div class="col-sm-4">
-                        <input type="text" id="TextBox_Asset_AssetNumber" readonly placeholder="Asset Number" class="form-control" value="@Model.AssetNumber"></input>
-                    </div>
-
-                    <label class="col-sm-2 control-label">Manufacture </label>
-                    <div class="col-sm-4">
-                        @*<input type="text" id="TextBox_Asset_Manufacture" placeholder="Manufacture" class="form-control" value="@Model.Manufacture"></input>*@
-                        @Html.DropDownListFor(model => model.Manufacture, Model.ManufactureList, new { id = "DDL_Asset_Manufacture", @class = "form-control select2 ddl-medium" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Model </label>
-                    <div class="col-sm-4">
-                        @*<input type="text" id="TextBox_Asset_Model" placeholder="Model" class="form-control" value="@Model.Model"></input>*@
-                        @Html.DropDownListFor(model => model.Model, Model.ModelList, new { id = "DDL_Asset_Model", @class = "form-control select2 ddl-medium" })
-                    </div>
-                    <label class="col-sm-2 control-label">Manufacture SN</label>
-                    <div class="col-sm-4">
-                        <input type="text" id="TextBox_Asset_ManufactureSN" placeholder="Manufacture SN" class="form-control" value="@Model.ManufactureSN"></input>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Mobile Name </label>
-                    <div class="col-sm-4">
-                        <input type="text" id="TextBox_Asset_MobileName" placeholder="Mobile Name" class="form-control" value="@Model.MobileName"></input>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">User</label>
-                    <div class="col-sm-4">
-
-                        @Html.DropDownListFor(model => model.UserId, Model.OwnerList, "--- Select ---", new { id = "DDL_Asset_UserId", @class = "form-control select2 ddl-medium" })
-                    </div>
-
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Group </label>
-                    <div class="col-sm-4">
-                        <input type="text" id="TextBox_Asset_Group" placeholder="Group" class="form-control" value="@Model.Group"></input>
-                    </div>
-                    <label class="col-sm-2 control-label">Customer </label>
-                    <div class="col-sm-4">
-                        <input type="text" id="TextBox_Asset_Customer" placeholder="Customer" class="form-control" value="@Model.Customer"></input>
-                    </div>
-                </div>
-
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Availability</label>
-                    <div class="col-sm-4">
-
-                        @Html.EnumDropDownListFor(model => model.Availability, new { id = "DDL_Asset_Availability", @class = "form-control select2 ddl-small" })
-                    </div>
-                    <label class="col-sm-2 control-label">Asset Status</label>
-                    <div class="col-sm-4">
-
-                        @*@Html.EnumDropDownListFor(model => model.AssetStatus, new { id = "DDL_Asset_AssetStatus", @class = "form-control select2 ddl-small" })*@
-                        @Html.DropDownListFor(model => model.AssetStatus, Model.AssetStatusList, new { id = "DDL_Asset_AssetStatus", @class = "form-control select2 ddl-small" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Vendor </label>
-                    <div class="col-sm-4">
-                        @*<input type="text" id="TextBox_Asset_Vendor" placeholder="Vendor" class="form-control" value="@Model.Vendor"></input>*@
-                        @Html.DropDownListFor(model => model.Vendor, Model.VendorList, new { id = "DDL_Asset_Vendor", @class = "form-control select2 ddl-small" })
-                    </div>
-                    <label class="col-sm-2 control-label">Date Purchased/leased </label>
-                    <div class="col-sm-4">
-                        <input type="text" id="TextBox_Asset_DatePurchasedOrleased" placeholder="Date" class="form-control datepicker-here" data-language='en' value="@Model.GetPurchasedDisplayText()"></input>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Warranty Period </label>
-                    <div class="col-sm-4">
-                        @*<input type="text" id="TextBox_Asset_WarrantyPeriod" placeholder="Warranty Period" class="form-control" value="@Model.WarrantyPeriod"></input>*@
-                        @Html.DropDownListFor(model => model.WarrantyPeriod, Model.WarrantyPeriodList, new { id = "DDL_Asset_WarrantyPeriod", @class = "form-control select2 ddl-small" })
-                    </div>
-                    <label class="col-sm-2 control-label">Location </label>
-                    <div class="col-sm-4">
-                        <input type="text" id="TextBox_Asset_Location" placeholder="Location" class="form-control" value="@Model.Location"></input>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Problem Reported </label>
-                    <div class="col-sm-4">
-                        @if (Model.ProblemReported)
-                        {
-                            <input type="checkbox" id="Chk_Asset_ProblemReported" class="chk_completion" checked="checked" data-on-text="Yes" data-off-text="No" data-size="small" @Model.ProblemReported>
-                        }
-                        else
-                        {
-                            <input type="checkbox" id="Chk_Asset_ProblemReported" class="chk_completion" data-on-text="Yes" data-off-text="No" data-size="small" @Model.ProblemReported>
-                        }
-
-                    </div>
-                    <label class="col-sm-2 control-label">Rating </label>
-                    <div class="col-sm-4">
-                        <input type="text" id="TextBox_Asset_Rating" placeholder="Rating" class="form-control" value="@Model.Rating"></input>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Notes </label>
-                    <div class="col-sm-7">
-                        <textarea name="TextBox_Asset_Notes" rows="2" cols="20" id="TextBox_Asset_Notes" class="form-control" placeholder="Notes" style="height:80px;">@Model.NOTE</textarea>
-                    </div>
-                </div>
-
-
-                <div class="form-group" style="margin-top: 20px;">
-                    <div class="col-sm-2"></div>
-                    <div class="col-sm-7">
-                        <input type="button" id="Button_Asset_Confirm" class="btn btn-success" value="Save Asset" onclick="AssetManagement.SaveAddEditAsset();" />
-                        <input type="button" id="Button_Asset_Cancel" class="btn btn-default" value="Cancel" onclick="AssetManagement.CancelAddEdit();" />
-                    </div>
-                </div>
+    <div class="form-horizontal" style="margin-top: 20px;">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Asset Number <span class="required"></span></label>
+            <div class="col-sm-4">
+                <input type="text" id="TextBox_Asset_AssetNumber" readonly placeholder="Asset Number" class="form-control" value="@Model.AssetNumber"></input>
             </div>
-        }
+
+            <label class="col-sm-2 control-label">Manufacture </label>
+            <div class="col-sm-4">
+                @*<input type="text" id="TextBox_Asset_Manufacture" placeholder="Manufacture" class="form-control" value="@Model.Manufacture"></input>*@
+                @Html.DropDownListFor(model => model.Manufacture, Model.ManufactureList, new { id = "DDL_Asset_Manufacture", @class = "form-control select2 ddl-medium" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Asset Owner</label>
+            <div class="col-sm-4">
+                @Html.DropDownListFor(model => model.AssetOwner, Model.AssetOwnerList, new { id = "DDL_Asset_AssetOwner", @class = "form-control select2 ddl-small" })
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Model </label>
+            <div class="col-sm-4">
+                @*<input type="text" id="TextBox_Asset_Model" placeholder="Model" class="form-control" value="@Model.Model"></input>*@
+                @Html.DropDownListFor(model => model.Model, Model.ModelList, new { id = "DDL_Asset_Model", @class = "form-control select2 ddl-medium" })
+            </div>
+            <label class="col-sm-2 control-label">Manufacture SN</label>
+            <div class="col-sm-4">
+                <input type="text" id="TextBox_Asset_ManufactureSN" placeholder="Manufacture SN" class="form-control" value="@Model.ManufactureSN"></input>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Mobile Name </label>
+            <div class="col-sm-4">
+                <input type="text" id="TextBox_Asset_MobileName" placeholder="Mobile Name" class="form-control" value="@Model.MobileName"></input>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">User</label>
+            <div class="col-sm-4">
+
+                @Html.DropDownListFor(model => model.UserId, Model.OwnerList, "--- Select ---", new { id = "DDL_Asset_UserId", @class = "form-control select2 ddl-medium" })
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Group </label>
+            <div class="col-sm-4">
+                <input type="text" id="TextBox_Asset_Group" placeholder="Group" class="form-control" value="@Model.Group"></input>
+            </div>
+            <label class="col-sm-2 control-label">Customer </label>
+            <div class="col-sm-4">
+                <input type="text" id="TextBox_Asset_Customer" placeholder="Customer" class="form-control" value="@Model.Customer"></input>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Availability</label>
+            <div class="col-sm-4">
+
+                @Html.EnumDropDownListFor(model => model.Availability, new { id = "DDL_Asset_Availability", @class = "form-control select2 ddl-small" })
+            </div>
+            <label class="col-sm-2 control-label">Asset Status</label>
+            <div class="col-sm-4">
+
+                @*@Html.EnumDropDownListFor(model => model.AssetStatus, new { id = "DDL_Asset_AssetStatus", @class = "form-control select2 ddl-small" })*@
+                @Html.DropDownListFor(model => model.AssetStatus, Model.AssetStatusList, new { id = "DDL_Asset_AssetStatus", @class = "form-control select2 ddl-small" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Vendor </label>
+            <div class="col-sm-4">
+                @*<input type="text" id="TextBox_Asset_Vendor" placeholder="Vendor" class="form-control" value="@Model.Vendor"></input>*@
+                @Html.DropDownListFor(model => model.Vendor, Model.VendorList, new { id = "DDL_Asset_Vendor", @class = "form-control select2 ddl-small" })
+            </div>
+            <label class="col-sm-2 control-label">Date Purchased/leased </label>
+            <div class="col-sm-4">
+                <input type="text" id="TextBox_Asset_DatePurchasedOrleased" placeholder="Date" class="form-control datepicker-here" data-language='en' value="@Model.GetPurchasedDisplayText()"></input>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Warranty Period </label>
+            <div class="col-sm-4">
+                @*<input type="text" id="TextBox_Asset_WarrantyPeriod" placeholder="Warranty Period" class="form-control" value="@Model.WarrantyPeriod"></input>*@
+                @Html.DropDownListFor(model => model.WarrantyPeriod, Model.WarrantyPeriodList, new { id = "DDL_Asset_WarrantyPeriod", @class = "form-control select2 ddl-small" })
+            </div>
+            <label class="col-sm-2 control-label">Location </label>
+            <div class="col-sm-4">
+                <input type="text" id="TextBox_Asset_Location" placeholder="Location" class="form-control" value="@Model.Location"></input>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Problem Reported </label>
+            <div class="col-sm-4">
+                @if (Model.ProblemReported)
+                {
+    <input type="checkbox" id="Chk_Asset_ProblemReported" class="chk_completion" checked="checked" data-on-text="Yes" data-off-text="No" data-size="small" @Model.ProblemReported> }
+else
+{
+    <input type="checkbox" id="Chk_Asset_ProblemReported" class="chk_completion" data-on-text="Yes" data-off-text="No" data-size="small" @Model.ProblemReported>}
+
+            </div>
+            <label class="col-sm-2 control-label">Rating </label>
+            <div class="col-sm-4">
+                <input type="text" id="TextBox_Asset_Rating" placeholder="Rating" class="form-control" value="@Model.Rating"></input>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Notes </label>
+            <div class="col-sm-7">
+                <textarea name="TextBox_Asset_Notes" rows="2" cols="20" id="TextBox_Asset_Notes" class="form-control" placeholder="Notes" style="height:80px;">@Model.NOTE</textarea>
+            </div>
+        </div>
+
+
+        <div class="form-group" style="margin-top: 20px;">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-7">
+                <input type="button" id="Button_Asset_Confirm" class="btn btn-success" value="Save Asset" onclick="AssetManagement.SaveAddEditAsset();" />
+                <input type="button" id="Button_Asset_Cancel" class="btn btn-default" value="Cancel" onclick="AssetManagement.CancelAddEdit();" />
+            </div>
+        </div>
+    </div>}
 
     </div>
 
