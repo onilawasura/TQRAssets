@@ -70,6 +70,7 @@ namespace TIQRI.ITS.Web.Controllers
             AssetViewModel.VendorList = VendorsList();
             AssetViewModel.WarrantyPeriodList = WarrantyPeriodList();
             AssetViewModel.LeasePeriodList = LeasePeriodList();
+            AssetViewModel.AssetOwnerList = AssetOwnerList();
             AssetViewModel.AssetTypeDisplayText = Helpers.Utility.GetAssetTypeDisplayString(AssetViewModel.AssetType);
             return AssetViewModel;
         }
@@ -247,6 +248,18 @@ namespace TIQRI.ITS.Web.Controllers
                         {
                             Text = lp.Name,
                             Value = lp.Name
+                        });
+        }
+
+        public IEnumerable<SelectListItem> AssetOwnerList()
+        {
+            var assetOwnerList = Helpers.AssetHelper.GetAssetOwnerList();
+            return assetOwnerList
+                    .Select(ao =>
+                        new SelectListItem
+                        {
+                            Text = ao.Name,
+                            Value = ao.Name
                         });
         }
     }

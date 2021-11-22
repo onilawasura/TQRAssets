@@ -20,6 +20,7 @@ namespace TIQRI.ITS.Domain.Models
         public string Customer { get; set; }
         public Enums.AvailabilityType Availability { get; set; }
         public string AssetStatus { get; set; }
+        public string AssetOwner { get; set; }
         public string Vendor { get; set; }
         public DateTime? DatePurchasedOrleased { get; set; }
         public string WarrantyPeriod { get; set; }

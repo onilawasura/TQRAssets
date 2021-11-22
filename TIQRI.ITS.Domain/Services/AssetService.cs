@@ -47,6 +47,7 @@ namespace TIQRI.ITS.Domain.Services
                     saveAsset.Customer = asset.Customer;
                     saveAsset.Availability = asset.Availability;
                     saveAsset.AssetStatus = asset.AssetStatus;
+                    saveAsset.AssetOwner = asset.AssetOwner;
                     saveAsset.Vendor = asset.Vendor;
                     saveAsset.DatePurchasedOrleased = asset.DatePurchasedOrleased;
                     saveAsset.WarrantyPeriod = asset.WarrantyPeriod;

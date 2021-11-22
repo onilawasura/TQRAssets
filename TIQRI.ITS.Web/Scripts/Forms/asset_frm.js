@@ -232,6 +232,7 @@
             Customer: $("#TextBox_Asset_Customer").val(),
             Availability: $("#DDL_Asset_Availability").val(),
             AssetStatus: $("#DDL_Asset_AssetStatus").val(),
+            AssetOwner: $("#DDL_Asset_AssetOwner").val(),
             Vendor: $("#DDL_Asset_Vendor").val(),
             DatePurchasedOrleased: $("#TextBox_Asset_DatePurchasedOrleased").val(),
             WarrantyPeriod: $("#DDL_Asset_WarrantyPeriod").val(),

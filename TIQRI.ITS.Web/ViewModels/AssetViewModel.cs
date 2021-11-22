@@ -43,6 +43,8 @@ namespace TIQRI.ITS.Web.ViewModels
         //public Domain.Enums.AssetStatus AssetStatus { get; set; }
         public string AssetStatus { get; set; }
         public IEnumerable<SelectListItem> AssetStatusList { get; set; }
+        public string AssetOwner { get; set; }
+        public IEnumerable<SelectListItem> AssetOwnerList { get; set; }
         public string Vendor { get; set; }
         public IEnumerable<SelectListItem> VendorList { get; set; }
         public DateTime? DatePurchasedOrleased { get; set; }
@@ -94,6 +96,7 @@ namespace TIQRI.ITS.Web.ViewModels
             this.Customer = asset.Customer;
             this.Availability = asset.Availability;
             this.AssetStatus = asset.AssetStatus;
+            this.AssetOwner = asset.AssetOwner;
             this.Vendor = asset.Vendor;
             this.DatePurchasedOrleased = asset.DatePurchasedOrleased;
             this.WarrantyPeriod = asset.WarrantyPeriod;
@@ -132,6 +135,7 @@ namespace TIQRI.ITS.Web.ViewModels
             asset.Customer = this.Customer;
             asset.Availability = this.Availability;
             asset.AssetStatus = this.AssetStatus;
+            asset.AssetOwner = this.AssetOwner;
             asset.Vendor = this.Vendor;
             asset.DatePurchasedOrleased = this.DatePurchasedOrleased;
             asset.WarrantyPeriod = this.WarrantyPeriod;

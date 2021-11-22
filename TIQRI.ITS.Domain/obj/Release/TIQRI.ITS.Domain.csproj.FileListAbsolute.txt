@@ -1,0 +1,88 @@
+D:\Development\ITS\TIQRI.ITS.Domain\bin\Release\TIQRI.ITS.Domain.dll.config
+D:\Development\ITS\TIQRI.ITS.Domain\bin\Release\TIQRI.ITS.Domain.dll
+D:\Development\ITS\TIQRI.ITS.Domain\bin\Release\TIQRI.ITS.Domain.pdb
+D:\Development\ITS\TIQRI.ITS.Domain\bin\Release\EntityFramework.dll
+D:\Development\ITS\TIQRI.ITS.Domain\bin\Release\EntityFramework.SqlServer.dll
+D:\Development\ITS\TIQRI.ITS.Domain\bin\Release\EntityFramework.xml
+D:\Development\ITS\TIQRI.ITS.Domain\bin\Release\EntityFramework.SqlServer.xml
+D:\Development\ITS\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.csprojAssemblyReference.cache
+D:\Development\ITS\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.Migrations.init.resources
+D:\Development\ITS\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.Migrations.init1.resources
+D:\Development\ITS\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.Migrations.init2.resources
+D:\Development\ITS\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.csproj.GenerateResource.cache
+D:\Development\ITS\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.csproj.CoreCompileInputs.cache
+D:\Development\ITS\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.csproj.CopyComplete
+D:\Development\ITS\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.dll
+D:\Development\ITS\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.pdb
+C:\Users\psn\Documents\Tiqri\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\bin\Release\TIQRI.ITS.Domain.dll.config
+C:\Users\psn\Documents\Tiqri\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\bin\Release\TIQRI.ITS.Domain.dll
+C:\Users\psn\Documents\Tiqri\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\bin\Release\TIQRI.ITS.Domain.pdb
+C:\Users\psn\Documents\Tiqri\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\bin\Release\EntityFramework.dll
+C:\Users\psn\Documents\Tiqri\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\psn\Documents\Tiqri\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\bin\Release\Newtonsoft.Json.dll
+C:\Users\psn\Documents\Tiqri\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\bin\Release\EntityFramework.xml
+C:\Users\psn\Documents\Tiqri\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\psn\Documents\Tiqri\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\bin\Release\Newtonsoft.Json.xml
+C:\Users\psn\Documents\Tiqri\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.csproj.AssemblyReference.cache
+C:\Users\psn\Documents\Tiqri\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.Migrations.init.resources
+C:\Users\psn\Documents\Tiqri\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.Migrations.init1.resources
+C:\Users\psn\Documents\Tiqri\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.Migrations.init2.resources
+C:\Users\psn\Documents\Tiqri\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.Migrations.init3.resources
+C:\Users\psn\Documents\Tiqri\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.Migrations.init4.resources
+C:\Users\psn\Documents\Tiqri\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.Migrations.init5.resources
+C:\Users\psn\Documents\Tiqri\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.Migrations.init6.resources
+C:\Users\psn\Documents\Tiqri\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.Migrations.init7.resources
+C:\Users\psn\Documents\Tiqri\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.Migrations.init8.resources
+C:\Users\psn\Documents\Tiqri\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.csproj.GenerateResource.cache
+C:\Users\psn\Documents\Tiqri\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.csproj.CoreCompileInputs.cache
+C:\Users\psn\Documents\Tiqri\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.csproj.CopyComplete
+C:\Users\psn\Documents\Tiqri\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.dll
+C:\Users\psn\Documents\Tiqri\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.pdb
+C:\Users\psn\source\repos\prod\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\bin\Release\TIQRI.ITS.Domain.dll.config
+C:\Users\psn\source\repos\prod\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\bin\Release\TIQRI.ITS.Domain.dll
+C:\Users\psn\source\repos\prod\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\bin\Release\TIQRI.ITS.Domain.pdb
+C:\Users\psn\source\repos\prod\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\bin\Release\EntityFramework.dll
+C:\Users\psn\source\repos\prod\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\psn\source\repos\prod\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\bin\Release\Newtonsoft.Json.dll
+C:\Users\psn\source\repos\prod\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\bin\Release\EntityFramework.xml
+C:\Users\psn\source\repos\prod\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\psn\source\repos\prod\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\bin\Release\Newtonsoft.Json.xml
+C:\Users\psn\source\repos\prod\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.csproj.AssemblyReference.cache
+C:\Users\psn\source\repos\prod\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.Migrations.init.resources
+C:\Users\psn\source\repos\prod\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.Migrations.init1.resources
+C:\Users\psn\source\repos\prod\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.Migrations.init2.resources
+C:\Users\psn\source\repos\prod\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.Migrations.init3.resources
+C:\Users\psn\source\repos\prod\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.Migrations.init4.resources
+C:\Users\psn\source\repos\prod\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.Migrations.init5.resources
+C:\Users\psn\source\repos\prod\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.Migrations.init6.resources
+C:\Users\psn\source\repos\prod\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.Migrations.init7.resources
+C:\Users\psn\source\repos\prod\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.Migrations.init8.resources
+C:\Users\psn\source\repos\prod\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.csproj.GenerateResource.cache
+C:\Users\psn\source\repos\prod\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.csproj.CoreCompileInputs.cache
+C:\Users\psn\source\repos\prod\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.csproj.CopyComplete
+C:\Users\psn\source\repos\prod\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.dll
+C:\Users\psn\source\repos\prod\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.pdb
+C:\Users\psn\source\repos\dev\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\bin\Release\TIQRI.ITS.Domain.dll.config
+C:\Users\psn\source\repos\dev\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\bin\Release\TIQRI.ITS.Domain.dll
+C:\Users\psn\source\repos\dev\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\bin\Release\TIQRI.ITS.Domain.pdb
+C:\Users\psn\source\repos\dev\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\bin\Release\EntityFramework.dll
+C:\Users\psn\source\repos\dev\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\psn\source\repos\dev\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\bin\Release\Newtonsoft.Json.dll
+C:\Users\psn\source\repos\dev\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\bin\Release\EntityFramework.xml
+C:\Users\psn\source\repos\dev\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\psn\source\repos\dev\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\bin\Release\Newtonsoft.Json.xml
+C:\Users\psn\source\repos\dev\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.csproj.AssemblyReference.cache
+C:\Users\psn\source\repos\dev\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.Migrations.init.resources
+C:\Users\psn\source\repos\dev\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.Migrations.init1.resources
+C:\Users\psn\source\repos\dev\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.Migrations.init2.resources
+C:\Users\psn\source\repos\dev\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.Migrations.init3.resources
+C:\Users\psn\source\repos\dev\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.Migrations.init4.resources
+C:\Users\psn\source\repos\dev\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.Migrations.init5.resources
+C:\Users\psn\source\repos\dev\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.Migrations.init6.resources
+C:\Users\psn\source\repos\dev\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.Migrations.init7.resources
+C:\Users\psn\source\repos\dev\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.Migrations.init8.resources
+C:\Users\psn\source\repos\dev\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.csproj.GenerateResource.cache
+C:\Users\psn\source\repos\dev\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.csproj.CoreCompileInputs.cache
+C:\Users\psn\source\repos\dev\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.csproj.CopyComplete
+C:\Users\psn\source\repos\dev\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.dll
+C:\Users\psn\source\repos\dev\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Release\TIQRI.ITS.Domain.pdb
