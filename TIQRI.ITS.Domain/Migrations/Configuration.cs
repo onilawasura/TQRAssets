@@ -44,11 +44,13 @@ namespace TIQRI.ITS.Domain.Migrations
 
             context.AssetStatuses.AddOrUpdate(
              m => m.Name,
-             new Models.AssetStatusTbl { Name = "Running" },
              new Models.AssetStatusTbl { Name = "Available" },
+             new Models.AssetStatusTbl { Name = "Assigned " },
              new Models.AssetStatusTbl { Name = "Repair" },
-             new Models.AssetStatusTbl { Name = "To Be Di" },
-             new Models.AssetStatusTbl { Name = "Dispose" }
+             new Models.AssetStatusTbl { Name = "Defective" },
+             new Models.AssetStatusTbl { Name = "Disposed" },
+             new Models.AssetStatusTbl { Name = "Lost/Missing" },
+             new Models.AssetStatusTbl { Name = "Donated" }
              );
 
             context.Processors.AddOrUpdate(
@@ -110,6 +112,20 @@ namespace TIQRI.ITS.Domain.Migrations
             new Models.LeasePeriod { Name = "3 Year" }
             );
 
+            context.LeasePeriods.AddOrUpdate(
+            m => m.Name,
+            new Models.LeasePeriod { Name = "1 year" },
+            new Models.LeasePeriod { Name = "2 Year" },
+            new Models.LeasePeriod { Name = "3 Year" }
+            );
+
+            context.AssetOwners.AddOrUpdate(
+           m => m.Name,
+           new Models.AssetOwner { Name = "TIQRI" },
+           new Models.AssetOwner { Name = "TIQRI AS" },
+           new Models.AssetOwner { Name = "TIQRI AU" },
+           new Models.AssetOwner { Name = "Customer" }
+           );
         }
     }
 }
