@@ -112,7 +112,6 @@ C:\Users\psn\Documents\Tiqri\New_Repo\TQRAssets\TIQRI.ITS.Domain\bin\Debug\Newto
 C:\Users\psn\Documents\Tiqri\New_Repo\TQRAssets\TIQRI.ITS.Domain\bin\Debug\EntityFramework.xml
 C:\Users\psn\Documents\Tiqri\New_Repo\TQRAssets\TIQRI.ITS.Domain\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\psn\Documents\Tiqri\New_Repo\TQRAssets\TIQRI.ITS.Domain\bin\Debug\Newtonsoft.Json.xml
-C:\Users\psn\Documents\Tiqri\New_Repo\TQRAssets\TIQRI.ITS.Domain\obj\Debug\TIQRI.ITS.Domain.csproj.AssemblyReference.cache
 C:\Users\psn\Documents\Tiqri\New_Repo\TQRAssets\TIQRI.ITS.Domain\obj\Debug\TIQRI.ITS.Domain.Migrations.init.resources
 C:\Users\psn\Documents\Tiqri\New_Repo\TQRAssets\TIQRI.ITS.Domain\obj\Debug\TIQRI.ITS.Domain.Migrations.init1.resources
 C:\Users\psn\Documents\Tiqri\New_Repo\TQRAssets\TIQRI.ITS.Domain\obj\Debug\TIQRI.ITS.Domain.Migrations.init2.resources

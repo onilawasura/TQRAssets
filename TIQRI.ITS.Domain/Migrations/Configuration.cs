@@ -126,6 +126,8 @@ namespace TIQRI.ITS.Domain.Migrations
            new Models.AssetOwner { Name = "TIQRI AU" },
            new Models.AssetOwner { Name = "Customer" }
            );
+
+           
         }
     }
 }

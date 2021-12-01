@@ -120,5 +120,16 @@ namespace TIQRI.ITS.Web.Controllers.Api
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
 
+        [HttpPost]
+        public async Task<HttpResponseMessage> SaveAssetOwner(AddNewDataViewModel assetOwner)
+        {
+            var status = await new AssetService().SaveAssetOwner(assetOwner.MapToAssetOwner(), new UserProfile()
+            {
+                UserName = assetOwner.UserName
+            });
+
+            return new HttpResponseMessage(HttpStatusCode.OK);
+        }
+
     }
 }
