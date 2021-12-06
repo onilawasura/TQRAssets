@@ -273,9 +273,11 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AddNewDataViewModel.cs" />
     <Compile Include="ViewModels\AsseReportViewModel.cs" />
+    <Compile Include="ViewModels\EmpDetails.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\AssetViewModel.cs" />
     <Compile Include="ViewModels\PbiEmbeddedManager.cs" />
+    <Compile Include="ViewModels\ProductDetails.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />

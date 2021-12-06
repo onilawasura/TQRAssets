@@ -109,6 +109,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Administrator.cs" />
+    <Compile Include="Models\AdministratorAssetStatus.cs" />
     <Compile Include="Models\AssetOwnerHistory.cs" />
     <Compile Include="Models\AssetStatus.cs" />
     <Compile Include="Models\AuditLog.cs" />

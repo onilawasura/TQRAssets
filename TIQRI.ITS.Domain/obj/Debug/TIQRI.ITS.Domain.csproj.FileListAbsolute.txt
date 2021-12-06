@@ -103,3 +103,28 @@ C:\Users\psn\source\repos\dev\inventory niluka\tiqri-assists-inventory-b482dd79e
 C:\Users\psn\source\repos\dev\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Debug\TIQRI.ITS.Domain.csproj.CopyComplete
 C:\Users\psn\source\repos\dev\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Debug\TIQRI.ITS.Domain.dll
 C:\Users\psn\source\repos\dev\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Debug\TIQRI.ITS.Domain.pdb
+D:\Projects\Github\TQRAssets\TIQRI.ITS.Domain\bin\Debug\TIQRI.ITS.Domain.dll.config
+D:\Projects\Github\TQRAssets\TIQRI.ITS.Domain\bin\Debug\TIQRI.ITS.Domain.dll
+D:\Projects\Github\TQRAssets\TIQRI.ITS.Domain\bin\Debug\TIQRI.ITS.Domain.pdb
+D:\Projects\Github\TQRAssets\TIQRI.ITS.Domain\bin\Debug\EntityFramework.dll
+D:\Projects\Github\TQRAssets\TIQRI.ITS.Domain\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\Github\TQRAssets\TIQRI.ITS.Domain\bin\Debug\Newtonsoft.Json.dll
+D:\Projects\Github\TQRAssets\TIQRI.ITS.Domain\bin\Debug\EntityFramework.xml
+D:\Projects\Github\TQRAssets\TIQRI.ITS.Domain\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\Github\TQRAssets\TIQRI.ITS.Domain\bin\Debug\Newtonsoft.Json.xml
+D:\Projects\Github\TQRAssets\TIQRI.ITS.Domain\obj\Debug\TIQRI.ITS.Domain.csproj.AssemblyReference.cache
+D:\Projects\Github\TQRAssets\TIQRI.ITS.Domain\obj\Debug\TIQRI.ITS.Domain.Migrations.init.resources
+D:\Projects\Github\TQRAssets\TIQRI.ITS.Domain\obj\Debug\TIQRI.ITS.Domain.Migrations.init1.resources
+D:\Projects\Github\TQRAssets\TIQRI.ITS.Domain\obj\Debug\TIQRI.ITS.Domain.Migrations.init2.resources
+D:\Projects\Github\TQRAssets\TIQRI.ITS.Domain\obj\Debug\TIQRI.ITS.Domain.Migrations.init3.resources
+D:\Projects\Github\TQRAssets\TIQRI.ITS.Domain\obj\Debug\TIQRI.ITS.Domain.Migrations.init4.resources
+D:\Projects\Github\TQRAssets\TIQRI.ITS.Domain\obj\Debug\TIQRI.ITS.Domain.Migrations.init5.resources
+D:\Projects\Github\TQRAssets\TIQRI.ITS.Domain\obj\Debug\TIQRI.ITS.Domain.Migrations.init6.resources
+D:\Projects\Github\TQRAssets\TIQRI.ITS.Domain\obj\Debug\TIQRI.ITS.Domain.Migrations.init7.resources
+D:\Projects\Github\TQRAssets\TIQRI.ITS.Domain\obj\Debug\TIQRI.ITS.Domain.Migrations.init8.resources
+D:\Projects\Github\TQRAssets\TIQRI.ITS.Domain\obj\Debug\TIQRI.ITS.Domain.Migrations._20211116_init9.resources
+D:\Projects\Github\TQRAssets\TIQRI.ITS.Domain\obj\Debug\TIQRI.ITS.Domain.Migrations._20211116_init10.resources
+D:\Projects\Github\TQRAssets\TIQRI.ITS.Domain\obj\Debug\TIQRI.ITS.Domain.csproj.GenerateResource.cache
+D:\Projects\Github\TQRAssets\TIQRI.ITS.Domain\obj\Debug\TIQRI.ITS.Domain.csproj.CoreCompileInputs.cache
+D:\Projects\Github\TQRAssets\TIQRI.ITS.Domain\obj\Debug\TIQRI.ITS.Domain.dll
+D:\Projects\Github\TQRAssets\TIQRI.ITS.Domain\obj\Debug\TIQRI.ITS.Domain.pdb
