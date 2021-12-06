@@ -331,6 +331,42 @@
                 </div>
             }
 
+            @if (Model.viewType == "AssetOwner")
+            {
+                <div class="card-header" id="headingTwo">
+                    <div class="accordion-heading">
+                        <button type="button" class="btn btn-link">
+                            Edit Asset Owner
+                        </button>
+                    </div>
+                </div>
+
+                <div id="collapseTwo" class="card-bodycollapse in">
+                    <div class="accordion-inner">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+
+                                    <input type="text" id="TextBox_AssetOwner_ID" readonly class="form-control" value="@Model.Id"></input>
+
+                                </div>
+
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+                                    <input type="text" id="TextBox_Asset_AssetOwner" placeholder="Warranty Period" class="form-control" value="@Model.name"></input>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <button class="btn btn-success form-control" style="margin:0" onclick="AssetManagement.AddSaveAssetOwner();">Save Asset Owner</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
+
         </div>
     </div>
 </div>

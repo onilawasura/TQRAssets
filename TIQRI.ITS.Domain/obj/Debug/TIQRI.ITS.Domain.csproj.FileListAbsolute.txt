@@ -103,3 +103,17 @@ C:\Users\psn\source\repos\dev\inventory niluka\tiqri-assists-inventory-b482dd79e
 C:\Users\psn\source\repos\dev\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Debug\TIQRI.ITS.Domain.csproj.CopyComplete
 C:\Users\psn\source\repos\dev\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Debug\TIQRI.ITS.Domain.dll
 C:\Users\psn\source\repos\dev\inventory niluka\tiqri-assists-inventory-b482dd79e885\tiqri-assists-inventory-b482dd79e885\TIQRI.ITS.Domain\obj\Debug\TIQRI.ITS.Domain.pdb
+C:\Users\psn\Documents\Tiqri\New_Repo\TQRAssets\TIQRI.ITS.Domain\bin\Debug\TIQRI.ITS.Domain.dll.config
+C:\Users\psn\Documents\Tiqri\New_Repo\TQRAssets\TIQRI.ITS.Domain\bin\Debug\TIQRI.ITS.Domain.dll
+C:\Users\psn\Documents\Tiqri\New_Repo\TQRAssets\TIQRI.ITS.Domain\bin\Debug\TIQRI.ITS.Domain.pdb
+C:\Users\psn\Documents\Tiqri\New_Repo\TQRAssets\TIQRI.ITS.Domain\bin\Debug\EntityFramework.dll
+C:\Users\psn\Documents\Tiqri\New_Repo\TQRAssets\TIQRI.ITS.Domain\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\psn\Documents\Tiqri\New_Repo\TQRAssets\TIQRI.ITS.Domain\bin\Debug\Newtonsoft.Json.dll
+C:\Users\psn\Documents\Tiqri\New_Repo\TQRAssets\TIQRI.ITS.Domain\bin\Debug\EntityFramework.xml
+C:\Users\psn\Documents\Tiqri\New_Repo\TQRAssets\TIQRI.ITS.Domain\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\psn\Documents\Tiqri\New_Repo\TQRAssets\TIQRI.ITS.Domain\bin\Debug\Newtonsoft.Json.xml
+C:\Users\psn\Documents\Tiqri\New_Repo\TQRAssets\TIQRI.ITS.Domain\obj\Debug\TIQRI.ITS.Domain.csproj.CoreCompileInputs.cache
+C:\Users\psn\Documents\Tiqri\New_Repo\TQRAssets\TIQRI.ITS.Domain\obj\Debug\TIQRI.ITS.Domain.csproj.CopyComplete
+C:\Users\psn\Documents\Tiqri\New_Repo\TQRAssets\TIQRI.ITS.Domain\obj\Debug\TIQRI.ITS.Domain.dll
+C:\Users\psn\Documents\Tiqri\New_Repo\TQRAssets\TIQRI.ITS.Domain\obj\Debug\TIQRI.ITS.Domain.pdb
+C:\Users\psn\Documents\Tiqri\New_Repo\TQRAssets\TIQRI.ITS.Domain\obj\Debug\TIQRI.ITS.Domain.csproj.AssemblyReference.cache

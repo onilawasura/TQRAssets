@@ -469,6 +469,45 @@ namespace TIQRI.ITS.Domain.Services
             return status;
         }
 
+        public async Task<TransactionStatus> SaveAssetOwner(AssetOwner assetOwner, UserProfile userProfile)
+        {
+            var status = new TransactionStatus() { IsSuccessfull = true };
+            AssetOwner saveAssetOwner = null;
+            try
+            {
+                var context = new Context();
+                var createOwnerUpdate = false;
+                if (assetOwner.Id == 0)
+                {
+                    assetOwner.DateCreated = DateTime.UtcNow;
+                    assetOwner.DateLastUpdated = DateTime.UtcNow;
+                    assetOwner.UserLastUpdated = userProfile.UserName;
+                    createOwnerUpdate = true;
+                    context.AssetOwners.Add(assetOwner);
+                }
+                else
+                {
+                    saveAssetOwner = context.AssetOwners.Single(a => a.Id == assetOwner.Id);
+
+                    saveAssetOwner.Name = assetOwner.Name;
+                    saveAssetOwner.DateLastUpdated = DateTime.UtcNow;
+                    saveAssetOwner.UserLastUpdated = userProfile.UserName;
+                }
+
+
+                context.SaveChanges(userProfile.UserName);
+
+            }
+            catch (Exception exception)
+            {
+                status.IsSuccessfull = false;
+                status.Message = exception.Message;
+                status.Exception = exception;
+            }
+
+            return status;
+        }
+
         public List<Asset> SearchAsset(SearchQueries.AssetSearchQuery searchQuery)
         {
             using (var context = new Context())
@@ -684,6 +723,20 @@ namespace TIQRI.ITS.Domain.Services
             using (var context = new Context())
             {
                 IQueryable<WarrantyPeriod> query = context.WarrantyPeriods;
+
+                if (!string.IsNullOrEmpty(searchQuery.GlobalText))
+                {
+                    query = query.Where(c => c.Name.Contains(searchQuery.GlobalText));
+                }
+                return query.OrderBy(a => a.Id).ToList();
+            }
+        }
+
+        public List<AssetOwner> SearchAssetOwner(SearchQueries.ModelOrManufSearchQuery searchQuery)
+        {
+            using (var context = new Context())
+            {
+                IQueryable<AssetOwner> query = context.AssetOwners;
 
                 if (!string.IsNullOrEmpty(searchQuery.GlobalText))
                 {

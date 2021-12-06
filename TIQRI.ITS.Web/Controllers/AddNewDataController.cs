@@ -75,6 +75,10 @@ namespace TIQRI.ITS.Web.Controllers
             {
                 addNewDataViewModel = GetWarrantyPeriod(id);
             }
+            else if (type == "AssetOwner")
+            {
+                addNewDataViewModel = GetAssetOwner(id);
+            }
             return View(addNewDataViewModel);
         }
 
@@ -220,6 +224,22 @@ namespace TIQRI.ITS.Web.Controllers
             return AddNewDataViewModel;
         }
 
+        private AddNewDataViewModel GetAssetOwner(int? id)
+        {
+            var AddNewDataViewModel = new AddNewDataViewModel();
+
+            var context = new Context();
+            if (id != null && id != 0)
+            {
+                AddNewDataViewModel.MapFromAssetOwner(context.AssetOwners.Single(a => a.Id == id.Value));
+            }
+            else
+            {
+
+            }
+            return AddNewDataViewModel;
+        }
+
         public ActionResult SearchModelList(string searchText)
         {
             var modelList = new AssetService().SearchModel(new ModelOrManufSearchQuery()
@@ -303,6 +323,16 @@ namespace TIQRI.ITS.Web.Controllers
         public ActionResult SearchWarrantyPeriodList(string searchText)
         {
             var processorList = new AssetService().SearchWarrantyPeriod(new ModelOrManufSearchQuery()
+            {
+                GlobalText = searchText
+            });
+
+            return View(processorList);
+        }
+
+        public ActionResult SearchAssetOwnerList(string searchText)
+        {
+            var processorList = new AssetService().SearchAssetOwner(new ModelOrManufSearchQuery()
             {
                 GlobalText = searchText
             });
