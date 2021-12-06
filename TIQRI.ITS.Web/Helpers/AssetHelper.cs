@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using TIQRI.ITS.Domain.Enums;
 using TIQRI.ITS.Domain.Models;
+using TIQRI.ITS.Web.ViewModels;
 
 namespace TIQRI.ITS.Web.Helpers
 {
@@ -64,6 +65,80 @@ namespace TIQRI.ITS.Web.Helpers
             }
 
             return assetStatusList;
+        }
+
+        public static EmpDetails GetEmployeeProductsDetails(string userName, string name)
+        {
+            string query = "SELECT AssetType, Manufacture, Model, AssetNumber, ManufactureSN FROM Assets WHERE UserId ='" + userName+ "'";
+            var prodDetailsDT = SqlHelper.ExecuteStatement(query, "DefaultConnection");
+            var prodDetails = new List<ProductDetails>();
+            if(prodDetailsDT.Rows.Count > 0)
+            {
+                for(int i=0; i < prodDetailsDT.Rows.Count; i++)
+                {
+                    prodDetails.Add(new ProductDetails
+                    {
+                        AssetType = Utility.GetAssetTypeDisplayString((AssetType)Convert.ToInt32(prodDetailsDT.Rows[i]["AssetType"])),
+                        Manufacture = prodDetailsDT.Rows[i]["Manufacture"].ToString(),
+                        Model = prodDetailsDT.Rows[i]["Model"].ToString(),
+                        AssetNumber = prodDetailsDT.Rows[i]["AssetNumber"].ToString(),
+                        ManufactureSN = prodDetailsDT.Rows[i]["ManufactureSN"].ToString()
+                    });
+                }
+            }
+
+            EmpDetails empDetails = new EmpDetails()
+            {
+                EmpName = name,
+                ProductList = prodDetails
+            };
+            return empDetails;
+        }
+
+        public static int GetAssetStatusId(string name)
+        {
+            int assetStatusID = 0;
+            string query = "SELECT Id FROM[dbo].[AssetStatusTbls] WHERE Name = '" + name + "' AND Archived = 0";
+            var assetStatusIDDT = SqlHelper.ExecuteStatement(query, "DefaultConnection");
+            if(assetStatusIDDT.Rows.Count > 0)
+            {
+                assetStatusID = Convert.ToInt32(assetStatusIDDT.Rows[0]["Id"]);
+            }
+
+            return assetStatusID;
+        }
+
+        public static IList<AdministratorAssetStatus> GetAssetApprovalAdminIdList(int id)
+        {
+            string query = "  SELECT AdminId FROM [dbo].[AdministratorAssetStatus] WHERE AssetStatusId = '" + id +  "' AND Archived = 0";
+            var AssetApprovalAdminIdListDT = SqlHelper.ExecuteStatement(query, "DefaultConnection");
+            var AssetApprovalAdminIdList = new List<AdministratorAssetStatus>();
+            for(int i=0; i < AssetApprovalAdminIdListDT.Rows.Count; i++)
+            {
+                AssetApprovalAdminIdList.Add(new AdministratorAssetStatus()
+                {
+                    AdminId = AssetApprovalAdminIdListDT.Rows[i]["AdminId"].ToString()
+                });
+            }
+
+            return AssetApprovalAdminIdList;
+        }
+
+        public static IList<AdministratorAssetStatus> GetAdminAssetStatusList()
+        {
+            var assetStatusDT =
+                SqlHelper.ExecuteStatement(
+                    "SELECT [AdminId] FROM [inventory].[dbo].[AdministratorAssetStatus]", "DefaultConnection");
+
+            var AdminAssetStatusList = new List<AdministratorAssetStatus>();
+            for (int i = 0; i < assetStatusDT.Rows.Count; i++)
+            {
+                AdminAssetStatusList.Add(new AdministratorAssetStatus()
+                {
+                    AdminId = assetStatusDT.Rows[i]["AdminId"].ToString() 
+                });
+            }
+            return AdminAssetStatusList;
         }
 
         public static IList<Processor> GetProcessorList()

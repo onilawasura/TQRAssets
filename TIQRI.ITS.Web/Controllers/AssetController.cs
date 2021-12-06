@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using TIQRI.ITS.Domain.Enums;
+using TIQRI.ITS.Domain.Helpers;
 using TIQRI.ITS.Domain.Models;
 using TIQRI.ITS.Domain.SearchQueries;
 using TIQRI.ITS.Domain.Services;
@@ -32,7 +35,7 @@ namespace TIQRI.ITS.Web.Controllers
             });
             return View(AssetList);
         }
-
+          
         
 
         public ActionResult AddEditAsset(string assetType,int? id)
@@ -40,6 +43,27 @@ namespace TIQRI.ITS.Web.Controllers
             var model = GetAssetModel(id, assetType);
             model.ProfileObjectString = Helpers.ScriptObjectHelper.GetProfileListObjectScript(model.UserProfileList);
             return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult GetAssetStatusUpdateList(AssetViewModel assetViewModel)
+        {
+            assetViewModel.AssetStatusApproveList = GetAssetStatusApprovalAdminList(assetViewModel.AssetStatus);
+            return Json(assetViewModel.AssetStatusApproveList, JsonRequestBehavior.AllowGet);
+        }
+
+        private IEnumerable<SelectListItem> GetAssetStatusApprovalAdminList(string id)
+        {
+            var assetStatusId = Helpers.AssetHelper.GetAssetStatusId(id);
+            var assetStatusApprovalAdminIdList = Helpers.AssetHelper.GetAssetApprovalAdminIdList(assetStatusId);
+            var allEmployeeList = Helpers.HRDataHelper.GetBlankEmployeeList();
+            return allEmployeeList.Where(x => assetStatusApprovalAdminIdList.
+            Any(y => y.AdminId == x.UserName))
+                .Select(z => new SelectListItem
+                {
+                    Text = z.Name,
+                    Value = z.UserName
+                }).ToList();
         }
 
         private AssetViewModel GetAssetModel(int? id, string assetType)
@@ -50,6 +74,7 @@ namespace TIQRI.ITS.Web.Controllers
             if (id != null && id != 0)
             {
                 AssetViewModel.MapFromAsset(context.Assets.Single(a => a.Id == id.Value));
+                AssetViewModel.LoggedUser = Session["UserName"].ToString();
             }
             else
             {
@@ -170,6 +195,18 @@ namespace TIQRI.ITS.Web.Controllers
                             Text = assetStatus.Name,
                             Value = assetStatus.Name
                         });
+        }
+
+        public IEnumerable<SelectListItem> AdminAssetStastusList()
+        {
+            var adminAssetStatusList = Helpers.AssetHelper.GetAdminAssetStatusList();
+            var allEmployeeList = Helpers.HRDataHelper.GetBlankEmployeeList();
+            return allEmployeeList.Where(x => adminAssetStatusList.
+            Any(y => y.AdminId == x.UserName))
+                .Select(z => new SelectListItem { 
+                    Text = z.Name,
+                    Value = z.UserName
+                });
         }
 
         public IEnumerable<SelectListItem> ProcessorsList()

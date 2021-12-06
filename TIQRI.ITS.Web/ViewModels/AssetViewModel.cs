@@ -81,6 +81,10 @@ namespace TIQRI.ITS.Web.ViewModels
 
         public string UserName { get; set; }
         public int? IncrementNumber { get; set; }
+        public string AssetApproveId { get; set; }
+        public IEnumerable<SelectListItem> AssetStatusApproveList { get; set; }
+        public bool? IsApproved { get; set; }
+        public string LoggedUser { get; set; }
 
         public void MapFromAsset(Asset asset)
         {
@@ -118,6 +122,8 @@ namespace TIQRI.ITS.Web.ViewModels
             this.LeasePeriod = asset.LeasePeriod;
             this.Cost = asset.Cost;
             this.IncrementNumber = asset.IncrementNumber;
+            this.AssetApproveId = asset.AssetApproveId;
+            this.IsApproved = asset.IsApproved;
         }
 
         public Asset MapToAsset()
@@ -157,6 +163,7 @@ namespace TIQRI.ITS.Web.ViewModels
             asset.LeasePeriod = this.LeasePeriod;
             asset.Cost = this.Cost;
             asset.IncrementNumber = this.IncrementNumber;
+            asset.AssetApproveId = this.AssetApproveId;
 
             if (!string.IsNullOrEmpty(asset.UserId))
             {

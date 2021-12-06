@@ -25,6 +25,10 @@ namespace TIQRI.ITS.Domain.Services
                     asset.UserLastUpdated = userProfile.UserName;
                     createOwnerUpdate = true;
                     context.Assets.Add(asset);
+                    if(asset.AssetStatus == "Disposed" || asset.AssetStatus == "Donated")
+                    {
+                        await SendAdminApprovalRequestEmailAsync(asset);
+                    }
                 }
                 else
                 {
@@ -70,6 +74,7 @@ namespace TIQRI.ITS.Domain.Services
                     saveAsset.Cost = asset.Cost;
                     saveAsset.DateLastUpdated = DateTime.UtcNow;
                     saveAsset.UserLastUpdated = userProfile.UserName;
+                    saveAsset.AssetApproveId = asset.AssetApproveId;
                 }
 
 
@@ -93,13 +98,46 @@ namespace TIQRI.ITS.Domain.Services
                 }
 
                 #endregion
-
                 context.SaveChanges(userProfile.UserName);
 
-                if (createOwnerUpdate)
+
+                if (asset.AssetStatus == "Disposed" || asset.AssetStatus == "Donated")
                 {
-                    await SendOwnerUpdateEmailAsync(saveAsset);
+                    await SendAdminApprovalRequestEmailAsync(asset);
                 }
+
+
+                //if (createOwnerUpdate)
+                //{
+                //    await SendOwnerUpdateEmailAsync(saveAsset);
+                //}
+
+            }
+            catch (Exception exception)
+            {
+                status.IsSuccessfull = false;
+                status.Message = exception.Message;
+                status.Exception = exception;
+            }
+
+            return status;
+        }
+
+        public void SendVerifyAssetDetails(string toAddress, string subject, string body)
+        {
+            new EmailHelper().SendEMailsync(toAddress, subject, body);
+        }
+
+        public async Task<TransactionStatus> UpdateAssetStatusAprroval(Asset asset, UserProfile userProfile)
+        {
+            var status = new TransactionStatus() { IsSuccessfull = true };
+            Asset saveAsset = null;
+            try
+            {
+                var context = new Context();
+                saveAsset = context.Assets.Single(a => a.Id == asset.Id);
+                saveAsset.IsApproved = true;
+                context.SaveChanges(userProfile.UserName);
             }
             catch (Exception exception)
             {
@@ -699,6 +737,14 @@ namespace TIQRI.ITS.Domain.Services
         {
             return new EmailHelper().SendEMailsync(asset.UserId, "TIQRI Asset Inventory - New Allocation", string.Format("New asset allocated to you. <br><br>Asset ID: {0}<br>Type : {1}<br>Model: {2}<br><br><br>Thank you.<br><br><br>",
                 asset.AssetNumber, asset.AssetType, asset.Model));
+        }
+
+        public Task SendAdminApprovalRequestEmailAsync(Asset asset)
+        {
+            string Subject = "Requesting Approval to " + asset.AssetStatus + " a asset";
+            string body = "Asset Id - " + asset.AssetNumber + " is Requested to " + asset.AssetStatus;
+            return new EmailHelper().SendEMailsync(
+                asset.AssetApproveId, Subject, body);
         }
 
     }
