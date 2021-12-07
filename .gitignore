@@ -2,3 +2,4 @@ packages/
 TIQRI.ITS.DataMigration/
 TIQRI.ITS.Web/bin/
 TIQRI.ITS.Web/obj/
+/TIQRI.ITS.Domain/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttributes.cs
