@@ -870,6 +870,7 @@
     <Content Include="Views\AddNewData\SearchLeasePeriodList.cshtml" />
     <Content Include="Views\AddNewData\SearchWarrantyPeriodList.cshtml" />
     <Content Include="Views\AddNewData\SearchVendorList.cshtml" />
+    <Content Include="Views\AddNewData\SearchAssetOwnerList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

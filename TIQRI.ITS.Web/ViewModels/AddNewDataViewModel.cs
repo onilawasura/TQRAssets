@@ -180,5 +180,23 @@ namespace TIQRI.ITS.Web.ViewModels
             this.viewType = "WarrantyPeriod";
 
         }
+
+        public AssetOwner MapToAssetOwner()
+        {
+            var assetOwner = new AssetOwner();
+            assetOwner.Id = this.Id;
+            assetOwner.Name = this.name;
+
+
+            return assetOwner;
+        }
+
+        public void MapFromAssetOwner(AssetOwner assetOwner)
+        {
+            this.Id = assetOwner.Id;
+            this.name = assetOwner.Name;
+            this.viewType = "AssetOwner";
+
+        }
     }
 }

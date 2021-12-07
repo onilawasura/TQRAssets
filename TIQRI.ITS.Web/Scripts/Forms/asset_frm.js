@@ -66,6 +66,12 @@
 
             });
         }
+        else if (category == "Asset Owner") {
+            $('#DIV_AssetManagementList').html($("#DIV_InnerPageContent_Loading").html());
+            $('#DIV_AssetManagementList').load("/AddNewData/SearchAssetOwnerList?searchText=" + searchText, new function () {
+
+            });
+        }
         
     };
     this.findAssets = function () {
@@ -217,6 +223,15 @@
         azyncLockPost("../Api/Asset/SaveWarrantyPeriod", Warranty, AssetManagement.SaveSucsussfull, ConnectionError);
     }
 
+    this.addSaveAssetOwner = function () {
+        var AssetOwner = {
+            UserName: $("#System_Logged_UserName").val(),
+            Name: $("#TextBox_Asset_AssetOwner").val(),
+            Id: $("#TextBox_AssetOwner_ID").val()
+        }
+        azyncLockPost("../Api/Asset/SaveAssetOwner", AssetOwner, AssetManagement.SaveSucsussfull, ConnectionError);
+    }
+
     this.saveAddEditAsset = function () {
 
         var Asset = {
@@ -346,7 +361,8 @@
         AddSaveScreenSize: addSaveScreenSize,
         AddSaveVendor: addSaveVendor,
         AddSaveLeasePeriod: addSaveLeasePeriod,
-        AddSaveWarrantyPeriod: addSaveWarrantyPeriod
+        AddSaveWarrantyPeriod: addSaveWarrantyPeriod,
+        AddSaveAssetOwner:addSaveAssetOwner
     };
 
 })();
