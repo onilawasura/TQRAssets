@@ -63,52 +63,9 @@
     <Compile Include="Enums\AvailabilityType.cs" />
     <Compile Include="Enums\AssetType.cs" />
     <Compile Include="Helpers\EmailHelper.cs" />
-    <Compile Include="Migrations\201812230426202_init.cs" />
-    <Compile Include="Migrations\201812230426202_init.Designer.cs">
-      <DependentUpon>201812230426202_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201812240432059_init1.cs" />
-    <Compile Include="Migrations\201812240432059_init1.Designer.cs">
-      <DependentUpon>201812240432059_init1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201812240914313_init2.cs" />
-    <Compile Include="Migrations\201812240914313_init2.Designer.cs">
-      <DependentUpon>201812240914313_init2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103111148238_init3.cs" />
-    <Compile Include="Migrations\202103111148238_init3.Designer.cs">
-      <DependentUpon>202103111148238_init3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103120509164_init4.cs" />
-    <Compile Include="Migrations\202103120509164_init4.Designer.cs">
-      <DependentUpon>202103120509164_init4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103150543435_init5.cs" />
-    <Compile Include="Migrations\202103150543435_init5.Designer.cs">
-      <DependentUpon>202103150543435_init5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103150748167_init6.cs" />
-    <Compile Include="Migrations\202103150748167_init6.Designer.cs">
-      <DependentUpon>202103150748167_init6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103152311522_init7.cs" />
-    <Compile Include="Migrations\202103152311522_init7.Designer.cs">
-      <DependentUpon>202103152311522_init7.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103180837063_init8.cs" />
-    <Compile Include="Migrations\202103180837063_init8.Designer.cs">
-      <DependentUpon>202103180837063_init8.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111161626029_20211116_init9.cs" />
-    <Compile Include="Migrations\202111161626029_20211116_init9.designer.cs">
-      <DependentUpon>202111161626029_20211116_init9.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111161927568_20211116_init10.cs" />
-    <Compile Include="Migrations\202111161927568_20211116_init10.designer.cs">
-      <DependentUpon>202111161927568_20211116_init10.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Administrator.cs" />
+    <Compile Include="Models\AdministratorAssetStatus.cs" />
     <Compile Include="Models\AssetOwnerHistory.cs" />
     <Compile Include="Models\AssetStatus.cs" />
     <Compile Include="Models\AuditLog.cs" />
@@ -143,41 +100,6 @@
     <None Include="fonts\glyphicons-halflings-regular.woff" />
     <None Include="packages.config" />
     <None Include="Scripts\jquery-1.9.0.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812230426202_init.resx">
-      <DependentUpon>201812230426202_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812240432059_init1.resx">
-      <DependentUpon>201812240432059_init1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812240914313_init2.resx">
-      <DependentUpon>201812240914313_init2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103111148238_init3.resx">
-      <DependentUpon>202103111148238_init3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103120509164_init4.resx">
-      <DependentUpon>202103120509164_init4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103150543435_init5.resx">
-      <DependentUpon>202103150543435_init5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103150748167_init6.resx">
-      <DependentUpon>202103150748167_init6.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103152311522_init7.resx">
-      <DependentUpon>202103152311522_init7.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103180837063_init8.resx">
-      <DependentUpon>202103180837063_init8.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111161626029_20211116_init9.resx">
-      <DependentUpon>202111161626029_20211116_init9.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111161927568_20211116_init10.resx">
-      <DependentUpon>202111161927568_20211116_init10.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
