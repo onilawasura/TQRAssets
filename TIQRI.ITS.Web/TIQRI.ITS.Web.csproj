@@ -785,6 +785,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\common.js" />
     <Content Include="Scripts\delay_callprovider.js" />
+    <Content Include="Scripts\Forms\asset_opr.js" />
     <Content Include="Scripts\Forms\reviewTemplate_frm.js" />
     <Content Include="Scripts\Forms\settings_frm.js" />
     <Content Include="Scripts\Forms\asset_frm.js" />

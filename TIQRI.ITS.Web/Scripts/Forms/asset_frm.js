@@ -269,7 +269,8 @@
             DeviceType: $("#TextBox_Asset_DeviceType").val(),
             MobileName: $("#TextBox_Asset_MobileName").val(),
             UserName: $("#System_Logged_UserName").val(),
-            IncrementNumber: $("#Asset_Increment_Number").val()
+            IncrementNumber: $("#Asset_Increment_Number").val(),
+            AssetApproveId: $("#DDL_Asset_Approve").val()
         };
 
         if (Asset.AssetNumber.replace(/\s/g, "") === "") {
@@ -298,6 +299,10 @@
         }
     };
 
+    this.verifyAssetAvailability = function () {
+        azyncLockPost("../Api/Asset/VerifyAssetAvailability", null, AssetManagement.SaveSucsussfull, ConnectionError);
+    };
+     
     this.getSearchModel = function () {
         var searchModel = {
             GlobalText: $("#TextBox_Asset_GlobalText").val(),
@@ -337,6 +342,14 @@
         });
     };
 
+    this.approveAsset = function () {
+
+        var assetObj = {
+            Id: $("#Asset_Id").val(),
+        };
+        azyncLockPost("../Api/Asset/UpdateAssetStatusAprroval", assetObj, AssetManagement.SaveSucsussfull, ConnectionError);
+    }
+
     return {
         SearchAssets: searchAssets,
         FindAssets: findAssets,
@@ -362,7 +375,8 @@
         AddSaveVendor: addSaveVendor,
         AddSaveLeasePeriod: addSaveLeasePeriod,
         AddSaveWarrantyPeriod: addSaveWarrantyPeriod,
-        AddSaveAssetOwner:addSaveAssetOwner
+        ApproveAsset: approveAsset,
+        VerifyAssetAvailability: verifyAssetAvailability
     };
 
 })();

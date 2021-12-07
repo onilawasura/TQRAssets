@@ -43,5 +43,6 @@ namespace TIQRI.ITS.Domain.Models
         public DbSet<ScreenSize> ScreenSizes { get; set; }
         public DbSet<AssetOwner> AssetOwners { get; set; }
         public DbSet<AuditLog> AuditLogs { get; set; }
+        public DbSet<AdministratorAssetStatus> AdministratorAssetStatus { get; set; }
     }
 }

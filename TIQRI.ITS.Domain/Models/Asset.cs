@@ -37,6 +37,8 @@ namespace TIQRI.ITS.Domain.Models
         public string LeasePeriod { get; set; }
         public decimal? Cost { get; set; }
         public int? IncrementNumber { get; set; }
+        public string AssetApproveId { get; set; }
+        public bool? IsApproved { get; set; } = false;
 
         //----- Confirence Room -----//
         public string ConferenceRoom { get; set; }

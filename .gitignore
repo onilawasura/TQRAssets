@@ -2,4 +2,10 @@ packages/
 TIQRI.ITS.DataMigration/
 TIQRI.ITS.Web/bin/
 TIQRI.ITS.Web/obj/
+/.vs/TIQRI.ITS/v16/.suo
+/.vs/TIQRI.ITS/config/applicationhost.config
+/TIQRI.ITS.Domain/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttributes.cs
+/TIQRI.ITS.Domain/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/TIQRI.ITS.Domain/obj/Debug/TIQRI.ITS.Domain.csproj.AssemblyReference.cache
+/TIQRI.ITS.Domain/obj/Debug/TIQRI.ITS.Domain.csproj.FileListAbsolute.txt
 /TIQRI.ITS.Domain/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttributes.cs

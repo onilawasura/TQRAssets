@@ -2,7 +2,9 @@
 @{
     Layout = null;
 }
+<script src="~/Scripts/Forms/asset_opr.js">
 
+</script>
     <div>
         <div class="card-header">
             <div class="card-title">
@@ -11,15 +13,32 @@
                     {
                         @Html.Raw("Add New " + Model.AssetTypeDisplayText);
                     }
+                    else if (Model.IsApproved == true && Model.AssetApproveId != null)
+                    {
+                        @Html.Raw("This " + Model.AssetTypeDisplayText + " is " + Model.AssetStatus)
+                        <br />
+                        @Html.Raw("Updating Details is not Granted")
+                    }
+                    else if (Model.IsApproved == false && Model.AssetApproveId != null)
+                    {
+                        @Html.Raw("This " + Model.AssetTypeDisplayText + " is to be " + Model.AssetStatus)
+
+                        <br />
+                        @Html.Raw("Updating Details is not Granted")
+                    }
                     else
                     {
                         @Html.Raw("Edit " + Model.AssetTypeDisplayText + " - " + Model.AssetNumber);
                     }
 
                 </div>
+                    @if(Model.IsApproved != false && Model.AssetApproveId == null)
+                    {
                 <div class="description">
-                    Please fill all the required details. Required fields are marked with <span class="required">*</span>
+                        Please fill all the required details. Required fields are marked with <span class="required">*</span>
+                        
                 </div>
+                    }
             </div>
             <div class="pull-right card-action form-top-button-margin">
                 <div class="btn-group" role="group" aria-label="...">
@@ -66,15 +85,15 @@
                 {
                     if (User.IsInRole("ITAdmin"))
                     {
-    <input type="text" id="TextBox_Asset_ManufactureSN" placeholder="Manufacture SN" class="form-control" value="@Model.ManufactureSN"></input> }
-                        else
-                        {
-    <input type="text" id="TextBox_Asset_ManufactureSN" readonly placeholder="Manufacture SN" class="form-control" value="@Model.ManufactureSN"></input> }
-
-                    }
+                        <input type="text" id="TextBox_Asset_ManufactureSN" placeholder="Manufacture SN" class="form-control" value="@Model.ManufactureSN"></input> }
                     else
                     {
-    <input type="text" id="TextBox_Asset_ManufactureSN" placeholder="Manufacture SN" class="form-control" value="@Model.ManufactureSN"></input>                }
+                        <input type="text" id="TextBox_Asset_ManufactureSN" readonly placeholder="Manufacture SN" class="form-control" value="@Model.ManufactureSN"></input> }
+
+                }
+                else
+                {
+                    <input type="text" id="TextBox_Asset_ManufactureSN" placeholder="Manufacture SN" class="form-control" value="@Model.ManufactureSN"></input>}
 
             </div>
         </div>
@@ -83,38 +102,38 @@
             <div class="col-sm-4">
                 <input type="text" id="TextBox_Asset_ComputerName" placeholder="Computer Name" class="form-control" value="@Model.ComputerName"></input>
             </div>
-        </div>*@
+        </div>*@       
 
         @if (Model.AssetType == TIQRI.ITS.Domain.Enums.AssetType.Laptop)
         {
-    <div class="form-group">
-        <label class="col-sm-2 control-label">User</label>
-        <div class="col-sm-4">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">User</label>
+                <div class="col-sm-4">
 
-            @Html.DropDownListFor(model => model.UserId, Model.OwnerList, "--- Select ---", new { id = "DDL_Asset_UserId", @class = "form-control select2 ddl-medium" })
-        </div>
-        <label class="col-sm-2 control-label">Asset Status</label>
-        <div class="col-sm-4">
+                    @Html.DropDownListFor(model => model.UserId, Model.OwnerList, "--- Select ---", new { id = "DDL_Asset_UserId", @class = "form-control select2 ddl-medium" })
+                </div>
+                <label class="col-sm-2 control-label">Asset Status</label>
+                <div class="col-sm-4">
 
-            @Html.DropDownListFor(model => model.AssetStatus, Model.AssetStatusList, new { id = "DDL_Asset_AssetStatus", @class = "form-control select2 ddl-small" })
-        </div>
-    </div> @*<div class="form-group">
-                            <label class="col-sm-2 control-label">Group </label>
-                            <div class="col-sm-4">
-                                <input type="text" id="TextBox_Asset_Group" placeholder="Group" class="form-control" value="@Model.Group"></input>
-                            </div>
-                            <label class="col-sm-2 control-label">Customer </label>
-                            <div class="col-sm-4">
-                                <input type="text" id="TextBox_Asset_Customer" placeholder="Customer" class="form-control" value="@Model.Customer"></input>
-                            </div>
-                        </div>*@ @*<div class="form-group">
-                            <label class="col-sm-2 control-label">Availability</label>
-                            <div class="col-sm-4">
+                    @Html.DropDownListFor(model => model.AssetStatus, Model.AssetStatusList, new { id = "DDL_Asset_AssetStatus", @class = "form-control select2 ddl-small" })
+                </div>
+            </div> @*<div class="form-group">
+                <label class="col-sm-2 control-label">Group </label>
+                <div class="col-sm-4">
+                    <input type="text" id="TextBox_Asset_Group" placeholder="Group" class="form-control" value="@Model.Group"></input>
+                </div>
+                <label class="col-sm-2 control-label">Customer </label>
+                <div class="col-sm-4">
+                    <input type="text" id="TextBox_Asset_Customer" placeholder="Customer" class="form-control" value="@Model.Customer"></input>
+                </div>
+            </div>*@ @*<div class="form-group">
+                <label class="col-sm-2 control-label">Availability</label>
+                <div class="col-sm-4">
 
-                                @Html.EnumDropDownListFor(model => model.Availability, new { id = "DDL_Asset_Availability", @class = "form-control select2 ddl-small" })
-                            </div>
+                    @Html.EnumDropDownListFor(model => model.Availability, new { id = "DDL_Asset_Availability", @class = "form-control select2 ddl-small" })
+                </div>
 
-                        </div>*@}
+            </div>*@}
         <div class="form-group">
             <label class="col-sm-2 control-label">Processor </label>
             <div class="col-sm-4">
@@ -161,18 +180,25 @@
                 }
             </div>
         </div>*@
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Problem Reported </label>
-            <div class="col-sm-4">
-                @if (Model.ProblemReported)
-                {
-    <input type="checkbox" id="Chk_Asset_ProblemReported" class="chk_completion" checked="checked" data-on-text="Yes" data-off-text="No" data-size="small" @Model.ProblemReported> }
-                    else
-                    {
-    <input type="checkbox" id="Chk_Asset_ProblemReported" class="chk_completion" data-on-text="Yes" data-off-text="No" data-size="small" @Model.ProblemReported>                }
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Problem Reported </label>
+        <div class="col-sm-4">
+            @if (Model.ProblemReported)
+            {
+                <input type="checkbox" id="Chk_Asset_ProblemReported" class="chk_completion" checked="checked" data-on-text="Yes" data-off-text="No" data-size="small" @Model.ProblemReported> }
+            else
+            {
+                <input type="checkbox" id="Chk_Asset_ProblemReported" class="chk_completion" data-on-text="Yes" data-off-text="No" data-size="small" @Model.ProblemReported>}
 
-            </div>
         </div>
+        @if (Model.Id > 0)
+        {
+            <label class="col-sm-2 control-label" id="LBL_status">Status approval </label>
+            <div class="col-sm-4">
+                <select class="form-control" id="DDL_Asset_Approve" name="DDL_Asset_Approve"></select>
+            </div>
+        }
+    </div>
 
         @*<div class="form-group">
             <label class="col-sm-2 control-label">Rating </label>
@@ -222,16 +248,16 @@
         </div>
         @if (Model.AssetType == TIQRI.ITS.Domain.Enums.AssetType.ConferenceRoomDevice)
         {
-    <div class="form-group">
-        <label class="col-sm-2 control-label">Conference Room</label>
-        <div class="col-sm-4">
-            <input type="text" id="TextBox_Asset_ConferenceRoom" placeholder="Conference Room" class="form-control" value="@Model.ConferenceRoom"></input>
-        </div>
-        <label class="col-sm-2 control-label">Building</label>
-        <div class="col-sm-4">
-            <input type="text" id="TextBox_Asset_Building" placeholder="Building" class="form-control" value="@Model.Building"></input>
-        </div>
-    </div>}
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Conference Room</label>
+                <div class="col-sm-4">
+                    <input type="text" id="TextBox_Asset_ConferenceRoom" placeholder="Conference Room" class="form-control" value="@Model.ConferenceRoom"></input>
+                </div>
+                <label class="col-sm-2 control-label">Building</label>
+                <div class="col-sm-4">
+                    <input type="text" id="TextBox_Asset_Building" placeholder="Building" class="form-control" value="@Model.Building"></input>
+                </div>
+            </div>}
 
         <div class="form-group" style="padding-top:11px">
             <label class="col-sm-2 control-label">Notes </label>
@@ -244,7 +270,17 @@
         <div class="form-group" style="margin-top: 20px;">
             <div class="col-sm-2"></div>
             <div class="col-sm-7">
-                <input type="button" id="Button_Asset_Confirm" class="btn btn-success" value="Save Asset" onclick="AssetManagement.SaveAddEditAsset();" />
+                @if ((Model.LoggedUser == Model.AssetApproveId) && Model.IsApproved == false)
+                {
+                    <input type="button" id="Button_Asset_Confirm" class="btn btn-success" value="Approve" onclick="AssetManagement.ApproveAsset();" />
+                }
+                else if (Model.AssetApproveId == null)
+                {
+                    if (Model.IsApproved != true ) 
+                    {
+                        <input type="button" id="Button_Asset_Confirm" class="btn btn-success" value="Save Asset" onclick="AssetManagement.SaveAddEditAsset();" />
+                    }
+                }
                 <input type="button" id="Button_Asset_Cancel" class="btn btn-default" value="Cancel" onclick="AssetManagement.CancelAddEdit();" />
             </div>
         </div>
@@ -614,7 +650,6 @@ else
     </div>}
 
     </div>
-
 <script>
     var userProfiles = @Html.Raw(Model.ProfileObjectString);
 </script>
@@ -623,5 +658,5 @@ else
     $('select').select2();
     AssetManagement.ResetHeight();
     ProfileTagSelector(userProfiles, 'TextBox_Asset_Members');
-        $('#TextBox_Asset_DatePurchasedOrleased').datepicker();
+    $('#TextBox_Asset_DatePurchasedOrleased').datepicker();
 </script>
