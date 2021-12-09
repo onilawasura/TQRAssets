@@ -9,7 +9,7 @@ namespace TIQRI.ITS.Domain.Services
 {
     public class AssetService
     {
-        public async Task<TransactionStatus> SaveAsset(Asset asset, UserProfile userProfile)
+        public async Task<TransactionStatus> SaveAsset(Asset asset, string ApproverName, UserProfile userProfile)
         {
             var status = new TransactionStatus() { IsSuccessfull = true };
             Asset saveAsset = null;
@@ -27,7 +27,7 @@ namespace TIQRI.ITS.Domain.Services
                     context.Assets.Add(asset);
                     if(asset.AssetStatus == "Disposed" || asset.AssetStatus == "Donated")
                     {
-                        await SendAdminApprovalRequestEmailAsync(asset);
+                        await SendAdminApprovalRequestEmailAsync(asset, ApproverName);
                     }
                 }
                 else
@@ -103,7 +103,7 @@ namespace TIQRI.ITS.Domain.Services
 
                 if (asset.AssetStatus == "Disposed" || asset.AssetStatus == "Donated")
                 {
-                    await SendAdminApprovalRequestEmailAsync(asset);
+                    await SendAdminApprovalRequestEmailAsync(asset, ApproverName);
                 }
 
 
@@ -792,10 +792,32 @@ namespace TIQRI.ITS.Domain.Services
                 asset.AssetNumber, asset.AssetType, asset.Model));
         }
 
-        public Task SendAdminApprovalRequestEmailAsync(Asset asset)
+        public Task SendAdminApprovalRequestEmailAsync(Asset asset, string approverName)
         {
-            string Subject = "Requesting Approval to " + asset.AssetStatus + " a asset";
-            string body = "Asset Id - " + asset.AssetNumber + " is Requested to " + asset.AssetStatus;
+            string Subject = "Requesting Approval for Change a Asset Status";
+            string body = "Hi " + approverName +", ";
+            body += "<br> <br> ";
+            body += "Internal Asset system requesting your permission to move " +
+                "following asset to Disposed Status. Please review the request" +
+                " by Copying the Asset Number and Search It On Asset System.";
+            body += "<br> <br> ";
+            body += "Systme URL - https://assets-dev.tiqri.com/Home/AdminHome";
+            body += "<br> <br> ";
+            body += "<table border=1>" +
+                    "<tr>" +
+                    "<th> Asset Number </th>" +
+                    "<th> Manufacture </th>" +
+                    "<th> Model </th>" +
+                    "</tr>" +
+                    "<tr>" +
+                    "<td> " + asset.AssetNumber + " </td>" +
+                    "<td> " + asset.Manufacture + " </td>" +
+                    "<td> " + asset.Model + " </td>" +
+                    "</tr>" +
+                    "</table> ";
+            body += "<br> <br> ";
+            body += "Thanks and Regards From IT Team !";
+            body += "<br> <br> ";
             return new EmailHelper().SendEMailsync(
                 asset.AssetApproveId, Subject, body);
         }

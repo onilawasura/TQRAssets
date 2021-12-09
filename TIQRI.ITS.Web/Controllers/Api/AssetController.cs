@@ -16,7 +16,13 @@ namespace TIQRI.ITS.Web.Controllers.Api
         [HttpPost]
         public async Task<HttpResponseMessage> SaveAsset(AssetViewModel model)
         {
-            var status = await new AssetService().SaveAsset(model.MapToAsset(), new UserProfile()
+            string ApproverName = "";
+            if (!String.IsNullOrEmpty(model.AssetApproveId))
+            {
+                ApproverName = Helpers.HRDataHelper.GetEmployee(model.AssetApproveId).Name;
+            }
+
+            var status = await new AssetService().SaveAsset(model.MapToAsset(), ApproverName ,new UserProfile()
             {
                 UserName = model.UserName
             });
@@ -141,7 +147,8 @@ namespace TIQRI.ITS.Web.Controllers.Api
             var empDetalsDT = Helpers.AssetHelper.GetEmployeeProductsDetails("tpr@tiqri.com", "Thushara Priyantha");
             //}
             string subject = "Verify Asset Availability";
-            string body = "Hi Thushara Priyantha, ";
+            //string body = "Hi " + employee.Name +", ";
+            string body = "Hi Onila Pemathunghe, ";
             body += "<br> <br> ";
             body += "According to the Asset System below item/s is/are " +
                 "possessed by you. If the list is not accurate or even one " +
@@ -154,6 +161,7 @@ namespace TIQRI.ITS.Web.Controllers.Api
                     "<th> Manufacture </th>" +
                     "<th> Model </th>" +
                     "<th> Asset Number </th>" +
+                    "<th> Manufacture serial Number </th>" +
                     "</tr>";
             for (int x = 0; x < empDetalsDT.ProductList.Count; x++)
             {
@@ -161,17 +169,18 @@ namespace TIQRI.ITS.Web.Controllers.Api
                     "<td>" + empDetalsDT.ProductList[x].AssetType + "</td>" +
                     "<td>" + empDetalsDT.ProductList[x].Manufacture + "</td>" +
                     "<td>" + empDetalsDT.ProductList[x].Model + "</td>" +
-                    "<td>" + empDetalsDT.ProductList[x].AssetNumber + "</td>";
+                    "<td>" + empDetalsDT.ProductList[x].AssetNumber + "</td>"+
+                    "<td>" + empDetalsDT.ProductList[x].ManufactureSN + "</td>";
             }
             body += "</table>";
             body += "<br> <br> ";
-            body += "Email - HR@tiqri.com";
+            body += "Email - IT@tiqri.com";
             body += "<br> <br> ";
             body += "Thanks and Regards From HR !";
             body += "<br> <br> ";
             body += "<br> <br> ";
             AssetService assetService = new AssetService();
-            assetService.SendVerifyAssetDetails("tpr@tiqri.com", subject, body);
+            assetService.SendVerifyAssetDetails("onp@tiqri.com", subject, body);
             ///Thread.Sleep(5000);
         }
 
