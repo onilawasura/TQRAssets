@@ -798,7 +798,7 @@ namespace TIQRI.ITS.Domain.Services
             string body = "Hi " + approverName +", ";
             body += "<br> <br> ";
             body += "Internal Asset system requesting your permission to move " +
-                "following asset to Disposed Status. Please review the request" +
+                "following asset to" + asset.AssetStatus + "Status. Please review the request" +
                 " by Copying the Asset Number and Search It On Asset System.";
             body += "<br> <br> ";
             body += "Systme URL - https://assets-dev.tiqri.com/Home/AdminHome";

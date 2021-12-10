@@ -29,7 +29,7 @@ namespace TIQRI.ITS.Web.Helpers
             return manufactureList;
         }
 
-         public static IList<Model> GetModelList()
+        public static IList<Model> GetModelList()
         {
             var modelDT =
                 SqlHelper.ExecuteStatement(
@@ -180,15 +180,8 @@ namespace TIQRI.ITS.Web.Helpers
         public static int? GetMaxAssetNumber(int assetType)
         {
             int? incrementNumber = null;
-            //var assetNumberDT =
-            //    SqlHelper.ExecuteStatement(
-            //        "SELECT MAX(IncrementNumber) AS IncrementNumber FROM [dbo].[Assets] WHERE assettype= " + assetType, "DefaultConnection");
-
-            string sqlQuery = @"DECLARE @ModelID NVARCHAR(MAX)
-                                SELECT @ModelID = AssetNumber FROM [dbo].[Assets] WHERE id = (SELECT MAX(Id) FROM [dbo].[Assets])
-                                SELECT CAST(SUBSTRING(@ModelID, PATINDEX('%[0-9]%', @ModelID), LEN(@ModelID)) AS INT) AS IncrementNumber";
-
-
+            string sqlQuery = @"SELECT CAST(REVERSE(SUBSTRING(REVERSE(AssetNumber), 1, PATINDEX('%-%', REVERSE(AssetNumber))-1)) AS INT) AS IncrementNumber
+                                FROM [dbo].[Assets] WHERE Id = (SELECT MAX(Id) FROM [dbo].[Assets])";
 
             var assetNumberDT = SqlHelper.ExecuteStatement(sqlQuery, "DefaultConnection");
             if (assetNumberDT.Rows.Count > 0)
