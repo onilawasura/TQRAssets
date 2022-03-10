@@ -248,16 +248,16 @@ namespace TIQRI.ITS.Web.Helpers
 
             return vendorsList;
         }
-        public static IList<Vendor> GetWarrantyPeriodList()
+        public static IList<WarrantyPeriod> GetWarrantyPeriodList()
         {
             var warrantyPeriodDT =
                 SqlHelper.ExecuteStatement(
                     "SELECT [Id],[Name] FROM [dbo].[WarrantyPeriods] order by [Name]", "DefaultConnection");
 
-            var warrantyPeriodList = new List<Vendor>();
+            var warrantyPeriodList = new List<WarrantyPeriod>();
             for (int i = 0; i < warrantyPeriodDT.Rows.Count; i++)
             {
-                warrantyPeriodList.Add(new Vendor()
+                warrantyPeriodList.Add(new WarrantyPeriod()
                 {
                     Id = int.Parse(warrantyPeriodDT.Rows[i]["Id"].ToString()),
                     Name = warrantyPeriodDT.Rows[i]["Name"].ToString()

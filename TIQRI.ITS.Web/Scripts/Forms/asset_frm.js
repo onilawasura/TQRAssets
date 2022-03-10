@@ -111,6 +111,15 @@
 
     };
 
+    this.loadBulkImportForm = function (id) {
+        var asset_Type = $('#Asset_Type').val();
+        $('#DIV_PageInner_OperationDetails').html($('#DIV_InnerPageContent_Loading').html());
+        $('#DIV_PageInner_OperationDetails').load("/Asset/BulkImportAsset?assetType=" + asset_Type + "&id=" + id, new function () {
+
+        });
+
+    };
+
     this.loadDataEditForm = function (id,type) {
         $('#DIV_PageInner_OperationDetails').html($('#DIV_InnerPageContent_Loading').html());
         $('#DIV_PageInner_OperationDetails').load("/AddNewData/EditDataView?id=" + id + "&type=" + type, new function () {
@@ -232,6 +241,47 @@
         azyncLockPost("../Api/Asset/SaveAssetOwner", AssetOwner, AssetManagement.SaveSucsussfull, ConnectionError);
     }
 
+    this.assetBulkUpload = function () {
+
+        var FileUpload = new FormData($('form')[0]);
+        var asset_Type = $('#Asset_Type').val();
+
+        FileUpload.append('assetType', asset_Type);
+
+        $.ajax({
+            url: '/Asset/UploadExcel',
+            type: 'Post',
+            beforeSend: function () { },
+            success: AssetManagement.BulkSaveSucsussfull,
+            xhr: function () {  // Custom XMLHttpRequest
+                var myXhr = $.ajaxSettings.xhr();
+                if (myXhr.upload) { // Check if upload property exists
+                    // Progress code if you want
+                }
+                return myXhr;
+            },
+            error: function () { },
+            data: FileUpload,
+            cache: false,
+            contentType: false,
+            processData: false
+        });
+
+
+
+    }
+
+    this.bulkFileOnChange = function () {
+        console.log("logged");
+        if ($('#FileUpload').val()) {
+
+            $('input:button').attr('disabled', false);;
+        }
+        else {
+            $('input:button').attr('disabled', true);
+        }
+    }
+
     this.saveAddEditAsset = function () {
 
         var Asset = {
@@ -285,6 +335,14 @@
         CustomSuccessMessage('Record saved successfully.');
         $('#DIV_PageInner_OperationDetails').html($('#PageInnerSubFormContent').html());
         AssetManagement.SearchAssets();
+    };
+
+    this.bulkSaveSucsussfull = function (id) {
+        CustomSuccessMessage('Executed successfully.');
+        //$('#DIV_PageInner_OperationDetails').html($('#PageInnerSubFormContent').html());
+        $('#DIV_PageInner_OperationDetails').html($('#PageInnerSubFormContent').html());
+        AssetManagement.SearchAssets();
+        //$.get("/Asset/DownloadBulkUploadResultsReport");
     };
 
     this.showFilter = function () {
@@ -354,6 +412,10 @@
         SearchAssets: searchAssets,
         FindAssets: findAssets,
         LoadAddEditForm: loadAddEditForm,
+        LoadBulkImportForm: loadBulkImportForm,
+        BulkSaveSucsussfull: bulkSaveSucsussfull,
+        AssetBulkUpload: assetBulkUpload,
+        BulkFileOnChange: bulkFileOnChange,
         CancelAddEdit: cancelAddEdit,
         SaveAddEditAsset: saveAddEditAsset,
         SaveSucsussfull: saveSucsussfull,

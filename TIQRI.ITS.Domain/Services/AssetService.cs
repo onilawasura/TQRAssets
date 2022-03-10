@@ -75,6 +75,7 @@ namespace TIQRI.ITS.Domain.Services
                     saveAsset.DateLastUpdated = DateTime.UtcNow;
                     saveAsset.UserLastUpdated = userProfile.UserName;
                     saveAsset.AssetApproveId = asset.AssetApproveId;
+                    saveAsset.IsApproved = false;
                 }
 
 

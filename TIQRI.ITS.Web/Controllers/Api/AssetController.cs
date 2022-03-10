@@ -144,7 +144,7 @@ namespace TIQRI.ITS.Web.Controllers.Api
             //foreach(var employee in allEmployeeList)
             //{
             //var empDetalsDT = Helpers.AssetHelper.GetEmployeeProductsDetails(employee.UserName, employee.Name);
-            var empDetalsDT = Helpers.AssetHelper.GetEmployeeProductsDetails("tpr@tiqri.com", "Thushara Priyantha");
+            var empDetalsDT = Helpers.AssetHelper.GetEmployeeProductsDetails("psn@tiqri.com", "Thushara Priyantha");
             //}
             string subject = "Verify Asset Availability";
             //string body = "Hi " + employee.Name +", ";
@@ -174,13 +174,13 @@ namespace TIQRI.ITS.Web.Controllers.Api
             }
             body += "</table>";
             body += "<br> <br> ";
-            body += "Email - IT@tiqri.com";
+            body += "Email - psn@tiqri.com";
             body += "<br> <br> ";
             body += "Thanks and Regards From HR !";
             body += "<br> <br> ";
             body += "<br> <br> ";
             AssetService assetService = new AssetService();
-            assetService.SendVerifyAssetDetails("onp@tiqri.com", subject, body);
+            assetService.SendVerifyAssetDetails("psn@tiqri.com", subject, body);
             ///Thread.Sleep(5000);
         }
 
