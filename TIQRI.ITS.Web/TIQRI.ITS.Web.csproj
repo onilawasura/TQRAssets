@@ -300,6 +300,7 @@
     <Content Include="bin\Microsoft.PowerBI.Api.dll" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\BulkUploadStatusReport\bulkUploadResults.txt" />
     <Content Include="Content\css\._style.css" />
     <Content Include="Content\css\._themes.css" />
     <Content Include="Content\css\datepicker.min.css" />
@@ -466,10 +467,14 @@
     <Content Include="Content\home\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\home\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\home\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\images\._default.png" />
     <Content Include="Content\images\azync_updt.gif" />
     <Content Include="Content\images\default.png" />
     <Content Include="Content\images\errorBackground.jpg" />
+    <Content Include="Content\images\excel.png" />
+    <Content Include="Content\images\exceld.png" />
     <Content Include="Content\images\favicon.ico" />
+    <Content Include="Content\images\ico_report.png" />
     <Content Include="Content\images\progress.gif" />
     <Content Include="Content\images\sort_asc.png" />
     <Content Include="Content\images\sort_asc_disabled.png" />
@@ -792,6 +797,7 @@
     <Content Include="Content\homepar\fonts\roboto\Roboto-Thin.woff" />
     <Content Include="Content\homepar\fonts\roboto\Roboto-Thin.woff2" />
     <Content Include="Scripts\App\App.js.map" />
+    <Content Include="Content\Sample\assetBulk.xlsx" />
     <None Include="Properties\PublishProfiles\assets-dev - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\assets-dev - Web Deploy1.pubxml" />
     <None Include="Properties\PublishProfiles\assets-dev - Web Deploy2.pubxml" />
@@ -888,6 +894,7 @@
     <Content Include="Views\AddNewData\SearchWarrantyPeriodList.cshtml" />
     <Content Include="Views\AddNewData\SearchVendorList.cshtml" />
     <Content Include="Views\AddNewData\SearchAssetOwnerList.cshtml" />
+    <Content Include="Views\Asset\BulkImportAsset.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

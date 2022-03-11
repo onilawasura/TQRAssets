@@ -13,7 +13,7 @@
     <NameOfLastUsedPublishProfile>C:\Users\psn\Documents\Tiqri\New_Repo\new clone\TQRAssets\TIQRI.ITS.Web\Properties\PublishProfiles\assets-dev - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
     <UseIISExpress>true</UseIISExpress>
     <ToolsVersionPromptShown>2.2</ToolsVersionPromptShown>
-    <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
+    <LastActiveSolutionConfig>Release|Any CPU</LastActiveSolutionConfig>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44323</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
