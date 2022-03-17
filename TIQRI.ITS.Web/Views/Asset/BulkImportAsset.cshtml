@@ -7,34 +7,42 @@
 <hr />
 @*@using (Html.BeginForm("UploadExcel", "Asset", FormMethod.Post, new { enctype = "multipart/form-data", onsubmit = "return myFunction()" }))
     {*@
-<form enctype="multipart/form-data" id="excel-upload-form">
-    <div class="form-horizontal">
-        <div class="form-group">
-            <div class="control-label col-md-2">Download Format:</div>
-            <div class="col-md-10">
-                <a href="/Asset/DownloadExcel/"><img src="~/Content/images/excel.png" width="30" height="30" title="Download Excel format" alt="excel" /></a>
+
+<div class="form-group div-search-results" id="DIV_BulkUploadLoader">
+
+                <div class="icon-spinner icon-2x icon-spin"></div>
+
+</div>
+<div id="BulkUploadFormDiv">
+    <form enctype="multipart/form-data" id="excel-upload-form">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <div class="control-label col-md-2">Download Format:</div>
+                <div class="col-md-10">
+                    <a href="/Asset/DownloadExcel/"><img src="~/Content/images/excel.png" width="30" height="30" title="Download Excel format" alt="excel" /></a>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="control-label col-md-2">Excel:</div>
+                <div class="col-md-10">
+                    <input type="file" id="FileUpload" onchange="AssetManagement.BulkFileOnChange()" name="FileUpload" class="" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    @*onclick="AssetManagement.AssetBulkUpload()"*@
+                    <input type="button" onclick="AssetManagement.AssetBulkUpload()" disabled value="Upload" id="btnSubmit" class="btn btn-primary" />
+                </div>
             </div>
         </div>
-        <div class="form-group">
-            <div class="control-label col-md-2">Excel:</div>
-            <div class="col-md-10">
-                <input type="file" id="FileUpload" onchange="AssetManagement.BulkFileOnChange()" name="FileUpload" class="" />
+        <div class="form-horizontal">
+            <div class="form-group" style="background-color:#0094ff">
+                <div class="control-label col-md-2">Download last bulk upload results:</div>
+                <div class="col-md-10">
+                    <a href="/Asset/DownloadBulkUploadResultsReport"><img src="~/Content/images/ico_report.png" width="50" height="50" title="Download last bulk upload results" alt="excel" /></a>
+                </div>
             </div>
         </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                @*onclick="AssetManagement.AssetBulkUpload()"*@
-                <input type="button" onclick="AssetManagement.AssetBulkUpload()" disabled value="Upload" id="btnSubmit" class="btn btn-primary" />
-            </div>
-        </div>
-    </div>
-    <div class="form-horizontal">
-        <div class="form-group" style="background-color:#0094ff">
-            <div class="control-label col-md-2">Download last bulk upload results:</div>
-            <div class="col-md-10">
-                <a href="/Asset/DownloadBulkUploadResultsReport"><img src="~/Content/images/ico_report.png" width="50" height="50" title="Download last bulk upload results" alt="excel" /></a>
-            </div>
-        </div>
-    </div>
-</form>
+    </form>
+</div>
 @*}*@

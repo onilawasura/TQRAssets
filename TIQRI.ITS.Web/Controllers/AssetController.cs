@@ -180,7 +180,6 @@ namespace TIQRI.ITS.Web.Controllers
                                 else
                                 {
 
-                                    data.Add("Adding data in line No " + counter + " was unsuccessful");
                                     bulkUploadResult = bulkUploadResult + "Data row No " + counter + ": Failed with the error - " + errorMsg + "\r\n";
                                     //data.Add("Please choose Excel file");
                                     continue;
@@ -225,6 +224,7 @@ namespace TIQRI.ITS.Web.Controllers
                         {
 
                         }
+                        data.Add("Executed successfully");
                         return Json(data, JsonRequestBehavior.AllowGet);
                     }
                     else
@@ -238,64 +238,13 @@ namespace TIQRI.ITS.Web.Controllers
                     {
                         System.IO.File.Delete(pathToExcelFile);
                     }
-                    //var connectionString = "";
-                    //if (filename.EndsWith(".xls"))
-                    //{
-                    //    connectionString = string.Format("Provider=Microsoft.Jet.OLEDB.4.0; data source={0}; Extended Properties=Excel 8.0;", pathToExcelFile);
-                    //}
-                    //else if (filename.EndsWith(".xlsx"))
-                    //{
-                    //    connectionString = string.Format("Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=\"Excel 12.0 Xml;HDR=YES;IMEX=1\";", pathToExcelFile);
-                    //}
-
-                    //var adapter = new OleDbDataAdapter("SELECT * FROM [Sheet1$]", connectionString);
-                    //var ds = new DataSet();
-                    //adapter.Fill(ds, "ExcelTable");
-                    //DataTable dtable = ds.Tables["ExcelTable"];
-                    //string sheetName = "Sheet1";
-                    //var excelFile = new ExcelQueryFactory(pathToExcelFile);
-                    //var assets = from a in excelFile.Worksheet<Asset>(sheetName) select a;
-                    //string reportPath = "../../Content/BulkUploadStatusReport/bulkUploadResults.txt";
-                    //var count = 0;
-
-                    //foreach (var a in assets)
-                    //{
-                    //    count++;
-                    //    try
-                    //    {
-                    //        AssetType at = (AssetType)Enum.Parse(typeof(AssetType), assetType);
-                    //        int atNo = (int)at;
-                    //        if (isValid(a))
-                    //        {
-                                
-
-                               
-
-                    //        }
-                            
-
-                    //    }
-                    //    catch (DbEntityValidationException ex)
-                    //    {
-                    //        foreach (var entityValidationErrors in ex.EntityValidationErrors)
-                    //        {
-                    //            foreach (var validationError in entityValidationErrors.ValidationErrors)
-                    //            {
-                    //                Response.Write("Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage);
-                    //            }
-                    //        }
-                    //    }
-                    //}
-                    
 
 
                 }
                 else
                 {
                     //alert message for invalid file format
-                    data.Add("<ul>");
-                    data.Add("<li>Only Excel file format is allowed</li>");
-                    data.Add("</ul>");
+                    data.Add("Only Excel file format is allowed");
                     data.ToArray();
                     StreamWriter sw = System.IO.File.CreateText(filepath + "bulkUploadResults.txt");
                     sw.WriteLine("-----------Bulk upload results report on " + " " + DateTime.Now.ToString() + "-----------------");
@@ -308,9 +257,7 @@ namespace TIQRI.ITS.Web.Controllers
             }
             else
             {
-                data.Add("<ul>");
-                if (FileUpload == null) data.Add("<li>Please choose Excel file</li>");
-                data.Add("</ul>");
+                if (FileUpload == null) data.Add("Please choose Excel file");
                 data.ToArray();
                 StreamWriter sw = System.IO.File.CreateText(filepath + "bulkUploadResults.txt");
                 sw.WriteLine("-----------Bulk upload results report on " + " " + DateTime.Now.ToString() + "-----------------");

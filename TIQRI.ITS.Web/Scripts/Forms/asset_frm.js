@@ -251,8 +251,13 @@
         $.ajax({
             url: '/Asset/UploadExcel',
             type: 'Post',
-            beforeSend: function () { },
-            success: AssetManagement.BulkSaveSucsussfull,
+            beforeSend: function () {
+                $('#BulkUploadFormDiv').hide();
+                $('#DIV_BulkUploadLoader').html($("#DIV_InnerPageContent_Loading").html());
+            },
+            success: function (d) {
+                AssetManagement.BulkSaveSucsussfull(d)
+            },
             xhr: function () {  // Custom XMLHttpRequest
                 var myXhr = $.ajaxSettings.xhr();
                 if (myXhr.upload) { // Check if upload property exists
@@ -337,8 +342,8 @@
         AssetManagement.SearchAssets();
     };
 
-    this.bulkSaveSucsussfull = function (id) {
-        CustomSuccessMessage('Executed successfully.');
+    this.bulkSaveSucsussfull = function (data) {
+        CustomSuccessMessage(data);
         //$('#DIV_PageInner_OperationDetails').html($('#PageInnerSubFormContent').html());
         $('#DIV_PageInner_OperationDetails').html($('#PageInnerSubFormContent').html());
         AssetManagement.SearchAssets();
