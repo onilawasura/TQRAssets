@@ -18,7 +18,7 @@ using System.IO;
 using System.Security.Claims;
 using System.Web;
 using context = System.Web.HttpContext;
-
+using ExcelDataReader;
 
 namespace TIQRI.ITS.Web.Controllers
 {
@@ -83,226 +83,210 @@ namespace TIQRI.ITS.Web.Controllers
                     string targetpath = Server.MapPath("~/Content/");
                     FileUpload.SaveAs(targetpath + filename);
                     string pathToExcelFile = targetpath + filename;
-                    var connectionString = "";
-                    if (filename.EndsWith(".xls"))
+                    var assetList = new List<Asset>();
+
+
+                    IExcelDataReader reader = null;
+                    ////Load file into a stream
+                    FileStream stream = System.IO.File.Open(pathToExcelFile, FileMode.Open, FileAccess.Read);
+
+                    if (System.IO.Path.GetExtension(pathToExcelFile).Equals(".xls"))
                     {
-                        connectionString = string.Format("Provider=Microsoft.Jet.OLEDB.4.0; data source={0}; Extended Properties=Excel 8.0;", pathToExcelFile);
+                        reader = ExcelReaderFactory.CreateReader(stream);
                     }
-                    else if (filename.EndsWith(".xlsx"))
+                    else if (System.IO.Path.GetExtension(pathToExcelFile).Equals(".xlsx"))
                     {
-                        connectionString = string.Format("Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=\"Excel 12.0 Xml;HDR=YES;IMEX=1\";", pathToExcelFile);
+                        reader = ExcelReaderFactory.CreateReader(stream);
                     }
 
-                    var adapter = new OleDbDataAdapter("SELECT * FROM [Sheet1$]", connectionString);
-                    var ds = new DataSet();
-                    adapter.Fill(ds, "ExcelTable");
-                    DataTable dtable = ds.Tables["ExcelTable"];
-                    string sheetName = "Sheet1";
-                    var excelFile = new ExcelQueryFactory(pathToExcelFile);
-                    var assets = from a in excelFile.Worksheet<Asset>(sheetName) select a;
-                    string reportPath = "../../Content/BulkUploadStatusReport/bulkUploadResults.txt";
-                    var count = 0;
-
-                    foreach (var a in assets)
+                    if (reader != null)
                     {
-                        count++;
+                        //Fill DataSet
+                        System.Data.DataSet result = reader.AsDataSet();
                         try
                         {
-                            AssetType at = (AssetType)Enum.Parse(typeof(AssetType), assetType);
-                            int atNo = (int)at;
-                            if (isValid(a))
+                            //Loop through rows for the desired worksheet
+                            //In this case I use the table index "0" to pick the first worksheet in the workbook
+                            int counter = 0;
+                            foreach (DataRow row in result.Tables[0].Rows)
                             {
+                                if (counter == 0)
+                                {
+                                    counter++;
+                                    continue;
+                                }
+                                string FirstColumn = row[0].ToString();
+
+                                AssetType at = (AssetType)Enum.Parse(typeof(AssetType), assetType);
+                                int atNo = (int)at;
                                 Asset TA = new Asset();
                                 TA.AssetNumber = CreateAssetNumber(at, out int? incrementNumber);
                                 TA.AssetType = (AssetType)Enum.Parse(typeof(AssetType), assetType);
-                                if (atNo == 0 || atNo == 1)
-                                {
-                                    TA.AssetOwner = a.AssetOwner;
-                                    TA.Model = a.Model;
-                                    TA.UserDisplayName = a.UserDisplayName;
-                                    TA.UserId = a.UserId;
-                                    TA.Processor = a.Processor;
-                                    TA.Memory = a.Memory;
-                                    TA.Manufacture = a.Manufacture;
-                                    TA.ManufactureSN = a.ManufactureSN;
-                                    TA.AssetStatus = a.AssetStatus;
-                                    TA.Screen = a.Screen;
-                                    TA.HDD = a.HDD;
-                                    TA.ProblemReported = a.ProblemReported;
-                                    TA.Vendor = a.Vendor;
-                                    TA.WarrantyPeriod = a.WarrantyPeriod;
-                                    TA.Cost = a.Cost;
-                                    TA.DatePurchasedOrleased = a.DatePurchasedOrleased;
-                                    TA.LeasePeriod = a.LeasePeriod;
-                                    TA.NOTE = a.NOTE;
-                                }
-                                else if (atNo == 2)
-                                {
-                                    TA.AssetOwner = a.AssetOwner;
-                                    TA.Model = a.Model;
-                                    TA.Processor = a.Processor;
-                                    TA.Memory = a.Memory;
-                                    TA.Manufacture = a.Manufacture;
-                                    TA.ManufactureSN = a.ManufactureSN;
-                                    TA.Screen = a.Screen;
-                                    TA.HDD = a.HDD;
-                                    TA.ProblemReported = a.ProblemReported;
-                                    TA.Vendor = a.Vendor;
-                                    TA.WarrantyPeriod = a.WarrantyPeriod;
-                                    TA.Cost = a.Cost;
-                                    TA.DatePurchasedOrleased = a.DatePurchasedOrleased;
-                                    TA.LeasePeriod = a.LeasePeriod;
-                                    TA.ConferenceRoom = a.ConferenceRoom;
-                                    TA.Building = a.Building;
-                                    TA.NOTE = a.NOTE;
-                                }
-                                else if (atNo == 3 || atNo == 6 || atNo == 8)
-                                {
-                                    TA.AssetOwner = a.AssetOwner;
-                                    TA.Model = a.Model;
-                                    TA.UserDisplayName = a.UserDisplayName;
-                                    TA.UserId = a.UserId;
-                                    TA.Group = a.Group;
-                                    TA.Building = a.Building;
-                                    TA.Availability = a.Availability;
-                                    TA.Manufacture = a.Manufacture;
-                                    TA.ManufactureSN = a.ManufactureSN;
-                                    TA.Customer = a.Customer;
-                                    TA.Floor = a.Floor;
-                                    TA.AssetStatus = a.AssetStatus;
-                                    TA.NOTE = a.NOTE;
 
-                                }
-                                else if (atNo == 4 || atNo == 7 || atNo == 9)
+                                TA.Model = row[0].ToString();
+                                TA.UserId = row[1].ToString();
+                                if (!string.IsNullOrEmpty(row[1].ToString()))
                                 {
-                                    TA.AssetOwner = a.AssetOwner;
-                                    TA.Model = a.Model;
-                                    TA.DeviceType = a.DeviceType;
-                                    TA.UserDisplayName = a.UserDisplayName;
-                                    TA.UserId = a.UserId;
-                                    TA.Group = a.Group;
-                                    TA.Availability = a.Availability;
-                                    TA.Manufacture = a.Manufacture;
-                                    TA.ManufactureSN = a.ManufactureSN;
-                                    TA.ConferenceRoom = a.ConferenceRoom;
-                                    TA.Customer = a.Customer;
-                                    TA.AssetStatus = a.AssetStatus;
-                                    TA.Location = a.Location;
-                                    TA.Rating = a.Rating;
-                                    TA.Vendor = a.Vendor;
-                                    TA.WarrantyPeriod = a.WarrantyPeriod;
-                                    TA.DatePurchasedOrleased = a.DatePurchasedOrleased;
-                                    TA.ProblemReported = a.ProblemReported;
-                                    TA.NOTE = a.NOTE;
-
+                                    var userProfile = Helpers.HRDataHelper.GetEmployee(row[1].ToString());
+                                    if (userProfile != null)
+                                        TA.UserDisplayName = userProfile.Name;
                                 }
-                                else if (atNo == 5)
+                                TA.Group = row[3].ToString();
+                                TA.Customer = row[4].ToString();
+                                TA.Processor = row[5].ToString();
+                                TA.Memory = row[6].ToString();
+                                TA.Speed = row[7].ToString();
+                                TA.Manufacture = row[8].ToString();
+                                TA.ManufactureSN = row[9].ToString();
+                                TA.ComputerName = row[10].ToString();
+                                TA.MobileName = row[11].ToString();
+                                if (!string.IsNullOrEmpty(row[12].ToString()))
                                 {
-                                    TA.AssetOwner = a.AssetOwner;
-                                    TA.Model = a.Model;
-                                    TA.MobileName = a.MobileName;
-                                    TA.UserDisplayName = a.UserDisplayName;
-                                    TA.UserId = a.UserId;
-                                    TA.Group = a.Group;
-                                    TA.Availability = a.Availability;
-                                    TA.Manufacture = a.Manufacture;
-                                    TA.ManufactureSN = a.ManufactureSN;
-                                    TA.Customer = a.Customer;
-                                    TA.AssetStatus = a.AssetStatus;
-                                    TA.Vendor = a.Vendor;
-                                    TA.WarrantyPeriod = a.WarrantyPeriod;
-                                    TA.Cost = a.Cost;
-                                    TA.DatePurchasedOrleased = a.DatePurchasedOrleased;
-                                    TA.Location = a.Location;
-                                    TA.Rating = a.Rating;
-                                    TA.ProblemReported = a.ProblemReported;
-                                    TA.NOTE = a.NOTE;
-
+                                    TA.Availability = (AvailabilityType)Enum.Parse(typeof(AvailabilityType), row[12].ToString());
                                 }
-
+                                TA.AssetStatus = row[13].ToString();
+                                TA.AssetOwner = row[14].ToString();
+                                TA.Screen = row[15].ToString();
+                                TA.HDD = row[16].ToString();
+                                TA.ProblemReported = Convert.ToBoolean(row[17].ToString());
+                                TA.IsSSD = Convert.ToBoolean(row[18].ToString());
+                                TA.Vendor = row[19].ToString();
+                                TA.WarrantyPeriod = row[20].ToString();
+                                TA.DeviceType = row[21].ToString();
+                                TA.Cost = Convert.ToDecimal(row[22].ToString());
+                                TA.DatePurchasedOrleased = Convert.ToDateTime(row[23].ToString());
+                                TA.LeasePeriod = row[24].ToString();
+                                TA.Location = row[25].ToString();
+                                TA.ConferenceRoom = row[26].ToString();
+                                TA.Building = row[27].ToString();
+                                TA.Floor = row[28].ToString();
+                                TA.Rating = row[29].ToString();
+                                TA.NOTE = row[30].ToString();
                                 TA.DateLastUpdated = DateTime.UtcNow;
+
                                 ClaimsIdentity userClaims;
                                 userClaims = User.Identity as ClaimsIdentity;
                                 var claimEmail = userClaims?.FindFirst("preferred_username")?.Value;
+
                                 TA.UserLastUpdated = claimEmail;
-
-                                string ApproverName = "";
-                                if (!String.IsNullOrEmpty(a.AssetApproveId))
+                                if (isValid(TA))
                                 {
-                                    ApproverName = Helpers.HRDataHelper.GetEmployee(a.AssetApproveId).Name;
+                                    var status = new AssetService().SaveAsset(TA, "", new UserProfile()
+                                    {
+                                        UserName = claimEmail
+                                    });
+                                    bulkUploadResult = bulkUploadResult + "Data row No " + counter + ": Success! Asset Id:" + TA.AssetNumber + "\n ";
                                 }
-                                var status = new AssetService().SaveAsset(TA, ApproverName, new UserProfile()
+                                else
                                 {
-                                    UserName = claimEmail
-                                });
 
-                                bulkUploadResult = bulkUploadResult + "Data row No " + count + ": Success! Asset Id:"+TA.AssetNumber+"\n ";
+                                    data.Add("Adding data in line No " + counter + " was unsuccessful");
+                                    bulkUploadResult = bulkUploadResult + "Data row No " + counter + ": Failed with the error - " + errorMsg + "\r\n";
+                                    //data.Add("Please choose Excel file");
+                                    continue;
+                                }
+
+                                counter++;
 
                             }
-                            else
+                            try
                             {
 
-                                data.Add("Adding data in line No " + count + " was unsuccessful");
-                                bulkUploadResult = bulkUploadResult + "Data row No " + count + ": Failed with the error - " + errorMsg + "\r\n";
-                                //data.Add("Please choose Excel file");
-                                //return Json(data, JsonRequestBehavior.AllowGet);
-                                continue;
+                                if (!Directory.Exists(filepath))
+                                {
+                                    Directory.CreateDirectory(filepath);
+
+                                }
+                                //filepath = Request.PhysicalApplicationPath+"bulkUploadResults.txt";   //Text File Name
+                                if (!System.IO.File.Exists(filepath))
+                                {
+
+                                }
+
+                                StreamWriter sw = System.IO.File.CreateText(filepath + "bulkUploadResults.txt");
+                                string error = "Adding data in line No " + counter + " was unsuccessful";
+                                sw.WriteLine("-----------Bulk upload results report on " + " " + DateTime.Now.ToString() + "-----------------");
+                                sw.WriteLine("-------------------------------------------------------------------------------------");
+                                sw.WriteLine(bulkUploadResult);
+                                sw.WriteLine("--------------------------------*End*------------------------------------------");
+                                sw.Flush();
+                                sw.Close();
+                                string path = filepath + "\\bulkUploadResults.txt";
+                            }
+                            catch (Exception e)
+                            {
+
                             }
 
+
+                            
                         }
-                        catch (DbEntityValidationException ex)
+                        catch
                         {
-                            foreach (var entityValidationErrors in ex.EntityValidationErrors)
-                            {
-                                foreach (var validationError in entityValidationErrors.ValidationErrors)
-                                {
-                                    Response.Write("Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage);
-                                }
-                            }
+
                         }
+                        return Json(data, JsonRequestBehavior.AllowGet);
                     }
+                    else
+                    {
+                        data.Add("Something went wrong");
+                        return Json(data, JsonRequestBehavior.AllowGet);
+                    }
+
                     //deleting excel file from folder
                     if ((System.IO.File.Exists(pathToExcelFile)))
                     {
                         System.IO.File.Delete(pathToExcelFile);
                     }
+                    //var connectionString = "";
+                    //if (filename.EndsWith(".xls"))
+                    //{
+                    //    connectionString = string.Format("Provider=Microsoft.Jet.OLEDB.4.0; data source={0}; Extended Properties=Excel 8.0;", pathToExcelFile);
+                    //}
+                    //else if (filename.EndsWith(".xlsx"))
+                    //{
+                    //    connectionString = string.Format("Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=\"Excel 12.0 Xml;HDR=YES;IMEX=1\";", pathToExcelFile);
+                    //}
 
+                    //var adapter = new OleDbDataAdapter("SELECT * FROM [Sheet1$]", connectionString);
+                    //var ds = new DataSet();
+                    //adapter.Fill(ds, "ExcelTable");
+                    //DataTable dtable = ds.Tables["ExcelTable"];
+                    //string sheetName = "Sheet1";
+                    //var excelFile = new ExcelQueryFactory(pathToExcelFile);
+                    //var assets = from a in excelFile.Worksheet<Asset>(sheetName) select a;
+                    //string reportPath = "../../Content/BulkUploadStatusReport/bulkUploadResults.txt";
+                    //var count = 0;
 
-                    try
-                    {
+                    //foreach (var a in assets)
+                    //{
+                    //    count++;
+                    //    try
+                    //    {
+                    //        AssetType at = (AssetType)Enum.Parse(typeof(AssetType), assetType);
+                    //        int atNo = (int)at;
+                    //        if (isValid(a))
+                    //        {
+                                
 
-                        if (!Directory.Exists(filepath))
-                        {
-                            Directory.CreateDirectory(filepath);
+                               
 
-                        }
-                        //filepath = Request.PhysicalApplicationPath+"bulkUploadResults.txt";   //Text File Name
-                        if (!System.IO.File.Exists(filepath))
-                        {
+                    //        }
+                            
 
-
-
-
-                        }
-
-                        StreamWriter sw = System.IO.File.CreateText(filepath + "bulkUploadResults.txt");
-                        string error = "Adding data in line No " + count + " was unsuccessful";
-                        sw.WriteLine("-----------Bulk upload results report on " + " " + DateTime.Now.ToString() + "-----------------");
-                        sw.WriteLine("-------------------------------------------------------------------------------------");
-                        sw.WriteLine(bulkUploadResult);
-                        sw.WriteLine("--------------------------------*End*------------------------------------------");
-                        sw.Flush();
-                        sw.Close();
-                        string path = filepath + "\\bulkUploadResults.txt";
-                    }
-                    catch (Exception e)
-                    {
-
-                    }
-
-
-                    return Json(data, JsonRequestBehavior.AllowGet);
-
+                    //    }
+                    //    catch (DbEntityValidationException ex)
+                    //    {
+                    //        foreach (var entityValidationErrors in ex.EntityValidationErrors)
+                    //        {
+                    //            foreach (var validationError in entityValidationErrors.ValidationErrors)
+                    //            {
+                    //                Response.Write("Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage);
+                    //            }
+                    //        }
+                    //    }
+                    //}
+                    
 
 
                 }

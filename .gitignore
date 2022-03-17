@@ -9,3 +9,5 @@ TIQRI.ITS.Web/obj/
 /TIQRI.ITS.Domain/obj/Debug/TIQRI.ITS.Domain.csproj.AssemblyReference.cache
 /TIQRI.ITS.Domain/obj/Debug/TIQRI.ITS.Domain.csproj.FileListAbsolute.txt
 /TIQRI.ITS.Domain/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttributes.cs
+/TIQRI.ITS.Domain/Migrations
+/TIQRI.ITS.Domain/obj
