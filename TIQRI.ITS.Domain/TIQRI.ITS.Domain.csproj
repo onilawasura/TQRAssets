@@ -63,9 +63,9 @@
     <Compile Include="Enums\AvailabilityType.cs" />
     <Compile Include="Enums\AssetType.cs" />
     <Compile Include="Helpers\EmailHelper.cs" />
-    <Compile Include="Migrations\202203080332336_abc.cs" />
-    <Compile Include="Migrations\202203080332336_abc.designer.cs">
-      <DependentUpon>202203080332336_abc.cs</DependentUpon>
+    <Compile Include="Migrations\202203172112091_init.cs" />
+    <Compile Include="Migrations\202203172112091_init.designer.cs">
+      <DependentUpon>202203172112091_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Administrator.cs" />
@@ -118,8 +118,8 @@
     <Content Include="Scripts\jquery-1.9.0.min.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202203080332336_abc.resx">
-      <DependentUpon>202203080332336_abc.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202203172112091_init.resx">
+      <DependentUpon>202203172112091_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
