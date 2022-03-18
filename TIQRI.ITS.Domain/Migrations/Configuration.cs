@@ -98,7 +98,7 @@ namespace TIQRI.ITS.Domain.Migrations
             new Models.ScreenSize { Name = "31\"" },
             new Models.ScreenSize { Name = "32\"" },
             new Models.ScreenSize { Name = "33\"" },
-            new Models.ScreenSize { Name = "34\"" },
+            new Models.ScreenSize { Name = "34\"" }
             );
 
             context.Vendors.AddOrUpdate(
