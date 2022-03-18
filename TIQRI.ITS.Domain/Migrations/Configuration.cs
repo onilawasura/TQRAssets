@@ -29,7 +29,7 @@ namespace TIQRI.ITS.Domain.Migrations
             context.Manufactures.AddOrUpdate(
                 m => m.Name,
                 new Models.Manufacture { Name = "Apple" },
-                new Models.Manufacture { Name = "Lenov" },
+                new Models.Manufacture { Name = "Lenovo" },
                 new Models.Manufacture { Name = "Dell" }
                 );
 
@@ -79,12 +79,26 @@ namespace TIQRI.ITS.Domain.Migrations
 
             context.ScreenSizes.AddOrUpdate(
             m => m.Name,
-            new Models.ScreenSize { Name = "11" },
-            new Models.ScreenSize { Name = "12" },
-            new Models.ScreenSize { Name = "13" },
-            new Models.ScreenSize { Name = "14" },
-            new Models.ScreenSize { Name = "15" },
-            new Models.ScreenSize { Name = "16" }
+            new Models.ScreenSize { Name = "15\"" },
+            new Models.ScreenSize { Name = "16\"" },
+            new Models.ScreenSize { Name = "17\"" },
+            new Models.ScreenSize { Name = "18\"" },
+            new Models.ScreenSize { Name = "19\"" },
+            new Models.ScreenSize { Name = "20\"" },
+            new Models.ScreenSize { Name = "21\"" },
+            new Models.ScreenSize { Name = "22\"" },
+            new Models.ScreenSize { Name = "23\"" },
+            new Models.ScreenSize { Name = "24\"" },
+            new Models.ScreenSize { Name = "25\"" },
+            new Models.ScreenSize { Name = "26\"" },
+            new Models.ScreenSize { Name = "27\"" },
+            new Models.ScreenSize { Name = "28\"" },
+            new Models.ScreenSize { Name = "29\"" },
+            new Models.ScreenSize { Name = "30\"" },
+            new Models.ScreenSize { Name = "31\"" },
+            new Models.ScreenSize { Name = "32\"" },
+            new Models.ScreenSize { Name = "33\"" },
+            new Models.ScreenSize { Name = "34\"" },
             );
 
             context.Vendors.AddOrUpdate(
@@ -107,16 +121,11 @@ namespace TIQRI.ITS.Domain.Migrations
 
             context.LeasePeriods.AddOrUpdate(
             m => m.Name,
-            new Models.LeasePeriod { Name = "1 year" },
-            new Models.LeasePeriod { Name = "2 Year" },
-            new Models.LeasePeriod { Name = "3 Year" }
-            );
-
-            context.LeasePeriods.AddOrUpdate(
-            m => m.Name,
-            new Models.LeasePeriod { Name = "1 year" },
-            new Models.LeasePeriod { Name = "2 Year" },
-            new Models.LeasePeriod { Name = "3 Year" }
+            new Models.LeasePeriod { Name = "No Lease" },
+            new Models.LeasePeriod { Name = "6 Months" },
+            new Models.LeasePeriod { Name = "1 Year" },
+            new Models.LeasePeriod { Name = "2 Years" },
+            new Models.LeasePeriod { Name = "3 Years" }
             );
 
             context.AssetOwners.AddOrUpdate(

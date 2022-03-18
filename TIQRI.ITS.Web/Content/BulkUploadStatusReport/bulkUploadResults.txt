@@ -1,8 +1,1 @@
------------Bulk upload results report on  3/18/2022 2:23:56 AM-----------------
--------------------------------------------------------------------------------------
-Data row No 1: Failed with the error - Specified Processor Does not match with any
-Data row No 1: Success! Asset Id:TI-NB-IT-455
- Data row No 2: Success! Asset Id:TI-NB-IT-456
- Data row No 3: Failed with the error - Assets cannot be added with status [*Disposed,*Lost/Missing,*Donated]
-
---------------------------------*End*------------------------------------------
+No bulk upload results to show

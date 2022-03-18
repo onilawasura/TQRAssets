@@ -811,6 +811,8 @@
     <None Include="Properties\PublishProfiles\ITS-Prod - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\ITS-Prod - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\tiqriassets-prod - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\tiqriassetsnew-prod - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\tiqriassetsnew-prod - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\common.js" />
     <Content Include="Scripts\delay_callprovider.js" />
