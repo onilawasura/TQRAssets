@@ -224,6 +224,12 @@ namespace TIQRI.ITS.Web.Controllers
                         {
 
                         }
+                        stream.Close();
+                        //deleting excel file from folder
+                        if ((System.IO.File.Exists(pathToExcelFile)))
+                        {
+                            System.IO.File.Delete(pathToExcelFile);
+                        }
                         data.Add("Executed successfully");
                         return Json(data, JsonRequestBehavior.AllowGet);
                     }
@@ -233,11 +239,7 @@ namespace TIQRI.ITS.Web.Controllers
                         return Json(data, JsonRequestBehavior.AllowGet);
                     }
 
-                    //deleting excel file from folder
-                    if ((System.IO.File.Exists(pathToExcelFile)))
-                    {
-                        System.IO.File.Delete(pathToExcelFile);
-                    }
+                    
 
 
                 }
